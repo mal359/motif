@@ -27,7 +27,8 @@ SUBDIRS	= bindings bitmaps \
              include \
              tools \
              clients \
-             doc
+             doc \
+	     $(MAYBE_DEMOS)
 	     
 AUTOMAKE_OPTIONS = 1.4
 ACLOCAL_AMFLAGS = -I .

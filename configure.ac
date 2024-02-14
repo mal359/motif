@@ -219,7 +219,7 @@ AC_ARG_WITH(xmbinddir, [  --with-xmbinddir=DIR  fallback bindings are located in
 XMBINDDIR_FALLBACK="$xmbinddir"
 AC_SUBST(XMBINDDIR_FALLBACK)
 
-AC_ARG_WITH(x11rgbdir, [  --with-x11rgbdir=DIR  rgb.txt is located in DIR], x11rgbdir=$withval, x11rgbdir="/usr/lib/X11")
+AC_ARG_WITH(x11rgbdir, [  --with-x11rgbdir=DIR  rgb.txt is located in DIR], x11rgbdir=$withval, x11rgbdir="/etc/X11")
 X11RGBPATH="$x11rgbdir/rgb.txt"
 AC_SUBST(X11RGBPATH)
 
@@ -345,7 +345,20 @@ doc/man/man4/Makefile \
 doc/man/man5/Makefile \
 tools/Makefile \
 tools/wml/Makefile \
-demos/Makefile \
+lib/Xm/xmstring.list \
+])
+
+AC_ARG_ENABLE(demos, [  --disable-demos
+                       Disable building demos])
+
+if test x$enable_demos = x
+then
+    enable_demos="yes"
+fi
+
+if test "$enable_demos" = "yes"
+then
+  AC_CONFIG_FILES([demos/Makefile
 demos/lib/Makefile \
 demos/lib/Xmd/Makefile \
 demos/lib/Wsm/Makefile \
@@ -429,6 +442,11 @@ demos/doc/programGuide/ch16/Makefile \
 demos/doc/programGuide/ch17/Makefile \
 demos/doc/programGuide/ch17/simple_drop/Makefile \
 demos/doc/programGuide/ch17/simple_drag/Makefile \
-lib/Xm/xmstring.list \
 ])
+  MAYBE_DEMOS=demos
+else
+  MAYBE_DEMOS=
+fi
+AC_SUBST(MAYBE_DEMOS)
+
 AC_OUTPUT
