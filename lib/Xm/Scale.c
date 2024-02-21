@@ -52,7 +52,7 @@ static char rcsid[] = "$TOG: Scale.c /main/31 1999/10/13 16:18:07 mgreess $"
 #  define RADIXCHAR DECIMAL_POINT
 # endif
 # ifdef X_LOCALE
-#  ifdef linux
+#  ifdef __linux__
    /* avoid conflicting with <X11/Xlocale.h> defines */
 #   undef LC_ALL
 #   undef LC_COLLATE
