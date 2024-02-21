@@ -72,7 +72,7 @@ else
 PRINTS_SRC =
 endif
 
-libXm_la_LIBADD = ${X_LIBS} ${X_XMU} -lXt -lXext ${LIB_XP} -lX11 ${X_EXTRA_LIBS} ${JPEG_LIBS} ${PNG_LIBS} ${FONTCONFIG_LIBS} ${LIBXPM_LIBS}
+libXm_la_LIBADD = ${X_LIBS} ${X_XMU} -lXt -lXext ${LIB_XP} -lX11 ${X_EXTRA_LIBS} ${JPEG_LIBS} ${PNG_LIBS} ${FONTCONFIG_LIBS}
 
 noinst_HEADERS = BaseClassI.h \
 BitmapsI.h \
@@ -164,6 +164,7 @@ XmStrDefsI.h \
 XmStringI.h \
 XmTabListI.h \
 XmosI.h \
+XpmI.h \
 EditresComI.h \
 $(JPEG_HDRS) \
 $(PNG_HDRS) \
@@ -215,7 +216,7 @@ xm_HEADERS = ArrowB.h      ArrowBG.h       ArrowBGP.h      ArrowBP.h \
         Gadget.h        LayoutT.h       IconH.h         IconHP.h \
         UnitTypeT.h     TxtPropCv.h     MenuProcP.h     MenuStateP.h\
         ColorObjP.h     TravConT.h      UnhighlightT.h  PointInT.h \
-        Print.h         PrintSP.h       Xmfuncs.h \
+        Print.h         PrintSP.h       XpmP.h		Xmfuncs.h \
         ${SLIDE_HDRS}	${EXTRA_HDRS}
 
 nodist_xm_HEADERS = Xm.h
@@ -272,7 +273,7 @@ NEW_WID_SRCS =         IconH.c        Container.c     IconG.c  \
         Notebook.c     ComboBox.c     GrabShell.c     SpinB.c  \
         SSpinB.c       TxtPropCv.c    XmStringSeg.c   TranslNew.c
 
-libXm_la_SOURCES = $(SRCS1) $(SRCS2) $(OBSO_SRCS) $(NEW_WID_SRCS) $(SLIDE_SRCS) \
+libXm_la_SOURCES = $(SRCS1) $(SRCS2) $(OBSO_SRCS) $(XPM_SRCS) $(NEW_WID_SRCS) $(SLIDE_SRCS) \
         $(TIP_SRCS) $(EDITRES_SRCS) $(EXTRA_SRCS) $(JPEG_SRCS) $(PNG_SRCS)
 
 EXTRA_libXm_la_SOURCES = $(SLIDE_SRCS) $(TIP_SRCS)

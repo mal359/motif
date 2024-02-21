@@ -66,6 +66,7 @@ static char rcsid[] = "$TOG: Label.c /main/26 1997/06/18 17:40:00 samborn $"
 #include "XmI.h"
 #include "XmosI.h"
 #include "XmStringI.h"
+#include <Xm/XpmP.h>
 #include <string.h>
 #include <Xm/XmP.h>
 #ifdef FIX_1381

@@ -43,7 +43,9 @@
 #include "MessagesI.h"
 #include "ScreenI.h"
 #include "XmI.h"
-#include <X11/xpm.h>
+#ifdef FIX_1381
+#include <Xm/XpmP.h>
+#endif
 
 #define FIX_1500
 

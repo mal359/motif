@@ -43,7 +43,7 @@ static char rcsid[] = "$TOG: ImageCache.c /main/44 1998/10/06 17:26:25 samborn $
 #ifdef PRINTING_SUPPORTED
 #include <Xm/PrintSP.h>         /* for pixmap resolution */
 #endif
-#include <X11/xpm.h>
+#include <Xm/XpmP.h>
 #include <X11/Xresource.h>
 #ifdef JPEG_SUPPORTED
 #include "JpegI.h"
@@ -710,7 +710,7 @@ GetXpmImage(
 
     *image = NULL ;
 
-    xpmStatus = XpmReadFileToImage(display,
+    xpmStatus = XmeXpmReadFileToImage(display,
 			      file_name,
 			      image,
 			      &mask_image,
@@ -822,14 +822,14 @@ GetXpmImage(
 	    return TRUE ;
 	} else {
 	    if (xpmStatus >= 0)
-		XpmFreeAttributes(&attrib);
+		XmeXpmFreeAttributes(&attrib);
 	    return NOT_CACHED ; /* mean the image can be destroyed
 				   after it is used */
 	}
     }
     
     if (xpmStatus >= 0)
-	XpmFreeAttributes(&attrib);
+	XmeXpmFreeAttributes(&attrib);
 
     return FALSE;
 }
@@ -1749,7 +1749,7 @@ XmDestroyPixmap(
 	      FreeCacheColors(DisplayOfScreen(pix_entry->screen),
 			      DefaultColormapOfScreen(pix_entry->screen),
 			      pix_entry->pixels, pix_entry->npixels, NULL);
-	      XpmFree(pix_entry->pixels);
+	      XmeXpmFree(pix_entry->pixels);
 	  }
 	  XtFree((char*)pix_entry);
       }

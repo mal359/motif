@@ -67,8 +67,6 @@ dnl Checks for Xos_r.h
 AC_CHECK_HEADERS([X11/Xos_r.h])
 AC_CHECK_HEADERS([X11/Xpoll.h])
 
-PKG_CHECK_MODULES([LIBXPM], [xpm])
-
 dnl Compile in EditRes support if we can find Xmu
 
 save_LIBS="$LIBS"
