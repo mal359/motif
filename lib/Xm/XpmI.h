@@ -168,9 +168,7 @@ extern FILE *popen();
 		boundCheckingCalloc((long)(nelem),(long) (elsize))
 #endif
 
-#if defined(SCO) || defined(__USLC__)
 #include <stdint.h>	/* For SIZE_MAX */
-#endif
 #include <limits.h>
 #ifndef SIZE_MAX
 # ifdef ULONG_MAX
