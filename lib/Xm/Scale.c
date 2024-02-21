@@ -48,7 +48,7 @@ static char rcsid[] = "$TOG: Scale.c /main/31 1999/10/13 16:18:07 mgreess $"
  * that it is not redefined here.
  */
 # include <langinfo.h>
-# if defined(linux) && !defined(RADIXCHAR)
+# if defined(__linux__) && !defined(RADIXCHAR)
 #  define RADIXCHAR DECIMAL_POINT
 # endif
 # ifdef X_LOCALE
