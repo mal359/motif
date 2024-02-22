@@ -1693,7 +1693,7 @@ Select(
       
       if (menuSTrait != NULL)
 	menuSTrait -> entryCallback(XtParent(cb), (Widget) cb,
-					     &cback);
+					     (XtPointer) &cback);
 
       if ((! LabG_SkipCallback(cb)) &&
 	  (CBG_ActivateCall(cb)))
@@ -1708,7 +1708,7 @@ Select(
 }
 
 
-
+
 /*
  * if there is a submenu, enable traversal.
  * call select to do the work

@@ -736,7 +736,8 @@ Activate(
       
       /* If the parent is menu system able, notify it about the select. */
       if (menuSTrait != NULL)
-	menuSTrait->entryCallback (XtParent(pb), (Widget) pb, &call_value);
+	menuSTrait->entryCallback (XtParent(pb), (Widget) pb, 
+		(XtPointer) &call_value);
       
       if ((! LabG_SkipCallback(pb)) &&
 	  (PBG_ActivateCallback(pb)))
@@ -878,7 +879,8 @@ ArmAndActivate(
   
   /* If the parent is menu system able, notify it about the select */
   if (menuSTrait != NULL)
-    menuSTrait->entryCallback (XtParent(pb), (Widget) pb, &call_value);
+    menuSTrait->entryCallback (XtParent(pb), (Widget) pb, 
+    	(XtPointer) &call_value);
   
  
 #ifdef FIX_1375
@@ -1148,7 +1150,8 @@ BtnUp(
   /* if the parent is menu system able, notify it about the select */
   if (menuSTrait != NULL)
     {
-      menuSTrait->entryCallback(XtParent(pb), (Widget) pb, &call_value);
+      menuSTrait->entryCallback(XtParent(pb), (Widget) pb, 
+      	(XtPointer) &call_value);
       flushDone = True; 
     }
   
@@ -1613,7 +1616,8 @@ KeySelect(
       /* if the parent is menu system able, notify it about the select */
       if (menuSTrait != NULL)
 	{
-	  menuSTrait->entryCallback(XtParent(pb), (Widget) pb, &call_value);
+	  menuSTrait->entryCallback(XtParent(pb), (Widget) pb, 
+	  	(XtPointer) &call_value);
 	}
       
       if ((! LabG_SkipCallback(pb)) &&

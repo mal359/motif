@@ -140,7 +140,7 @@ am__DEPENDENCIES_1 =
 libXm_la_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+	$(am__DEPENDENCIES_1)
 am__libXm_la_SOURCES_DIST = XmStrDefs.c ArrowB.c ArrowBG.c BulletinB.c \
 	CallbackI.c CascadeB.c CascadeBG.c Command.c CutPaste.c Dest.c \
 	DialogS.c DialogSE.c DragBS.c DragC.c DragOverS.c DragICC.c \
@@ -166,15 +166,20 @@ am__libXm_la_SOURCES_DIST = XmStrDefs.c ArrowB.c ArrowBG.c BulletinB.c \
 	ColorObj.c IconFile.c RCHook.c GetRes.c BBUtil.c ChColor.c \
 	ColObjFunc.c DrTog.c DrArrow.c DrPoly.c DrHiDash.c ValTime.c \
 	FocusAct.c CvtUnit.c ScalTics.c ScroVis.c WidGet.c PrintS.c \
-	Obso1_2.c ObsoStr.c ObsoXme.c Obso2_0.c IconH.c Container.c \
-	IconG.c Notebook.c ComboBox.c GrabShell.c SpinB.c SSpinB.c \
-	TxtPropCv.c XmStringSeg.c TranslNew.c SlideC.c ToolTip.c \
-	EditresCom.c XmExtUtil.c Column.c ButtonBox.c ColorS.c \
-	Picture.c DataFSel.c DataF.c MultiList.c I18List.c Paned.c \
-	FontS.c IconBox.c IconButton.c xmlist.c Hierarchy.c Outline.c \
-	TabBox.c TabList.c TabStack.c DrawUtils.c Tree.c DropDown.c \
-	XmStrDefs.ht XmStrDefs22.ht XmStrDefs23.ht XmStrDefsI.ht \
-	Jpeg.c Png.c
+	Obso1_2.c ObsoStr.c ObsoXme.c Obso2_0.c XpmAttrib.c \
+	XpmCrIFrDat.c XpmInfo.c XpmWrFFrDat.c Xpmmisc.c XpmCrBufFrI.c \
+	XpmCrIFrP.c XpmRdFToBuf.c XpmWrFFrI.c Xpmparse.c XpmCrBufFrP.c \
+	XpmCrPFrBuf.c XpmRdFToDat.c XpmWrFFrP.c Xpmrgb.c XpmCrDatFrI.c \
+	XpmCrPFrDat.c XpmRdFToI.c Xpmcreate.c Xpmscan.c XpmCrDatFrP.c \
+	XpmCrPFrI.c XpmRdFToP.c Xpmdata.c XpmCrIFrBuf.c XpmImage.c \
+	XpmWrFFrBuf.c Xpmhashtab.c IconH.c Container.c IconG.c \
+	Notebook.c ComboBox.c GrabShell.c SpinB.c SSpinB.c TxtPropCv.c \
+	XmStringSeg.c TranslNew.c SlideC.c ToolTip.c EditresCom.c \
+	XmExtUtil.c Column.c ButtonBox.c ColorS.c Picture.c DataFSel.c \
+	DataF.c MultiList.c I18List.c Paned.c FontS.c IconBox.c \
+	IconButton.c xmlist.c Hierarchy.c Outline.c TabBox.c TabList.c \
+	TabStack.c DrawUtils.c Tree.c DropDown.c XmStrDefs.ht \
+	XmStrDefs22.ht XmStrDefs23.ht XmStrDefsI.ht Jpeg.c Png.c
 am__objects_1 = XmStrDefs.lo ArrowB.lo ArrowBG.lo BulletinB.lo \
 	CallbackI.lo CascadeB.lo CascadeBG.lo Command.lo CutPaste.lo \
 	Dest.lo DialogS.lo DialogSE.lo DragBS.lo DragC.lo DragOverS.lo \
@@ -206,23 +211,30 @@ am__objects_3 = Desktop.lo Messages.lo Transltns.lo RepType.lo Xmos.lo \
 	ValTime.lo FocusAct.lo CvtUnit.lo ScalTics.lo ScroVis.lo \
 	WidGet.lo $(am__objects_2)
 am__objects_4 = Obso1_2.lo ObsoStr.lo ObsoXme.lo Obso2_0.lo
-am__objects_5 = IconH.lo Container.lo IconG.lo Notebook.lo ComboBox.lo \
+am__objects_5 = XpmAttrib.lo XpmCrIFrDat.lo XpmInfo.lo XpmWrFFrDat.lo \
+	Xpmmisc.lo XpmCrBufFrI.lo XpmCrIFrP.lo XpmRdFToBuf.lo \
+	XpmWrFFrI.lo Xpmparse.lo XpmCrBufFrP.lo XpmCrPFrBuf.lo \
+	XpmRdFToDat.lo XpmWrFFrP.lo Xpmrgb.lo XpmCrDatFrI.lo \
+	XpmCrPFrDat.lo XpmRdFToI.lo Xpmcreate.lo Xpmscan.lo \
+	XpmCrDatFrP.lo XpmCrPFrI.lo XpmRdFToP.lo Xpmdata.lo \
+	XpmCrIFrBuf.lo XpmImage.lo XpmWrFFrBuf.lo Xpmhashtab.lo
+am__objects_6 = IconH.lo Container.lo IconG.lo Notebook.lo ComboBox.lo \
 	GrabShell.lo SpinB.lo SSpinB.lo TxtPropCv.lo XmStringSeg.lo \
 	TranslNew.lo
-am__objects_6 = SlideC.lo
-am__objects_7 = ToolTip.lo
-@OM_XMU_TRUE@am__objects_8 = EditresCom.lo
-am__objects_9 = XmExtUtil.lo Column.lo ButtonBox.lo ColorS.lo \
+am__objects_7 = SlideC.lo
+am__objects_8 = ToolTip.lo
+@OM_XMU_TRUE@am__objects_9 = EditresCom.lo
+am__objects_10 = XmExtUtil.lo Column.lo ButtonBox.lo ColorS.lo \
 	Picture.lo DataFSel.lo DataF.lo MultiList.lo I18List.lo \
 	Paned.lo FontS.lo IconBox.lo IconButton.lo xmlist.lo \
 	Hierarchy.lo Outline.lo TabBox.lo TabList.lo TabStack.lo \
 	DrawUtils.lo Tree.lo DropDown.lo
-@OM_LIBJPEG_TRUE@am__objects_10 = Jpeg.lo
-@OM_LIBPNG_TRUE@am__objects_11 = Png.lo
+@OM_LIBJPEG_TRUE@am__objects_11 = Jpeg.lo
+@OM_LIBPNG_TRUE@am__objects_12 = Png.lo
 am_libXm_la_OBJECTS = $(am__objects_1) $(am__objects_3) \
 	$(am__objects_4) $(am__objects_5) $(am__objects_6) \
 	$(am__objects_7) $(am__objects_8) $(am__objects_9) \
-	$(am__objects_10) $(am__objects_11)
+	$(am__objects_10) $(am__objects_11) $(am__objects_12)
 libXm_la_OBJECTS = $(am_libXm_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -336,6 +348,20 @@ am__depfiles_remade = ./$(DEPDIR)/ArrowB.Plo ./$(DEPDIR)/ArrowBG.Plo \
 	./$(DEPDIR)/XmStringFunc.Plo ./$(DEPDIR)/XmStringGet.Plo \
 	./$(DEPDIR)/XmStringObso.Plo ./$(DEPDIR)/XmStringSeg.Plo \
 	./$(DEPDIR)/XmTabList.Plo ./$(DEPDIR)/Xmos.Plo \
+	./$(DEPDIR)/XpmAttrib.Plo ./$(DEPDIR)/XpmCrBufFrI.Plo \
+	./$(DEPDIR)/XpmCrBufFrP.Plo ./$(DEPDIR)/XpmCrDatFrI.Plo \
+	./$(DEPDIR)/XpmCrDatFrP.Plo ./$(DEPDIR)/XpmCrIFrBuf.Plo \
+	./$(DEPDIR)/XpmCrIFrDat.Plo ./$(DEPDIR)/XpmCrIFrP.Plo \
+	./$(DEPDIR)/XpmCrPFrBuf.Plo ./$(DEPDIR)/XpmCrPFrDat.Plo \
+	./$(DEPDIR)/XpmCrPFrI.Plo ./$(DEPDIR)/XpmImage.Plo \
+	./$(DEPDIR)/XpmInfo.Plo ./$(DEPDIR)/XpmRdFToBuf.Plo \
+	./$(DEPDIR)/XpmRdFToDat.Plo ./$(DEPDIR)/XpmRdFToI.Plo \
+	./$(DEPDIR)/XpmRdFToP.Plo ./$(DEPDIR)/XpmWrFFrBuf.Plo \
+	./$(DEPDIR)/XpmWrFFrDat.Plo ./$(DEPDIR)/XpmWrFFrI.Plo \
+	./$(DEPDIR)/XpmWrFFrP.Plo ./$(DEPDIR)/Xpmcreate.Plo \
+	./$(DEPDIR)/Xpmdata.Plo ./$(DEPDIR)/Xpmhashtab.Plo \
+	./$(DEPDIR)/Xpmmisc.Plo ./$(DEPDIR)/Xpmparse.Plo \
+	./$(DEPDIR)/Xpmrgb.Plo ./$(DEPDIR)/Xpmscan.Plo \
 	./$(DEPDIR)/xmlist.Plo
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
@@ -380,8 +406,8 @@ am__noinst_HEADERS_DIST = BaseClassI.h BitmapsI.h BulletinBI.h \
 	TextStrSoI.h ToggleBGI.h TraitI.h TransferI.h TravActI.h \
 	TraversalI.h UniqueEvnI.h VaSimpleI.h VendorSEI.h VendorSI.h \
 	VirtKeysI.h XmI.h XmImI.h XmMsgI.h XmRenderTI.h XmStrDefsI.h \
-	XmStringI.h XmTabListI.h XmosI.h EditresComI.h JpegI.h PngI.h \
-	ToolTipI.h
+	XmStringI.h XmTabListI.h XmosI.h XpmI.h EditresComI.h JpegI.h \
+	PngI.h ToolTipI.h
 HEADERS = $(nodist_xm_HEADERS) $(noinst_HEADERS) $(xm_HEADERS)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP) Xm.h.in
 # Read a list of newline-separated strings from the standard input,
@@ -460,8 +486,6 @@ LIBDIR = @LIBDIR@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
-LIBXPM_CFLAGS = @LIBXPM_CFLAGS@
-LIBXPM_LIBS = @LIBXPM_LIBS@
 LIB_XP = @LIB_XP@
 LIPO = @LIPO@
 LN_S = @LN_S@
@@ -488,9 +512,6 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
-PKG_CONFIG = @PKG_CONFIG@
-PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
-PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
 PNG_LIBS = @PNG_LIBS@
 PRINTING_SUPPORTED_FALSE = @PRINTING_SUPPORTED_FALSE@
 PRINTING_SUPPORTED_TRUE = @PRINTING_SUPPORTED_TRUE@
@@ -628,7 +649,7 @@ SLIDE_SRCS = SlideC.c
 @OM_LIBPNG_TRUE@PNG_HDRS = PngI.h
 @PRINTING_FALSE@PRINTS_SRC = 
 @PRINTING_TRUE@PRINTS_SRC = PrintS.c
-libXm_la_LIBADD = ${X_LIBS} ${X_XMU} -lXt -lXext ${LIB_XP} -lX11 ${X_EXTRA_LIBS} ${JPEG_LIBS} ${PNG_LIBS} ${FONTCONFIG_LIBS} ${LIBXPM_LIBS}
+libXm_la_LIBADD = ${X_LIBS} ${X_XMU} -lXt -lXext ${LIB_XP} -lX11 ${X_EXTRA_LIBS} ${JPEG_LIBS} ${PNG_LIBS} ${FONTCONFIG_LIBS}
 noinst_HEADERS = BaseClassI.h \
 BitmapsI.h \
 BulletinBI.h \
@@ -719,6 +740,7 @@ XmStrDefsI.h \
 XmStringI.h \
 XmTabListI.h \
 XmosI.h \
+XpmI.h \
 EditresComI.h \
 $(JPEG_HDRS) \
 $(PNG_HDRS) \
@@ -770,7 +792,7 @@ xm_HEADERS = ArrowB.h      ArrowBG.h       ArrowBGP.h      ArrowBP.h \
         Gadget.h        LayoutT.h       IconH.h         IconHP.h \
         UnitTypeT.h     TxtPropCv.h     MenuProcP.h     MenuStateP.h\
         ColorObjP.h     TravConT.h      UnhighlightT.h  PointInT.h \
-        Print.h         PrintSP.h       Xmfuncs.h \
+        Print.h         PrintSP.h       XpmP.h		Xmfuncs.h \
         ${SLIDE_HDRS}	${EXTRA_HDRS}
 
 nodist_xm_HEADERS = Xm.h
@@ -825,7 +847,7 @@ NEW_WID_SRCS = IconH.c        Container.c     IconG.c  \
         Notebook.c     ComboBox.c     GrabShell.c     SpinB.c  \
         SSpinB.c       TxtPropCv.c    XmStringSeg.c   TranslNew.c
 
-libXm_la_SOURCES = $(SRCS1) $(SRCS2) $(OBSO_SRCS) $(NEW_WID_SRCS) $(SLIDE_SRCS) \
+libXm_la_SOURCES = $(SRCS1) $(SRCS2) $(OBSO_SRCS) $(XPM_SRCS) $(NEW_WID_SRCS) $(SLIDE_SRCS) \
         $(TIP_SRCS) $(EDITRES_SRCS) $(EXTRA_SRCS) $(JPEG_SRCS) $(PNG_SRCS)
 
 EXTRA_libXm_la_SOURCES = $(SLIDE_SRCS) $(TIP_SRCS)
@@ -1106,6 +1128,34 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XmStringSeg.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XmTabList.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Xmos.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmAttrib.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmCrBufFrI.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmCrBufFrP.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmCrDatFrI.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmCrDatFrP.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmCrIFrBuf.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmCrIFrDat.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmCrIFrP.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmCrPFrBuf.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmCrPFrDat.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmCrPFrI.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmImage.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmInfo.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmRdFToBuf.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmRdFToDat.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmRdFToI.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmRdFToP.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmWrFFrBuf.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmWrFFrDat.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmWrFFrI.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XpmWrFFrP.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Xpmcreate.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Xpmdata.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Xpmhashtab.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Xpmmisc.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Xpmparse.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Xpmrgb.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Xpmscan.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xmlist.Plo@am__quote@ # am--include-marker
 
 $(am__depfiles_remade):
@@ -1496,6 +1546,34 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/XmStringSeg.Plo
 	-rm -f ./$(DEPDIR)/XmTabList.Plo
 	-rm -f ./$(DEPDIR)/Xmos.Plo
+	-rm -f ./$(DEPDIR)/XpmAttrib.Plo
+	-rm -f ./$(DEPDIR)/XpmCrBufFrI.Plo
+	-rm -f ./$(DEPDIR)/XpmCrBufFrP.Plo
+	-rm -f ./$(DEPDIR)/XpmCrDatFrI.Plo
+	-rm -f ./$(DEPDIR)/XpmCrDatFrP.Plo
+	-rm -f ./$(DEPDIR)/XpmCrIFrBuf.Plo
+	-rm -f ./$(DEPDIR)/XpmCrIFrDat.Plo
+	-rm -f ./$(DEPDIR)/XpmCrIFrP.Plo
+	-rm -f ./$(DEPDIR)/XpmCrPFrBuf.Plo
+	-rm -f ./$(DEPDIR)/XpmCrPFrDat.Plo
+	-rm -f ./$(DEPDIR)/XpmCrPFrI.Plo
+	-rm -f ./$(DEPDIR)/XpmImage.Plo
+	-rm -f ./$(DEPDIR)/XpmInfo.Plo
+	-rm -f ./$(DEPDIR)/XpmRdFToBuf.Plo
+	-rm -f ./$(DEPDIR)/XpmRdFToDat.Plo
+	-rm -f ./$(DEPDIR)/XpmRdFToI.Plo
+	-rm -f ./$(DEPDIR)/XpmRdFToP.Plo
+	-rm -f ./$(DEPDIR)/XpmWrFFrBuf.Plo
+	-rm -f ./$(DEPDIR)/XpmWrFFrDat.Plo
+	-rm -f ./$(DEPDIR)/XpmWrFFrI.Plo
+	-rm -f ./$(DEPDIR)/XpmWrFFrP.Plo
+	-rm -f ./$(DEPDIR)/Xpmcreate.Plo
+	-rm -f ./$(DEPDIR)/Xpmdata.Plo
+	-rm -f ./$(DEPDIR)/Xpmhashtab.Plo
+	-rm -f ./$(DEPDIR)/Xpmmisc.Plo
+	-rm -f ./$(DEPDIR)/Xpmparse.Plo
+	-rm -f ./$(DEPDIR)/Xpmrgb.Plo
+	-rm -f ./$(DEPDIR)/Xpmscan.Plo
 	-rm -f ./$(DEPDIR)/xmlist.Plo
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
@@ -1722,6 +1800,34 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/XmStringSeg.Plo
 	-rm -f ./$(DEPDIR)/XmTabList.Plo
 	-rm -f ./$(DEPDIR)/Xmos.Plo
+	-rm -f ./$(DEPDIR)/XpmAttrib.Plo
+	-rm -f ./$(DEPDIR)/XpmCrBufFrI.Plo
+	-rm -f ./$(DEPDIR)/XpmCrBufFrP.Plo
+	-rm -f ./$(DEPDIR)/XpmCrDatFrI.Plo
+	-rm -f ./$(DEPDIR)/XpmCrDatFrP.Plo
+	-rm -f ./$(DEPDIR)/XpmCrIFrBuf.Plo
+	-rm -f ./$(DEPDIR)/XpmCrIFrDat.Plo
+	-rm -f ./$(DEPDIR)/XpmCrIFrP.Plo
+	-rm -f ./$(DEPDIR)/XpmCrPFrBuf.Plo
+	-rm -f ./$(DEPDIR)/XpmCrPFrDat.Plo
+	-rm -f ./$(DEPDIR)/XpmCrPFrI.Plo
+	-rm -f ./$(DEPDIR)/XpmImage.Plo
+	-rm -f ./$(DEPDIR)/XpmInfo.Plo
+	-rm -f ./$(DEPDIR)/XpmRdFToBuf.Plo
+	-rm -f ./$(DEPDIR)/XpmRdFToDat.Plo
+	-rm -f ./$(DEPDIR)/XpmRdFToI.Plo
+	-rm -f ./$(DEPDIR)/XpmRdFToP.Plo
+	-rm -f ./$(DEPDIR)/XpmWrFFrBuf.Plo
+	-rm -f ./$(DEPDIR)/XpmWrFFrDat.Plo
+	-rm -f ./$(DEPDIR)/XpmWrFFrI.Plo
+	-rm -f ./$(DEPDIR)/XpmWrFFrP.Plo
+	-rm -f ./$(DEPDIR)/Xpmcreate.Plo
+	-rm -f ./$(DEPDIR)/Xpmdata.Plo
+	-rm -f ./$(DEPDIR)/Xpmhashtab.Plo
+	-rm -f ./$(DEPDIR)/Xpmmisc.Plo
+	-rm -f ./$(DEPDIR)/Xpmparse.Plo
+	-rm -f ./$(DEPDIR)/Xpmrgb.Plo
+	-rm -f ./$(DEPDIR)/Xpmscan.Plo
 	-rm -f ./$(DEPDIR)/xmlist.Plo
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic

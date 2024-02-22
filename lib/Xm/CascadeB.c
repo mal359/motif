@@ -1150,14 +1150,16 @@ Select(
 
       if (menuSTrait != NULL)
       {
-	menuSTrait -> entryCallback(XtParent(cb), (Widget) cb, &cback);
+	menuSTrait -> entryCallback(XtParent(cb), (Widget) cb, 
+		(XtPointer) &cback);
       }
 
       if ((! cb->label.skipCallback) &&
 	  (cb->cascade_button.activate_callback))
       {
       
-	XtCallCallbackList ((Widget) cb, cb->cascade_button.activate_callback, &cback);
+	XtCallCallbackList ((Widget) cb, cb->cascade_button.activate_callback, 
+		&cback);
       }
     }
    else
@@ -1165,7 +1167,7 @@ Select(
        Arm(cb);
      }
 }
-
+
 /*
  * if there is a submenu, enable traversal.
  * call select to do the work

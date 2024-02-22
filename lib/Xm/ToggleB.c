@@ -1000,7 +1000,7 @@ Enter(
       ActionDraw(w, event, FALSE);
     }
 }
-
+
 static void
 NextState(
     unsigned char *state)
@@ -1143,7 +1143,8 @@ Select(
 	  call_value.reason = XmCR_VALUE_CHANGED;
 	  call_value.event = event;
 	  call_value.set = tb->toggle.set;
-	  menuSTrait->entryCallback(XtParent(tb), (Widget) tb, &call_value);
+	  menuSTrait->entryCallback(XtParent(tb), (Widget) tb, 
+	  	(XtPointer) &call_value);
 	}
 
       if ((! tb->label.skipCallback) &&
@@ -1155,7 +1156,7 @@ Select(
 
     }
 }
-
+
 /**********************************************************************
  *
  *    Disarm
@@ -1178,12 +1179,14 @@ Disarm(
 /* BEGIN OSF Fix pir 2826 */
 
   /* CR 7803:  Suppress redundant redraws. */
-  if (tb->toggle.set != tb->toggle.visual_set)
+  if (tb->toggle.set != tb->toggle.visual_set) {
+    tb->toggle.set = tb->toggle.visual_set ;
     Redisplay((Widget) tb, event, (Region) NULL);
+  }
 
 /* END OSF Fix pir 2826 */
 }
-
+
 static void 
 TB_FixTearoff( XmToggleButtonWidget tb)	
 {
@@ -1319,7 +1322,8 @@ ArmAndActivate(
       call_value.reason = XmCR_VALUE_CHANGED;
       call_value.event = event;
       call_value.set = tb->toggle.set;
-      menuSTrait->entryCallback(XtParent(tb), (Widget) tb, &call_value);
+      menuSTrait->entryCallback(XtParent(tb), (Widget) tb, 
+      	(XtPointer) &call_value);
     }
   
   if ((! tb->label.skipCallback) &&
@@ -1354,7 +1358,7 @@ ArmAndActivate(
 	}
     }
 }
-
+
 /************************************************************************
  *
  *     BtnDown
@@ -1531,7 +1535,8 @@ BtnUp(
 	  call_value.reason = XmCR_VALUE_CHANGED;
 	  call_value.event = event;
 	  call_value.set = tb->toggle.set;
-	  menuSTrait->entryCallback(XtParent(tb), (Widget) tb, &call_value);
+	  menuSTrait->entryCallback(XtParent(tb), (Widget) tb, 
+	  	(XtPointer) &call_value);
 	}
       
       if ((! tb->label.skipCallback) &&
@@ -2525,7 +2530,8 @@ KeySelect(
 	  call_value.reason = XmCR_VALUE_CHANGED;
 	  call_value.event = event;
 	  call_value.set = tb->toggle.set;
-	  menuSTrait->entryCallback(XtParent(tb), (Widget) tb, &call_value);
+	  menuSTrait->entryCallback(XtParent(tb), (Widget) tb, 
+	  	(XtPointer) &call_value);
 	}
       
       if (menuSTrait != NULL)
@@ -3299,7 +3305,8 @@ XmToggleButtonSetState(
 	      call_value.event = NULL;
 	      call_value.set = tw->toggle.set;
 	      
-	      menuSTrait->entryCallback(XtParent(tw), (Widget)tw, &call_value);
+	      menuSTrait->entryCallback(XtParent(tw), (Widget)tw, 
+	      	(XtPointer) &call_value);
 	    }
 
           if ((! tw->label.skipCallback) &&
@@ -3674,7 +3681,7 @@ DrawEtchedInMenu(
       tb->label.normal_GC = tmp_gc;
     }
 }
-
+
 /* BEGIN OSF Fix pir 1778 */
 /*************************************************************************
  *
@@ -3768,7 +3775,7 @@ SetToggleSize(
   }
 }
 /* END OSF Fix pir 1778 */
-
+
 /*
  * DefaultSelectColor - an XtResourceDefaultProc for generating the
  *	default select color.  This may require examining the

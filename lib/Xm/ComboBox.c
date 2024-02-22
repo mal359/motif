@@ -915,8 +915,20 @@ SetValues(Widget    current,
 
   if ( resize)
     {
-      if (XtIsRealized((Widget)newcb))
-          XtWidth(newcb) = XtHeight(newcb) = 0;
+      /*
+      ** XtIsRealized()... ? Not so. 
+      **
+      ** Attach a ComboBox left/right to a containing form,
+      ** then change XmNcolumns. The beast extends the text
+      ** beyond the end of the widget.
+      **
+      ** A.J.Fountain, IST, May 2003.
+      */
+
+      /* 
+      ** if (XtIsRealized((Widget)newcb))
+      **    XtWidth(newcb) = XtHeight(newcb) = 0;
+      */
 
       ComputeSize((Widget)newcb, 0, 0, &(XtWidth(newcb)), &(XtHeight(newcb)));
     }
@@ -931,7 +943,7 @@ SetValues(Widget    current,
 
   return redisplay;
 }
-
+
 /* ReduceResources()
  *	Called from ChangeManaged when some resources need to be
  * diminished in order to satisfy a resource request.
@@ -1027,7 +1039,7 @@ ReduceResources(Widget     widget,
 
   return (!*width && !*height);
 }
-
+
 /*
  * Reduce()
  *	A helper for ReduceResources, this routine will decrement a
@@ -1268,7 +1280,7 @@ GeometryManager(Widget		  mychild,
 }
 
 
-
+
 /*
  * Redisplay()
  *	General redisplay function called on exposure events.
@@ -3456,7 +3468,11 @@ void
 XmComboBoxAddItem(Widget   widget,
 		  XmString item,
 		  int      pos,
+#if NeedWidePrototypes
+		  int	   unique)
+#else
 		  Boolean  unique)
+#endif
 {
   XmComboBoxWidget cb = (XmComboBoxWidget)widget;
 

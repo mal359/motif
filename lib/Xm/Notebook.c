@@ -2527,6 +2527,16 @@ LayoutMajorTabs (
      */
     spacing = MAX(nb->notebook.major_spacing, nb->notebook.shadow_thickness);
     delta = nb->notebook.back_page_size / nb->notebook.real_back_page_number;
+    
+    /*
+    ** Patch by A.J.Fountain, IST, September 2003.
+    ** real_back_page_number can be zero if you add a Tab before a Page.
+    */
+
+    if (nb->notebook.real_back_page_number != 0)
+    	delta = nb->notebook.back_page_size / nb->notebook.real_back_page_number;
+    else
+	delta = 0;
 
     /*
      * Determine tab positions
@@ -6609,7 +6619,7 @@ GetNextTab (
             case _END:
 		target = child;
 	    } /* switch */
-	    i++;
+	  i++;
 	  }   /* while  */
 	}     /* if     */
     else /* NB_IS_CHILD_MINOR(target_child_type) */
@@ -6664,7 +6674,7 @@ GetNextTab (
 	      case _END:
 		target = child;
 	      } /* switch */
-	    i++;
+	  i++;
 	  }     /* while  */
 	}       /* else   */
     return(target);

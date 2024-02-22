@@ -3110,12 +3110,23 @@ ConstraintDestroy(
 		while (node)
 		{
 			Widget child = node->widget_ptr;
+			CwidNode next  = (CwidNode) 0 ;
+			
+			if (child) {
 			XtVaSetValues(child, XmNentryParent, NULL, NULL);
+			}
 			/* because the above operation has changed the 
 			** linked-list, we just pull the first child off the
 			** list, rather than move along it
+			**
+			** Not so: the next pointer can end up the same as the 
+			** head...
+			**
+			** A.J.Fountain, IST.
 			*/
-			node = c->node_ptr->child_ptr;
+			next = (c->node_ptr ? c->node_ptr->child_ptr : 
+				(CwidNode) 0) ;
+			node = ((node == next) ? (CwidNode) 0 : next) ;
 		}
 	}
 
@@ -3242,9 +3253,8 @@ ConstraintSetValues(
             	nc->visible_in_outline = pc->visible_in_outline;
 	    else
 	    	nc->visible_in_outline = False;
-   		if ((!nc->visible_in_outline) || 
-	   	 (!CtrLayoutIsOUTLINE_DETAIL(cw)))
-	    	    HideCwid(ncwid);
+   	    if ((!nc->visible_in_outline) || (!CtrLayoutIsOUTLINE_DETAIL(cw)))
+	    	HideCwid(ncwid);
 	    }
     }
 
@@ -8147,13 +8157,13 @@ RedirectTraversal(
 	&& direction != XmTRAVERSE_HOME))
     return new_focus;
 
-    if ( ((cw=(XmContainerWidget)XtParent(old_focus)) == NULL)
-      || (!XmIsContainer(cw))
-      || (CtrLayoutIsSPATIAL(cw))
-      || (CtrOUTLINE_BUTTON(old_focus)))
-	return new_focus;
+  if ( ((cw=(XmContainerWidget)XtParent(old_focus)) == NULL)
+    || (!XmIsContainer(cw))
+    || (CtrLayoutIsSPATIAL(cw))
+    || (CtrOUTLINE_BUTTON(old_focus)))
+    return new_focus;
 
-    wrap = !XmIsClipWindow((XmClipWindowWidget)XtParent(cw));
+  wrap = !XmIsClipWindow((XmClipWindowWidget)XtParent(cw));
 
     switch (direction)
 	{

@@ -999,8 +999,8 @@ ClipboardEventHandler(
 
 	header->recopyId = 0;
 
-	ClipboardReplaceItem (display, XM_HEADER_ID, header, hlength,
-				PropModeReplace, 32, True, XA_INTEGER);
+	ClipboardReplaceItem (display, XM_HEADER_ID, (XtPointer) header, 
+			hlength, PropModeReplace, 32, True, XA_INTEGER);
     }
 
     return ;

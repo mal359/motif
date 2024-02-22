@@ -663,7 +663,7 @@ Destroy(
 
     _XmProcessLock();
     tab = (XmHashTable) xmScreen->screen.scratchPixmaps;
-    _XmMapHashTable(tab, FreePixmap, xmScreen);
+    _XmMapHashTable(tab, FreePixmap, (XtPointer) xmScreen);
     _XmFreeHashTable(tab);
     _XmFreeHashTable((XmHashTable) xmScreen->screen.inUsePixmaps);
     _XmProcessUnlock();
@@ -990,12 +990,12 @@ _XmAllocScratchPixmap(
     key.depth = depth;
 
     _XmProcessLock();
-    scratchPixmap = (Pixmap) _XmGetHashEntry(scratchTable, &key);
+    scratchPixmap = (Pixmap) _XmGetHashEntry(scratchTable, (XmHashKey) &key);
 
     if (scratchPixmap != None) {
       /* remove from free table */
       returned_key = (XmScratchPixmapKey) 
-	_XmRemoveHashEntry(scratchTable, &key);
+	_XmRemoveHashEntry(scratchTable, (XmHashKey) &key);
     } else {
       returned_key = XtNew(XmScratchPixmapKeyRec);
       returned_key->width = width;
@@ -1008,7 +1008,8 @@ _XmAllocScratchPixmap(
     }
 
     /* Place key in inUse table */
-    _XmAddHashEntry(inUseTable, (XmHashKey) scratchPixmap, returned_key);
+    _XmAddHashEntry(inUseTable, (XmHashKey) scratchPixmap, 
+    	(XtPointer) returned_key);
 
     _XmProcessUnlock();
     return(scratchPixmap);

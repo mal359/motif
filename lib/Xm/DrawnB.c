@@ -587,7 +587,7 @@ ActivateCommon(
       if (menuSTrait != NULL)
       {
 	menuSTrait->entryCallback(XtParent(db), (Widget) db, 
-					   &call_value);
+					   (XtPointer) &call_value);
       }
 
       if ((! db->label.skipCallback) &&
@@ -598,7 +598,7 @@ ActivateCommon(
       }
    }
 }
-
+
 
 
 static void 
@@ -655,7 +655,7 @@ ArmAndActivate(
    if (menuSTrait != NULL)
    {
      menuSTrait->entryCallback(XtParent(db), (Widget) db, 
-					&call_value);
+					(XtPointer) &call_value);
    }
 
    if ((! db->label.skipCallback) &&
@@ -887,7 +887,7 @@ BtnUp(
   /* if the parent is menu system able, notify it about the select */
   if (menuSTrait != NULL)
     {
-      menuSTrait->entryCallback(parent, (Widget) db, &call_value);
+      menuSTrait->entryCallback(parent, (Widget) db, (XtPointer) &call_value);
       flushDone = True;
     }
   

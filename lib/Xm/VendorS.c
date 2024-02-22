@@ -591,7 +591,7 @@ BaseProc(
     }
 
     _XmAppUnlock(app);
-    return secObj;
+    return (XtPointer)secObj;
 }
 
 

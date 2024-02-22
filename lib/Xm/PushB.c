@@ -2220,7 +2220,8 @@ ActivateCommon(
       
       /* if the parent is menu system able, notify it about the select */
       if (menuSTrait != NULL)
-	menuSTrait->entryCallback(XtParent(pb), (Widget) pb, &call_value);
+	menuSTrait->entryCallback(XtParent(pb), (Widget) pb, 
+		(XtPointer) &call_value);
       
       if ((! pb->label.skipCallback) &&
 	  (pb->pushbutton.activate_callback))
@@ -2347,7 +2348,8 @@ ArmAndActivate(
   
   /* if the parent is menu system able, notify it about the select */
   if (menuSTrait != NULL)
-    menuSTrait->entryCallback(XtParent(pb), (Widget)pb, &call_value);
+    menuSTrait->entryCallback(XtParent(pb), (Widget)pb, 
+    	(XtPointer) &call_value);
 #ifdef FIX_1375
 	pb->label.pixmap = pb->pushbutton.unarm_pixmap;
 #endif 
@@ -2646,7 +2648,7 @@ BtnUp(
   /* if the parent is menu system able, notify it about the select */
   if (menuSTrait != NULL)
     {
-      menuSTrait->entryCallback(parent, (Widget) pb, &call_value);
+      menuSTrait->entryCallback(parent, (Widget) pb, (XtPointer) &call_value);
       flushDone = True;
     }
   
@@ -2927,7 +2929,8 @@ KeySelect(
       
       /* if the parent is menu system able, notify it about the select */
       if (menuSTrait != NULL)
-	menuSTrait->entryCallback(XtParent(pb), (Widget) pb, &call_value);
+	menuSTrait->entryCallback(XtParent(pb), (Widget) pb, 
+		(XtPointer) &call_value);
       
       if ((! pb->label.skipCallback) &&
 	  (pb->pushbutton.activate_callback))

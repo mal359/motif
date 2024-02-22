@@ -3419,7 +3419,8 @@ QualifyLabelLocalCache(XmLabelGadget w)
     {
         local_cache_inited = TRUE;
         ClassCacheCopy(LabG_ClassCachePart(w))
-            (LabG_Cache(w), &local_cache, sizeof(local_cache));
+            ((XtPointer) LabG_Cache(w), (XtPointer) &local_cache, 
+	    	sizeof(local_cache));
     }
 }
 
@@ -4070,8 +4071,8 @@ XmLabelGadget w)
 {
     _XmProcessLock();
         ClassCacheCopy(LabG_ClassCachePart(w))
-        (LabG_Cache(w),
-        local_cache,
+        ((XtPointer) LabG_Cache(w),
+        (XtPointer) local_cache,
         sizeof(XmLabelGCacheObjPart)
         );
         _XmProcessUnlock();
@@ -4082,12 +4083,13 @@ void
 _XmReCacheLabG_r(XmLabelGCacheObjPart *local_cache, XmLabelGadget w)
 {
     _XmProcessLock();
-        if (!_XmLabelCacheCompare(local_cache, (XtPointer)LabG_Cache(w)))
+        if (!_XmLabelCacheCompare((XtPointer) local_cache, 
+		(XtPointer)LabG_Cache(w)))
     {
         _XmCacheDelete((XtPointer)LabG_Cache(w));
             LabG_Cache(w) = (XmLabelGCacheObjPart *)_XmCachePart(
             LabG_ClassCachePart(w),
-            local_cache,
+            (XtPointer) local_cache,
             sizeof(XmLabelGCacheObjPart));
     }
     _XmProcessUnlock();

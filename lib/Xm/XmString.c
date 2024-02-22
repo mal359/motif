@@ -2744,7 +2744,7 @@ _XmStringCharacterCount(XtPointer text,
       return byte_count;
     }
 }
-
+
 unsigned char 
 _XmEntryCharCountGet(_XmStringEntry entry, 
 		     XmRenderTable rt)
@@ -5543,7 +5543,8 @@ _XmStringNonOptCreate(
 	  if (_XmEntryTextTypeGet((_XmStringEntry)&seg) == XmNO_TEXT)
 	    _XmEntryTextTypeSet(&seg, prev_type);
 	      
-	  _XmEntryTextSet((_XmStringEntry)&seg, (c + _asn1_size(length)));
+	  _XmEntryTextSet((_XmStringEntry)&seg, 
+	  	(XtPointer)(c + _asn1_size(length)));
 	  _XmUnoptSegByteCount(&seg) = length;
 	  
 	  txt_seen = True;
