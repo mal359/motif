@@ -263,7 +263,7 @@ extern char* uil_mmove(char*, char*, int);
 #include "UilIODef.h"
 #include "UilDiagDef.h"
 #include "UilSarDef.h"
-#if defined(__linux__) || defined(__APPLE__) || defined(__FreeBSD__) || defined(__sun)
+#if defined(__linux__) || defined(__APPLE__) || defined(__FreeBSD__) || defined(__sun) || defined(__DragonFly__) || defined(__illumos__)
 #define YYSTYPE yystype
 #endif
 #include "UilLexPars.h"
