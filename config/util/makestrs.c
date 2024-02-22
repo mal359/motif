@@ -32,6 +32,7 @@
 #endif
 
 #include <stdio.h>
+#include <string.h>
 #include <X11/Xos.h>
 #ifndef X_NOT_STDC_ENV
 #include <stdlib.h>
