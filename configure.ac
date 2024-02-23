@@ -1,12 +1,15 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_PREREQ(2.59)
-AC_INIT([motif], [2.3.8])
+AC_PREREQ([2.71])
+AC_INIT([motif],[2.3.8],[https://github.com/mal359/motif],[motif],[https://github.com/mal359/motif])
 AC_CONFIG_SRCDIR([lib/Xm/Form.c])
-AC_CONFIG_AUX_DIR(.)
-AC_CANONICAL_TARGET
+AC_PREREQ([2.71])
+AC_CONFIG_MACRO_DIRS([m4])
+dnl The new way...
+AM_INIT_AUTOMAKE([foreign subdir-objects no-define])
 
-AM_INIT_AUTOMAKE([foreign no-define])
-dnl AM_MAINTAINER_MODE
+AC_CANONICAL_HOST
+AC_CANONICAL_BUILD
+
 
 AS_IF([test -f "/usr/X/include/X11/X.h"],
   AC_PREFIX_DEFAULT(/usr/X),
@@ -30,12 +33,12 @@ dnl Override a default in libtool.
 dnl
 dnl AC_DISABLE_STATIC
 
-AC_CONFIG_HEADERS(include/config.h lib/Xm/Xm.h)
+AC_CONFIG_HEADERS([include/config.h lib/Xm/Xm.h])
 
 dnl Checks for programs.
 AC_PROG_CC
 AC_PROG_CPP
-AM_PROG_LIBTOOL
+LT_INIT
 
 AC_EXEEXT
 
@@ -46,10 +49,8 @@ dnl AC_CHECK_PROGS(YACC, byacc, yacc)
 dnl AC_PROG_SPLINT
 AC_CHECK_PROGS(SPLINT, splint)
 
-AM_PROG_LEX
-if test "x$LEX" == xflex; then
-  AC_SUBST([LEXLIB], ['-lfl'])
-fi
+AC_PROG_LEX(yywrap)
+AC_PROG_YACC
 
 AC_PROG_INSTALL
 AC_PROG_LN_S
@@ -60,7 +61,10 @@ dnl Checks for libraries.
 
 AC_PATH_X
 AC_PATH_XTRA
-LT_LIB_XTHREADS
+
+dnl Add X11 goodies here
+EXTRA_LIBS="${X_LIBS} ${EXTRA_LIBS}"
+EXTRA_INCS="${X_CFLAGS} ${EXTRA_INCS}"
 
 dnl Checks for Xos_r.h
 
@@ -121,7 +125,15 @@ AM_CONDITIONAL(OM_LIBPNG, test x$PNG_LIBS != x)
 
 dnl Checks for header files.
 AC_HEADER_DIRENT
-AC_HEADER_STDC
+m4_warn([obsolete],
+[The preprocessor macro `STDC_HEADERS' is obsolete.
+  Except in unusual embedded environments, you can safely include all
+  ISO C90 headers unconditionally.])dnl
+# Autoupdate added the next two lines to ensure that your configure
+# script's behavior did not change.  They are probably safe to remove.
+AC_CHECK_INCLUDES_DEFAULT
+AC_PROG_EGREP
+
 AC_HEADER_SYS_WAIT
 AC_CHECK_HEADERS(fcntl.h limits.h malloc.h sys/malloc.h strings.h sys/file.h sys/time.h unistd.h wchar.h)
 AC_CHECK_HEADERS(wctype.h, AC_DEFINE(HAS_WIDECHAR_FUNCTIONS,1,System supports wchar))
@@ -134,16 +146,40 @@ AC_TYPE_MODE_T
 AC_TYPE_OFF_T
 AC_TYPE_PID_T
 AC_TYPE_SIZE_T
-AC_HEADER_TIME
+m4_warn([obsolete],
+[Update your code to rely only on HAVE_SYS_TIME_H,
+then remove this warning and the obsolete code below it.
+All current systems provide time.h; it need not be checked for.
+Not all systems provide sys/time.h, but those that do, all allow
+you to include it and time.h simultaneously.])dnl
+AC_CHECK_HEADERS_ONCE([sys/time.h])
+# Obsolete code to be removed.
+if test $ac_cv_header_sys_time_h = yes; then
+  AC_DEFINE([TIME_WITH_SYS_TIME],[1],[Define to 1 if you can safely include both <sys/time.h>
+	     and <time.h>.  This macro is obsolete.])
+fi
+# End of obsolete code.
+
 AC_STRUCT_TM
 AC_TYPE_UID_T
-WEAK_ALIAS_SUPPORT
 
 dnl Checks for library functions.
 AC_FUNC_ALLOCA
 AC_FUNC_MEMCMP
 AC_FUNC_SETPGRP
-AC_TYPE_SIGNAL
+m4_warn([obsolete],
+[your code may safely assume C89 semantics that RETSIGTYPE is void.
+Remove this warning and the `AC_CACHE_CHECK' when you adjust the code.])dnl
+AC_CACHE_CHECK([return type of signal handlers],[ac_cv_type_signal],[AC_COMPILE_IFELSE(
+[AC_LANG_PROGRAM([#include <sys/types.h>
+#include <signal.h>
+],
+		 [return *(signal (0, 0)) (0) == 1;])],
+		   [ac_cv_type_signal=int],
+		   [ac_cv_type_signal=void])])
+AC_DEFINE_UNQUOTED([RETSIGTYPE],[$ac_cv_type_signal],[Define as the return type of signal handlers
+		    (`int' or `void').])
+
 AC_FUNC_STRCOLL
 AC_FUNC_STRFTIME
 AC_FUNC_FORK([])
@@ -230,7 +266,7 @@ AC_ARG_ENABLE(utf8, [  --disable-utf8
                        Disable UTF-8 support])
 
 case "$host_os" in
-    freebsd*) CFLAGS="$CFLAGS -DCSRG_BASED -DXNO_MTSAFE_API -DXNO_MTSAFE_PWDAPI";
+    freebsd*) CFLAGS="$CFLAGS -DCSRG_BASED -DLIBICONV_PLUG";
         LDFLAGS="$LDFLAGS -L/usr/local/lib";;
     cygwin*) CFLAGS="$CFLAGS -DXNO_MTSAFE_DIRENTDAPI";;
     solaris* | sunos*) X_LIBS="$X_LIBS -L/usr/X/lib" &&
@@ -314,7 +350,30 @@ AC_FIND_XFT
 AC_FIND_XBITMAPS
 AC_IMAGE_SUPPORT
 
+# let's check for some useful libraries...
+XTOOLLIB=""
+AC_CHECK_LIB(X11, XOpenDisplay, [XTOOLLIB="-lX11"], ,
+                  [${EXTRA_INCS} ${EXTRA_LIBS}])
+AC_CHECK_LIB(Xext, XextFindDisplay, [XTOOLLIB="-lXext ${XTOOLLIB}"], ,
+                  [${EXTRA_INCS} ${EXTRA_LIBS}])
+AC_CHECK_LIB(Xau, XauReadAuth, [XTOOLLIB="-lXau ${XTOOLLIB}"], ,
+                  [${EXTRA_INCS} ${EXTRA_LIBS}])
+AC_CHECK_LIB(Xpm, XpmLibraryVersion, [XTOOLLIB="-lXpm ${XTOOLLIB}"], ,
+                  [${EXTRA_INCS} ${EXTRA_LIBS}])
+AC_CHECK_LIB(Xt, XtInitialize, [XTOOLLIB="-lXt ${XTOOLLIB}"], ,
+                 [${EXTRA_INCS} ${EXTRA_LIBS}])
+AC_CHECK_LIB(Xmu, XmuMakeAtom, [XTOOLLIB="-lXmu ${XTOOLLIB}"], ,
+                 [${EXTRA_INCS} ${EXTRA_LIBS}])
+AC_CHECK_LIB(ICE, IceCloseConnection, [XTOOLLIB="-lICE ${XTOOLLIB}"], ,
+                  [${EXTRA_INCS} ${EXTRA_LIBS}])
+AC_CHECK_LIB(SM, SmcOpenConnection, [XTOOLLIB="-lSM ${XTOOLLIB}"], ,
+                 [${EXTRA_INCS} ${EXTRA_LIBS}])
+AC_SUBST([XTOOLLIB])
 
+LIBS="${EXTRA_LIBS} ${LIBS} ${PTHREAD_LIBS}"
+
+#iconv
+AM_ICONV
 
 # AM_CONDITIONAL(Motif22Compatibility, test x$enable_motif22_compatibility = xyes)
 

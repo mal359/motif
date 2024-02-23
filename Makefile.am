@@ -29,6 +29,3 @@ SUBDIRS	= bindings bitmaps \
              clients \
              doc \
 	     $(MAYBE_DEMOS)
-	     
-AUTOMAKE_OPTIONS = 1.4
-ACLOCAL_AMFLAGS = -I .

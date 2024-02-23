@@ -5,7 +5,7 @@ CLEANFILES = $(BUILT_SOURCES)
 EXTRA_DIST = xmstring.list Xm.msg \
              XmStrDefs.ct
 
-INCLUDES = -I.. -I$(srcdir)/.. -DXMBINDDIR_FALLBACK=\"@XMBINDDIR_FALLBACK@\" \
+AM_CPPFLAGS = -I.. -I$(srcdir)/.. -DXMBINDDIR_FALLBACK=\"@XMBINDDIR_FALLBACK@\" \
            -DINCDIR=\"@INCDIR@\" \
            -DLIBDIR=\"@LIBDIR@\" \
            -DX11RGBPATH=\"@X11RGBPATH@\" \
@@ -72,7 +72,7 @@ else
 PRINTS_SRC =
 endif
 
-libXm_la_LIBADD = ${X_LIBS} ${X_XMU} -lXt -lXext ${LIB_XP} -lX11 ${X_EXTRA_LIBS} ${JPEG_LIBS} ${PNG_LIBS} ${FONTCONFIG_LIBS}
+libXm_la_LIBADD = ${X_LIBS} ${X_XMU} -lXt -lXext ${LIB_XP} -lX11 ${X_EXTRA_LIBS} ${JPEG_LIBS} ${PNG_LIBS} ${FONTCONFIG_LIBS} $(LTLIBICONV)
 
 noinst_HEADERS = BaseClassI.h \
 BitmapsI.h \
@@ -308,6 +308,6 @@ else
 endif
 
 splint: $(STRING_FILES)
-	$(SPLINT) $(INCLUDES) $(SPLINT_EXTRAFLAGS) $(top_srcdir)/lib/Xm/*.c
+	$(SPLINT) $(SPLINT_EXTRAFLAGS) $(top_srcdir)/lib/Xm/*.c
 
 #include $(srcdir)/check_headers.am
