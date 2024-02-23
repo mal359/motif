@@ -843,7 +843,7 @@ static MenuItem *MakeClientCommandMenuItem (String label, String funcArgs)
 {
     return(MakeMenuItem(label, F_InvokeCommand, funcArgs,
 			(KeySym)(unsigned)NULL, (unsigned int)0,
-			(KeyCode)(unsigned)NULL, (String)NULL));
+			(KeyCode)(unsigned)0, (String)NULL));
 }
 
 
