@@ -27,10 +27,8 @@
  * HISTORY
  */
 
-#if defined(__STDC__)
 #include <string.h>
 #include <stdlib.h>
-#endif
 
 #ifndef XmConst
 #if defined(__STDC__) || !defined( NO_CONST )
