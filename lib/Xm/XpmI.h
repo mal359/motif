@@ -105,11 +105,6 @@ extern "C" {
 *  Developed by Arnaud Le Hors                                                *
 \*****************************************************************************/
 
-/*
- * The code related to FOR_MSW has been added by
- * HeDu (hedu@cul-ipn.uni-kiel.de) 4/94
- */
-
 #ifndef XPMI_h
 #define XPMI_h
 
@@ -123,19 +118,13 @@ extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <string.h>
+#include <strings.h>
 #include <X11/Xmd.h>
-/* stdio.h doesn't declare popen on a Sequent DYNIX OS */
-#ifdef sequent
-extern FILE *popen();
-#endif
 
-#ifdef FOR_MSW
-#include "simx.h"
-#else
 #include <X11/Xos.h>
 #include <X11/Xfuncs.h>
 #include <X11/Xmd.h>
-#endif
 
 #ifdef VMS
 #include <unixio.h>
@@ -156,17 +145,9 @@ extern FILE *popen();
 #define XpmFree(ptr) free(ptr)
 #endif
 
-#ifndef FOR_MSW
 #define XpmMalloc(size) malloc((size))
 #define XpmRealloc(ptr, size) realloc((ptr), (size))
 #define XpmCalloc(nelem, elsize) calloc((nelem), (elsize))
-#else
-/* checks for mallocs bigger than 64K */
-#define XpmMalloc(size) boundCheckingMalloc((long)(size))/* in simx.[ch] */
-#define XpmRealloc(ptr, size) boundCheckingRealloc((ptr),(long)(size))
-#define XpmCalloc(nelem, elsize) \
-		boundCheckingCalloc((long)(nelem),(long) (elsize))
-#endif
 
 #include <stdint.h>	/* For SIZE_MAX */
 #include <limits.h>
@@ -183,42 +164,6 @@ extern FILE *popen();
 #else
 # define FOPEN_CLOEXEC ""
 # define O_CLOEXEC 0
-#endif
-
-#if defined(SCO) || defined(__USLC__)
-#include <stdint.h>	/* For SIZE_MAX */
-#endif
-#include <limits.h>
-#ifndef SIZE_MAX
-# ifdef ULONG_MAX
-#  define SIZE_MAX ULONG_MAX
-# else 
-#  define SIZE_MAX UINT_MAX
-# endif
-#endif
-
-#if defined(SCO) || defined(__USLC__)
-#include <stdint.h>	/* For SIZE_MAX */
-#endif
-#include <limits.h>
-#ifndef SIZE_MAX
-# ifdef ULONG_MAX
-#  define SIZE_MAX ULONG_MAX
-# else 
-#  define SIZE_MAX UINT_MAX
-# endif
-#endif
-
-#if defined(SCO) || defined(__USLC__)
-#include <stdint.h>	/* For SIZE_MAX */
-#endif
-#include <limits.h>
-#ifndef SIZE_MAX
-# ifdef ULONG_MAX
-#  define SIZE_MAX ULONG_MAX
-# else 
-#  define SIZE_MAX UINT_MAX
-# endif
 #endif
 
 #define XPMMAXCMTLEN BUFSIZ
@@ -305,7 +250,6 @@ FUNC(xpmSetInfo, void, (XpmInfo *info, XpmAttributes *attributes));
 FUNC(xpmSetAttributes, void, (XpmAttributes *attributes, XpmImage *image,
 			      XpmInfo *info));
 
-#if !defined(FOR_MSW) && !defined(AMIGA)
 FUNC(xpmCreatePixmapFromImage, int, (Display *display, Drawable d,
 				      XImage *ximage, Pixmap *pixmap_return));
 
@@ -376,11 +320,7 @@ FUNC(xpmReadRgbNames, int, (const char *rgb_fname, xpmRgbName *rgbn));
 FUNC(xpmGetRgbName, char *, (xpmRgbName *rgbn, int rgbn_max,
 			     int red, int green, int blue));
 FUNC(xpmFreeRgbNames, void, (xpmRgbName *rgbn, int rgbn_max));
-#ifdef FOR_MSW
-FUNC(xpmGetRGBfromName,int, (char *name, int *r, int *g, int *b));
-#endif
 
-#ifndef AMIGA
 FUNC(xpm_xynormalizeimagebits, void, (register unsigned char *bp,
 				      register XImage *img));
 FUNC(xpm_znormalizeimagebits, void, (register unsigned char *bp,
@@ -428,23 +368,6 @@ FUNC(xpm_znormalizeimagebits, void, (register unsigned char *bp,
 #define ZINDEX8(x, y, img) ((y) * img->bytes_per_line) + (x)
 
 #define ZINDEX1(x, y, img) ((y) * img->bytes_per_line) + ((x) >> 3)
-#endif /* not AMIGA */
-
-#ifdef NEED_STRDUP
-FUNC(xpmstrdup, char *, (char *s1));
-#else
-#undef xpmstrdup
-#define xpmstrdup strdup
-#include <string.h>
-#endif
-
-#ifdef NEED_STRCASECMP
-FUNC(xpmstrcasecmp, int, (char *s1, char *s2));
-#else
-#undef xpmstrcasecmp
-#define xpmstrcasecmp strcasecmp
-#include <strings.h>
-#endif
 
 FUNC(xpmatoui, unsigned int,
      (char *p, unsigned int l, unsigned int *ui_return));
