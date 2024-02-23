@@ -1544,8 +1544,7 @@ Optional Features:
                        Disable binary compatibility with OpenMotif 2.2
   --disable-utf8
                        Disable UTF-8 support
-  --disable-printing
-                       Disable printing support
+  --enable-printing       Enable Xp printing support (default=no)
   --enable-xft            Enable XFT support (font anti aliasing)
   --enable-jpeg           Enable JPEG support
   --enable-png            Enable PNG support
@@ -16079,7 +16078,7 @@ fi
 
 
 case "$host_os" in
-    freebsd*) CFLAGS="$CFLAGS -DCSRG_BASED -DXNO_MTSAFE_API -DXNO_MTSAFE_PWDAPI";
+    freebsd*) CFLAGS="$CFLAGS -DCSRG_BASED -DLIBICONV_PLUG";
         LDFLAGS="$LDFLAGS -L/usr/local/lib";;
     cygwin*) CFLAGS="$CFLAGS -DXNO_MTSAFE_DIRENTDAPI";;
     solaris* | sunos*) X_LIBS="$X_LIBS -L/usr/X/lib" &&
@@ -16250,14 +16249,12 @@ fi
 @%:@ Check whether --enable-printing was given.
 if test ${enable_printing+y}
 then :
-  enableval=$enable_printing; 
+  enableval=$enable_printing; enable_printing="yes"
+else $as_nop
+  enable_printing="no"
+
 fi
 
-
-if test x$enable_printing = x
-then
-    enable_printing="yes"
-fi
 
 if test "$enable_printing" = "yes"
 then

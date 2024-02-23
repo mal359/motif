@@ -131,9 +131,10 @@ AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-wmldbcreate_SOURCES = $(srcdir)/wmldbcreate.c
+wmldbcreate_SOURCES = wmldbcreate.c
 wmldbcreate_OBJECTS = wmldbcreate.$(OBJEXT)
-wmldbcreate_DEPENDENCIES = ../../lib/Xm/libXm.la
+am__DEPENDENCIES_1 =
+wmldbcreate_DEPENDENCIES = ../../lib/Xm/libXm.la $(am__DEPENDENCIES_1)
 am_wmluiltok_OBJECTS = wmluiltok.$(OBJEXT)
 wmluiltok_OBJECTS = $(am_wmluiltok_OBJECTS)
 wmluiltok_DEPENDENCIES =
@@ -194,10 +195,10 @@ AM_V_YACC = $(am__v_YACC_@AM_V@)
 am__v_YACC_ = $(am__v_YACC_@AM_DEFAULT_V@)
 am__v_YACC_0 = @echo "  YACC    " $@;
 am__v_YACC_1 = 
-SOURCES = $(libwml_a_SOURCES) $(wml_SOURCES) $(srcdir)/wmldbcreate.c \
+SOURCES = $(libwml_a_SOURCES) $(wml_SOURCES) wmldbcreate.c \
 	$(wmluiltok_SOURCES)
-DIST_SOURCES = $(libwml_a_SOURCES) $(wml_SOURCES) \
-	$(srcdir)/wmldbcreate.c $(wmluiltok_SOURCES)
+DIST_SOURCES = $(libwml_a_SOURCES) $(wml_SOURCES) wmldbcreate.c \
+	$(wmluiltok_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -441,8 +442,8 @@ wmluiltok_LDADD = @LEXLIB@
 wml_SOURCES = wml.c
 wml_LDADD = -L. -lwml
 wml_DEPENDENCIES = libwml.a
-wmldbcreate_LDADD = ../../lib/Xm/libXm.la -lXt
-AM_CPPFLAGS = -I../../lib -I$(srcdir)/../../lib -I$(srcdir)/../../include ${X_CFLAGS} 
+wmldbcreate_LDADD = ../../lib/Xm/libXm.la $(XTOOLLIB)
+AM_CPPFLAGS = -I../../lib -I../../include ${X_CFLAGS} 
 noinst_LIBRARIES = libwml.a
 libwml_a_SOURCES = wmlparse.y wml.c wmloutkey.c wmlouth.c wmloutmm.c wmloutp1.c wmlresolve.c wmlsynbld.c wmlutils.c
 all: all-am
@@ -836,7 +837,7 @@ wmllex.c: wmllex.l
 
 wmlsynbld.c: wmlparse.h
 
-$(srcdir)/wmldbcreate.c: $(WMLTARGETS) UilLexPars.h
+wmldbcreate.c: $(WMLTARGETS) UilLexPars.h
 
 UilLexPars.h: UilLexPars.c
 
@@ -848,9 +849,9 @@ $(WMLTARGETS): wml-uil.mm
 
 wml-uil.mm: wmluiltok wml UilLexPars.c $(TABLE)
 	$(RM) $(WMLTARGETS) wml.report wml-uil.mm
-	./wmluiltok <$(srcdir)/Uil.y >tokens.dat
+	./wmluiltok <$(abs_srcdir)/Uil.y >tokens.dat
 	$(RM) wml-uil.mm
-	./wml $(srcdir)/$(TABLE)
+	./wml $(abs_srcdir)/$(TABLE)
 	$(RM) tokens.dat
 
 all: motif.wmd

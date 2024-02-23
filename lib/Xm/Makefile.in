@@ -142,7 +142,7 @@ am__DEPENDENCIES_1 =
 libXm_la_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1)
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
 am__libXm_la_SOURCES_DIST = XmStrDefs.c ArrowB.c ArrowBG.c BulletinB.c \
 	CallbackI.c CascadeB.c CascadeBG.c Command.c CutPaste.c Dest.c \
 	DialogS.c DialogSE.c DragBS.c DragC.c DragOverS.c DragICC.c \
@@ -650,7 +650,7 @@ SLIDE_SRCS = SlideC.c
 @OM_LIBPNG_TRUE@PNG_HDRS = PngI.h
 @PRINTING_FALSE@PRINTS_SRC = 
 @PRINTING_TRUE@PRINTS_SRC = PrintS.c
-libXm_la_LIBADD = ${X_LIBS} ${X_XMU} -lXt -lXext ${LIB_XP} -lX11 ${X_EXTRA_LIBS} ${JPEG_LIBS} ${PNG_LIBS} ${FONTCONFIG_LIBS}
+libXm_la_LIBADD = ${X_LIBS} ${X_XMU} -lXt -lXext ${LIB_XP} -lX11 ${X_EXTRA_LIBS} ${JPEG_LIBS} ${PNG_LIBS} ${FONTCONFIG_LIBS} $(LTLIBICONV)
 noinst_HEADERS = BaseClassI.h \
 BitmapsI.h \
 BulletinBI.h \
