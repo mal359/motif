@@ -1,0 +1,11 @@
+--- programs/filemanager/actions.c
++++ programs/filemanager/actions.c
+@@ -91,7 +91,7 @@
+   XtVaSetValues(fileviewer,
+ 		XmNlayoutType, spatial,
+ 		XmNentryViewType, size,
+-		0, 0);
++		NULL);
+ 
+   fixViewerSize(XtParent(fileviewer), NULL, NULL);
+ 

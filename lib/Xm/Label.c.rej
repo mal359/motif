@@ -1,0 +1,11 @@
+--- Xm/Label.c
++++ Xm/Label.c
+@@ -2595,7 +2595,7 @@
+ {
+   XmString value;
+   
+-  XtVaGetValues(w, XmNlabelString, &value, 0);
++  XtVaGetValues(w, XmNlabelString, &value, NULL);
+   
+   if (type == XmFORMAT_XmSTRING) 
+     {

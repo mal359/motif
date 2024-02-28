@@ -1,0 +1,29 @@
+--- mwm/WmFunction.c
++++ mwm/WmFunction.c
+@@ -1124,12 +1124,12 @@
+ 		directory, then we must call execlp and not execl
+ 		*/
+ 		shellname = shell;
+-		execlp (shell, shellname, "-c", args, 0);
++		execlp (shell, shellname, "-c", args, (char *) 0);
+ 	    }
+ 	    else
+ 	    {
+ 		shellname++;
+-		execl (shell, shellname, "-c", args, 0);
++		execl (shell, shellname, "-c", args, (char *) 0);
+ 	    }
+ 	}
+ 
+@@ -1138,9 +1138,9 @@
+ 	 * Try /bin/sh .
+ 	 */
+ #ifdef SVR4
+-        execl ("/usr/bin/sh", "sh", "-c", args, 0);
++        execl ("/usr/bin/sh", "sh", "-c", args, (char *) 0);
+ #else
+-        execl ("/bin/sh", "sh", "-c", args, 0);
++        execl ("/bin/sh", "sh", "-c", args, (char *) 0);
+ #endif
+ 
+ 
