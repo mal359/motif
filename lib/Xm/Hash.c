@@ -187,6 +187,8 @@ _XmResizeHashTable(XmHashTable table, Cardinal new_size)
 	} else {
 	  table -> buckets[index] = current;
 	}
+      } else {
+	last = current;
       }
 #ifdef FIX_1264
       else last = current;

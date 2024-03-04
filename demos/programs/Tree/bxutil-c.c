@@ -3393,6 +3393,7 @@ GRA(xpmData *, mdata)
             while ((c = xpmGetC(mdata)) != mdata->Bos && c != EOF);
         break;
     }
+    abort();
 }
 
 /*
@@ -3553,6 +3554,7 @@ GRA(Visual *, visual)
     default:
 	return (COLOR);
     }
+    abort();
 }
 
 /*

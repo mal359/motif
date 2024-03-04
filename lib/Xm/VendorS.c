@@ -532,6 +532,24 @@ VendorShellClassRec vendorShellClassRec = {
 externaldef(vendorshellwidgetclass) WidgetClass 
   vendorShellWidgetClass = (WidgetClass) (&vendorShellClassRec);
 
+#ifdef __CYGWIN__
+int __stdcall
+DllMain(unsigned long mod_handle, unsigned long flag, void *routine)
+{
+    switch (flag)
+    {
+        case 1: /* DLL_PROCESS_ATTACH - process attach */
+            transientShellWidgetClass->core_class.superclass =
+                (WidgetClass)&vendorShellClassRec;
+            topLevelShellWidgetClass->core_class.superclass =
+                (WidgetClass)&vendorShellClassRec;
+            break;
+        case 0: /* DLL_PROCESS_DETACH - process detach */
+            break;
+    }
+    return 1;
+}
+#endif
 
 
 

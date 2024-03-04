@@ -44,9 +44,11 @@ int bcmp();
 #if (__STDC__ && !defined(X_NOT_STDC_ENV) && !defined(sun) && !defined(macII) && !defined(apollo)) || defined(SVR4) || defined(hpux) || defined(_IBMR2) || defined(_SEQUENT_)
 #include <string.h>
 #define _XFUNCS_H_INCLUDED_STRING_H
+#ifndef __CYGWIN__
 #define bcopy(b1,b2,len) memmove(b2, b1, (size_t)(len))
 #define bzero(b,len) memset(b, 0, (size_t)(len))
 #define bcmp(b1,b2,len) memcmp(b1, b2, (size_t)(len))
+#endif
 #else
 #ifdef sgi
 #include <bstring.h>
@@ -72,8 +74,10 @@ int bcmp();
 #ifndef _XFUNCS_H_INCLUDED_STRING_H
 #include <string.h>
 #endif
+#ifndef __CYGWIN__
 #undef bzero
 #define bzero(b,len) memset(b,0,len)
+#endif
 #else /* else X_NOT_STDC_ENV or SunOS 4 */
 #if defined(SYSV) || defined(luna) || defined(sun) || defined(__sxg__)
 #include <memory.h>

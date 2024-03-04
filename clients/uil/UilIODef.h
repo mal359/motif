@@ -55,7 +55,7 @@ typedef struct
     char	*c_buffer;
     boolean	v_position_before_get;
     z_key	last_key;
-    char	expanded_name[ 256 ];
+    char	*expanded_name;
 } uil_fcb_type;
 
 #endif /* UilIODef_h */

@@ -86,10 +86,10 @@ static char rcsid[] = "$TOG: TextF.c /main/65 1999/09/01 17:28:48 mgreess $"
 /*
  * Modification by Integrated Computer Solutions, Inc.  May 2000
  *
- * FreeBSD (pre-4.0), DARWIN, NetBSD before 1.6, and OpenBSD do not include the necessary
- * wide character string functions.  Use the internal _Xwc... routines and add
- * the other missing functions as _Xmwc... routines.  The new functions are
- * added static to this file.
+ * FreeBSD (pre-4.0), DARWIN before 20.0, OpenBSD before 3.8, and NetBSD 
+ * before 1.6 do not include the necessary wide character string functions.  
+ * Use the internal _Xwc... routines and add the other missing functions as 
+ * _Xmwc... routines.  The new functions are added static to this file.
  */
 #define wcslen(c) _Xwcslen(c)
 #define wcscpy(d,s) _Xwcscpy(d,s)
@@ -3921,7 +3921,7 @@ InsertChar(Widget w,
 					    nextPos, insert_string,
 					    insert_length, True);
     } else {
-      char stack_cache[100];
+      wchar_t stack_cache[100];
       insert_string[insert_length] = '\0'; /* NULL terminate for mbstowcs */
       wc_insert_string = (wchar_t*)XmStackAlloc((Cardinal)(insert_length+1) *
 						sizeof(wchar_t), stack_cache);
@@ -6973,7 +6973,7 @@ ValidateString(XmTextFieldWidget tf,
   
   int str_len = 0;
   int i, j;
-  char stack_cache[400];
+  wchar_t stack_cache[400];
   
   if (!is_wchar) {
     char *temp_str, *curr_str, *start_temp;

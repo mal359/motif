@@ -1809,7 +1809,7 @@ Widget w;
 }
 
 
-#if 0
+#if 1
 /************************************************************
  *
  * All of the following routines are public.
@@ -1826,7 +1826,7 @@ Widget w;
 void
 _XEditResPutString8(stream, str)
 ProtocolStream * stream;
-char * str;
+_Xconst char * str;
 {
     int i, len = strlen(str);
 
@@ -1960,7 +1960,7 @@ ProtocolStream * stream;
  *	Returns: TRUE if sucessful.
  */
 
-Boolean
+Bool
 _XEditResGet8(stream, val)
 ProtocolStream * stream;
 unsigned char * val;
@@ -1980,7 +1980,7 @@ unsigned char * val;
  *	Returns: TRUE if sucessful.
  */
 
-Boolean
+Bool
 _XEditResGet16(stream, val)
 ProtocolStream * stream;
 unsigned short * val;
@@ -2001,7 +2001,7 @@ unsigned short * val;
  *	Returns: TRUE if sucessful.
  */
 
-Boolean
+Bool
 _XEditResGetSigned16(stream, val)
 ProtocolStream * stream;
 short * val;
@@ -2030,7 +2030,7 @@ short * val;
  *	Returns: TRUE if sucessful.
  */
 
-Boolean
+Bool
 _XEditResGet32(stream, val)
 ProtocolStream * stream;
 unsigned long * val;
@@ -2052,7 +2052,7 @@ unsigned long * val;
  *	Returns: True if retrieval was successful.
  */
 
-Boolean
+Bool
 _XEditResGetString8(stream, str)
 ProtocolStream * stream;
 char ** str;
@@ -2085,7 +2085,7 @@ char ** str;
  *	Returns: True if retrieval was successful.
  */
 
-Boolean
+Bool
 _XEditResGetWidgetInfo(stream, info)
 ProtocolStream * stream;
 WidgetInfo * info;

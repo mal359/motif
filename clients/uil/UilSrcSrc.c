@@ -252,6 +252,7 @@ Uil_src_cleanup_source(void)
 				   diag_k_no_source, diag_k_no_column,
 				   src_az_source_file_table[i]->expanded_name);
 	    }
+	_free_memory (src_az_source_file_table[i]->expanded_name);
 	_free_memory ((char*)src_az_source_file_table [i]);
 	src_az_source_file_table[i] = NULL;
 	}
@@ -607,13 +608,13 @@ open_source_file( XmConst char           *c_file_name,
     static unsigned short	main_dir_len = 0;
     boolean			main_file;
     int				i;  /* loop index through include files */
-    char			buffer[256];
+    char			*buffer;
 
 
     /* place the file name in the expanded_name buffer */
 
-    strncpy(buffer, c_file_name, sizeof(buffer));
-    buffer[sizeof(buffer)-1] = '\0';
+    buffer = _get_memory (strlen (c_file_name) + 1);
+    strcpy (buffer, c_file_name);
 
 /*    Determine if this is the main file or an include file.  */
 
@@ -655,11 +656,10 @@ open_source_file( XmConst char           *c_file_name,
 	    }
 
 	if (!specific_directory) {
+	    buffer = XtRealloc (buffer, main_dir_len + strlen (c_file_name) + 1);
 	    _move (buffer, main_fcb -> expanded_name, main_dir_len);
 	    _move (& buffer [main_dir_len],
 		   c_file_name, strlen (c_file_name) + 1);  /* + NULL */
-	} else {
-	    strcpy (buffer, c_file_name);
 	}
 
 /*    Open the include file.    */
@@ -682,6 +682,7 @@ open_source_file( XmConst char           *c_file_name,
 	    if (inc_dir_len == 0) {
 		search_user_include = False;
 		}
+	    buffer = XtRealloc (buffer, inc_dir_len + strlen (c_file_name) + 1);
 	    _move (buffer, Uil_cmd_z_command.ac_include_dir[i], inc_dir_len);
 
 	/*  Add '/' if not specified at end of directory  */
@@ -705,6 +706,7 @@ open_source_file( XmConst char           *c_file_name,
 
 /*    Look in the default include directory.    */
 	if (search_user_include) {
+	  buffer = XtRealloc (buffer, sizeof c_include_dir - 1 + strlen (c_file_name) + 1);
 	  _move(buffer, c_include_dir, sizeof c_include_dir - 1); /* no NULL */
 	  _move(&buffer[sizeof c_include_dir - 1], 
 		c_file_name, strlen (c_file_name) + 1);  /* + NULL */
@@ -718,14 +720,16 @@ open_label:
 
     /* check the open status. */
 
-    if (az_fcb->az_file_ptr == NULL)
+    if (az_fcb->az_file_ptr == NULL) {
+        _free_memory (buffer);
 	return src_k_open_error;
+    }
 
     /* open succeeded - place buffer address in fcb */
 
     az_fcb->c_buffer = az_source_buffer->c_text;
     az_fcb->c_buffer[ src_k_max_source_line_length ] = 0;
-    strcpy(az_fcb->expanded_name, buffer);
+    az_fcb->expanded_name = buffer;
 
     return src_k_open_normal;
 }

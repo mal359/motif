@@ -3468,6 +3468,8 @@ GRA(xpmData *, mdata)
             c = xpmGetC(mdata);
         }
         return (c);
+    default:
+	abort();
     }
   return 0;
 }
@@ -3490,6 +3492,8 @@ GRA(xpmData *, mdata)
             /* if not natural XPM2 */
             mdata->InsideString = !mdata->InsideString;
         return (ungetc(c, mdata->stream.file));
+    default:
+	abort();
     }
   return 0;
 }

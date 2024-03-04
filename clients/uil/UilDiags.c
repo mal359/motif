@@ -188,9 +188,9 @@ void	diag_issue_diagnostic
     va_list	ap;			/* ptr to variable length parameter */
     int		severity;		/* severity of message */
     int		message_number;		/* message number */
-    char	msg_buffer[132];	/* buffer to construct message */
+    char	*msg_buffer = 0;	/* buffer to construct message */
     char	ptr_buffer[buf_size];	/* buffer to construct pointer */
-    char	loc_buffer[132];	/* buffer to construct location */
+    char	*loc_buffer = 0;	/* buffer to construct location */
     char	src_buffer[buf_size];	/* buffer to hold source line */
 
     /*
@@ -274,19 +274,18 @@ void	diag_issue_diagnostic
     va_start(ap, l_start_column);
 
 #ifndef NO_MESSAGE_CATALOG
-    vsnprintf( msg_buffer, sizeof(msg_buffer),
+    vasprintf(&msg_buffer,
 	      catgets(uil_catd, UIL_SET1, msg_cat_table[ message_number ],
 		      diag_rz_msg_table[ message_number ].ac_text), 
 	     ap );
 #else
-    vsnprintf( msg_buffer, sizeof(msg_buffer),
+    vasprintf(&msg_buffer,
 	      diag_rz_msg_table[ message_number ].ac_text, 
 	      ap );
 #endif
     va_end(ap);
 
     src_buffer[ 0 ] = 0;
-    loc_buffer[ 0 ] = 0;
     ptr_buffer[ 0 ] = 0;
 
     if (az_src_rec != diag_k_no_source) 
@@ -388,7 +387,8 @@ void	diag_issue_diagnostic
     */
 
     write_msg_to_standard_error
-	( message_number, src_buffer, ptr_buffer, msg_buffer, loc_buffer );
+	( message_number, src_buffer, ptr_buffer, msg_buffer,
+	  loc_buffer ? loc_buffer : "");
 
     /* 
     **	if we have a listing, place message in the source structure
@@ -410,6 +410,8 @@ void	diag_issue_diagnostic
 	uil_exit( uil_k_severe_status );
     }
 
+    free (loc_buffer);
+    free (msg_buffer);
 }
 
 /*

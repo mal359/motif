@@ -50,6 +50,7 @@ static char rcsid[] = "$XConsortium: wmlresolve.c /main/9 1995/08/29 11:11:05 dr
 
 #if defined(__STDC__)
 #include <stdlib.h>
+#include <string.h>
 #endif
 #include <stdio.h>
 #include <string.h>
