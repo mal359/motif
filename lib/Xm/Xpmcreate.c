@@ -1,3 +1,4 @@
+/* $XConsortium: Xpmcreate.c /main/8 1996/09/20 08:15:02 pascale $ */
 /*
  * Copyright (C) 1989-95 GROUPE BULL
  *
@@ -877,6 +878,11 @@ CreateXImage(
 	return (XpmNoMemory);
 
     if (height != 0 && (*image_return)->bytes_per_line >= INT_MAX / height) {
+	XDestroyImage(*image_return);
+	*image_return = NULL;
+	return XpmNoMemory;
+    }
+    if (width != 0 && (*image_return)->bits_per_pixel >= INT_MAX / width) {
 	XDestroyImage(*image_return);
 	*image_return = NULL;
 	return XpmNoMemory;

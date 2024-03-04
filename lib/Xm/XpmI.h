@@ -257,7 +257,6 @@ FUNC(xpmCreateImageFromPixmap, void, (Display *display, Pixmap pixmap,
 				      XImage **ximage_return,
 				      unsigned int *width,
 				      unsigned int *height));
-#endif
 
 /* structures and functions related to hastable code */
 

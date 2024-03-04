@@ -42,9 +42,7 @@
 #ifndef WIN32
 #include <unistd.h>
 #endif
-#ifndef VAX11C
 #include <fcntl.h>
-#endif
 #ifdef WIN32
 #include <io.h>
 #define stat _stat
@@ -67,7 +65,7 @@ XpmReadFileToBuffer(
     *buffer_return = NULL;
 
     fd = open(filename, O_RDONLY | O_CLOEXEC);
-        if (fd < 0)
+    if (fd < 0)
 	return XpmOpenFailed;
 
     if (fstat(fd, &stats)) {
