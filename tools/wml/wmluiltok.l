@@ -1,5 +1,3 @@
-%option main
-
 %{
 /*
  * Motif
@@ -54,6 +52,8 @@
 %}
 
 %a 9999						/* transitions */
+
+%option main
 
 %{
 
