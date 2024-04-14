@@ -375,5 +375,6 @@ FUNC(xpmatoui, unsigned int,
 
 #ifdef __cplusplus
 }  /* Close scope of 'extern "C"' declaration which encloses file. */
+#endif
 
 #endif /* _XpmI_h */
