@@ -515,3 +515,5 @@ _XFUNCPROTOEND
 
 #endif /* XPM_NUMBERS */
 #endif
+
+#endif /* _XpmP_h */
