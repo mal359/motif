@@ -18,6 +18,8 @@ extern "C" {
 /* TOG: xmstring.list /main/5 1997/06/20 08:37:02 samborn */
 
 #ifdef XMSTRINGDEFINES
+#define XmCAllowUnusedSpace "AllowUnusedSpace"
+#define XmNallowUnusedSpace "allowUnusedSpace"
 #define XmNitemFoundCallback "itemFoundCallback"
 #define XmNitemNotFoundCallback "itemNotFoundCallback"
 #define XmRXmTabSide "XmTabSide"
@@ -311,878 +313,884 @@ extern "C" {
 #define XmCVerify "Verify"
 #else
 externalref _XmConst char _XmStrings22[];
+#ifndef XmCAllowUnusedSpace
+#define XmCAllowUnusedSpace ((char*)&_XmStrings22[0])
+#endif
+#ifndef XmNallowUnusedSpace
+#define XmNallowUnusedSpace ((char*)&_XmStrings22[17])
+#endif
 #ifndef XmNitemFoundCallback
-#define XmNitemFoundCallback ((char*)&_XmStrings22[0])
+#define XmNitemFoundCallback ((char*)&_XmStrings22[34])
 #endif
 #ifndef XmNitemNotFoundCallback
-#define XmNitemNotFoundCallback ((char*)&_XmStrings22[18])
+#define XmNitemNotFoundCallback ((char*)&_XmStrings22[52])
 #endif
 #ifndef XmRXmTabSide
-#define XmRXmTabSide ((char*)&_XmStrings22[39])
+#define XmRXmTabSide ((char*)&_XmStrings22[73])
 #endif
 #ifndef XmRTabSide
-#define XmRTabSide ((char*)&_XmStrings22[49])
+#define XmRTabSide ((char*)&_XmStrings22[83])
 #endif
 #ifndef XmRXmPixmapPlacement
-#define XmRXmPixmapPlacement ((char*)&_XmStrings22[57])
+#define XmRXmPixmapPlacement ((char*)&_XmStrings22[91])
 #endif
 #ifndef XmRXmPixmap
-#define XmRXmPixmap ((char*)&_XmStrings22[75])
+#define XmRXmPixmap ((char*)&_XmStrings22[109])
 #endif
 #ifndef XmRXmPixel
-#define XmRXmPixel ((char*)&_XmStrings22[84])
+#define XmRXmPixel ((char*)&_XmStrings22[118])
 #endif
 #ifndef XmRXmIconPlacement
-#define XmRXmIconPlacement ((char*)&_XmStrings22[92])
+#define XmRXmIconPlacement ((char*)&_XmStrings22[126])
 #endif
 #ifndef XmRXmHierarchyNodeState
-#define XmRXmHierarchyNodeState ((char*)&_XmStrings22[108])
+#define XmRXmHierarchyNodeState ((char*)&_XmStrings22[142])
 #endif
 #ifndef XmRXmFillOption
-#define XmRXmFillOption ((char*)&_XmStrings22[129])
+#define XmRXmFillOption ((char*)&_XmStrings22[163])
 #endif
 #ifndef XmRXmConnectStyle
-#define XmRXmConnectStyle ((char*)&_XmStrings22[142])
+#define XmRXmConnectStyle ((char*)&_XmStrings22[176])
 #endif
 #ifndef XmRXmColorMode
-#define XmRXmColorMode ((char*)&_XmStrings22[157])
+#define XmRXmColorMode ((char*)&_XmStrings22[191])
 #endif
 #ifndef XmRXmAlignment
-#define XmRXmAlignment ((char*)&_XmStrings22[169])
+#define XmRXmAlignment ((char*)&_XmStrings22[203])
 #endif
 #ifndef XmRTabStyle
-#define XmRTabStyle ((char*)&_XmStrings22[181])
+#define XmRTabStyle ((char*)&_XmStrings22[215])
 #endif
 #ifndef XmRTabOrientation
-#define XmRTabOrientation ((char*)&_XmStrings22[190])
+#define XmRTabOrientation ((char*)&_XmStrings22[224])
 #endif
 #ifndef XmRTabMode
-#define XmRTabMode ((char*)&_XmStrings22[205])
+#define XmRTabMode ((char*)&_XmStrings22[239])
 #endif
 #ifndef XmRTabList
-#define XmRTabList ((char*)&_XmStrings22[213])
+#define XmRTabList ((char*)&_XmStrings22[247])
 #endif
 #ifndef XmRTabEdge
-#define XmRTabEdge ((char*)&_XmStrings22[221])
+#define XmRTabEdge ((char*)&_XmStrings22[255])
 #endif
 #ifndef XmRTabArrowPlacement
-#define XmRTabArrowPlacement ((char*)&_XmStrings22[229])
+#define XmRTabArrowPlacement ((char*)&_XmStrings22[263])
 #endif
 #ifndef XmNxlfdString
-#define XmNxlfdString ((char*)&_XmStrings22[247])
+#define XmNxlfdString ((char*)&_XmStrings22[281])
 #endif
 #ifndef XmNverticalNodeSpace
-#define XmNverticalNodeSpace ((char*)&_XmStrings22[258])
+#define XmNverticalNodeSpace ((char*)&_XmStrings22[292])
 #endif
 #ifndef XmNverticalMargin
-#define XmNverticalMargin ((char*)&_XmStrings22[276])
+#define XmNverticalMargin ((char*)&_XmStrings22[310])
 #endif
 #ifndef XmNverifyTextFailedCallback
-#define XmNverifyTextFailedCallback ((char*)&_XmStrings22[291])
+#define XmNverifyTextFailedCallback ((char*)&_XmStrings22[325])
 #endif
 #ifndef XmNverifyTextCallback
-#define XmNverifyTextCallback ((char*)&_XmStrings22[316])
+#define XmNverifyTextCallback ((char*)&_XmStrings22[350])
 #endif
 #ifndef XmNverify
-#define XmNverify ((char*)&_XmStrings22[335])
+#define XmNverify ((char*)&_XmStrings22[369])
 #endif
 #ifndef XmNvalues
-#define XmNvalues ((char*)&_XmStrings22[342])
+#define XmNvalues ((char*)&_XmStrings22[376])
 #endif
 #ifndef XmNuseTextField
-#define XmNuseTextField ((char*)&_XmStrings22[349])
+#define XmNuseTextField ((char*)&_XmStrings22[383])
 #endif
 #ifndef XmNuseScaling
-#define XmNuseScaling ((char*)&_XmStrings22[362])
+#define XmNuseScaling ((char*)&_XmStrings22[396])
 #endif
 #ifndef XmNuseImageCache
-#define XmNuseImageCache ((char*)&_XmStrings22[373])
+#define XmNuseImageCache ((char*)&_XmStrings22[407])
 #endif
 #ifndef XmNupdateTextCallback
-#define XmNupdateTextCallback ((char*)&_XmStrings22[387])
+#define XmNupdateTextCallback ((char*)&_XmStrings22[421])
 #endif
 #ifndef XmNupdateShellCallback
-#define XmNupdateShellCallback ((char*)&_XmStrings22[406])
+#define XmNupdateShellCallback ((char*)&_XmStrings22[440])
 #endif
 #ifndef XmNunselectCallback
-#define XmNunselectCallback ((char*)&_XmStrings22[426])
+#define XmNunselectCallback ((char*)&_XmStrings22[460])
 #endif
 #ifndef XmNuniformTabSize
-#define XmNuniformTabSize ((char*)&_XmStrings22[443])
+#define XmNuniformTabSize ((char*)&_XmStrings22[477])
 #endif
 #ifndef XmNtraversalIndex
-#define XmNtraversalIndex ((char*)&_XmStrings22[458])
+#define XmNtraversalIndex ((char*)&_XmStrings22[492])
 #endif
 #ifndef XmNtitleString
-#define XmNtitleString ((char*)&_XmStrings22[473])
+#define XmNtitleString ((char*)&_XmStrings22[507])
 #endif
 #ifndef XmNtextString
-#define XmNtextString ((char*)&_XmStrings22[485])
+#define XmNtextString ((char*)&_XmStrings22[519])
 #endif
 #ifndef XmNtextRows
-#define XmNtextRows ((char*)&_XmStrings22[496])
+#define XmNtextRows ((char*)&_XmStrings22[530])
 #endif
 #ifndef XmNtearOffLabelString
-#define XmNtearOffLabelString ((char*)&_XmStrings22[505])
+#define XmNtearOffLabelString ((char*)&_XmStrings22[539])
 #endif
 #ifndef XmNtabTearOffEnabled
-#define XmNtabTearOffEnabled ((char*)&_XmStrings22[524])
+#define XmNtabTearOffEnabled ((char*)&_XmStrings22[558])
 #endif
 #ifndef XmNtabStyle
-#define XmNtabStyle ((char*)&_XmStrings22[542])
+#define XmNtabStyle ((char*)&_XmStrings22[576])
 #endif
 #ifndef XmNtabStringDirection
-#define XmNtabStringDirection ((char*)&_XmStrings22[551])
+#define XmNtabStringDirection ((char*)&_XmStrings22[585])
 #endif
 #ifndef XmNtabSide
-#define XmNtabSide ((char*)&_XmStrings22[570])
+#define XmNtabSide ((char*)&_XmStrings22[604])
 #endif
 #ifndef XmNtabSelectedCallback
-#define XmNtabSelectedCallback ((char*)&_XmStrings22[578])
+#define XmNtabSelectedCallback ((char*)&_XmStrings22[612])
 #endif
 #ifndef XmNtabSelectPixmap
-#define XmNtabSelectPixmap ((char*)&_XmStrings22[598])
+#define XmNtabSelectPixmap ((char*)&_XmStrings22[632])
 #endif
 #ifndef XmNtabSelectColor
-#define XmNtabSelectColor ((char*)&_XmStrings22[614])
+#define XmNtabSelectColor ((char*)&_XmStrings22[648])
 #endif
 #ifndef XmNtabPixmapPlacement
-#define XmNtabPixmapPlacement ((char*)&_XmStrings22[629])
+#define XmNtabPixmapPlacement ((char*)&_XmStrings22[663])
 #endif
 #ifndef XmNtabOrientation
-#define XmNtabOrientation ((char*)&_XmStrings22[648])
+#define XmNtabOrientation ((char*)&_XmStrings22[682])
 #endif
 #ifndef XmNtabOffset
-#define XmNtabOffset ((char*)&_XmStrings22[663])
+#define XmNtabOffset ((char*)&_XmStrings22[697])
 #endif
 #ifndef XmNtabMode
-#define XmNtabMode ((char*)&_XmStrings22[673])
+#define XmNtabMode ((char*)&_XmStrings22[707])
 #endif
 #ifndef XmNtabMarginWidth
-#define XmNtabMarginWidth ((char*)&_XmStrings22[681])
+#define XmNtabMarginWidth ((char*)&_XmStrings22[715])
 #endif
 #ifndef XmNtabMarginHeight
-#define XmNtabMarginHeight ((char*)&_XmStrings22[696])
+#define XmNtabMarginHeight ((char*)&_XmStrings22[730])
 #endif
 #ifndef XmNtabList
-#define XmNtabList ((char*)&_XmStrings22[712])
+#define XmNtabList ((char*)&_XmStrings22[746])
 #endif
 #ifndef XmNtabLabelString
-#define XmNtabLabelString ((char*)&_XmStrings22[720])
+#define XmNtabLabelString ((char*)&_XmStrings22[754])
 #endif
 #ifndef XmNtabLabelSpacing
-#define XmNtabLabelSpacing ((char*)&_XmStrings22[735])
+#define XmNtabLabelSpacing ((char*)&_XmStrings22[769])
 #endif
 #ifndef XmNtabLabelPixmap
-#define XmNtabLabelPixmap ((char*)&_XmStrings22[751])
+#define XmNtabLabelPixmap ((char*)&_XmStrings22[785])
 #endif
 #ifndef XmNtabForeground
-#define XmNtabForeground ((char*)&_XmStrings22[766])
+#define XmNtabForeground ((char*)&_XmStrings22[800])
 #endif
 #ifndef XmNtabEdge
-#define XmNtabEdge ((char*)&_XmStrings22[780])
+#define XmNtabEdge ((char*)&_XmStrings22[814])
 #endif
 #ifndef XmNtabCornerPercent
-#define XmNtabCornerPercent ((char*)&_XmStrings22[788])
+#define XmNtabCornerPercent ((char*)&_XmStrings22[822])
 #endif
 #ifndef XmNtabBoxWidget
-#define XmNtabBoxWidget ((char*)&_XmStrings22[805])
+#define XmNtabBoxWidget ((char*)&_XmStrings22[839])
 #endif
 #ifndef XmNtabBackgroundPixmap
-#define XmNtabBackgroundPixmap ((char*)&_XmStrings22[818])
+#define XmNtabBackgroundPixmap ((char*)&_XmStrings22[852])
 #endif
 #ifndef XmNtabBackground
-#define XmNtabBackground ((char*)&_XmStrings22[838])
+#define XmNtabBackground ((char*)&_XmStrings22[872])
 #endif
 #ifndef XmNtabAutoSelect
-#define XmNtabAutoSelect ((char*)&_XmStrings22[852])
+#define XmNtabAutoSelect ((char*)&_XmStrings22[886])
 #endif
 #ifndef XmNtabArrowPlacement
-#define XmNtabArrowPlacement ((char*)&_XmStrings22[866])
+#define XmNtabArrowPlacement ((char*)&_XmStrings22[900])
 #endif
 #ifndef XmNtabAlignment
-#define XmNtabAlignment ((char*)&_XmStrings22[884])
+#define XmNtabAlignment ((char*)&_XmStrings22[918])
 #endif
 #ifndef XmNstackedEffect
-#define XmNstackedEffect ((char*)&_XmStrings22[897])
+#define XmNstackedEffect ((char*)&_XmStrings22[931])
 #endif
 #ifndef XmNsortFunctions
-#define XmNsortFunctions ((char*)&_XmStrings22[911])
+#define XmNsortFunctions ((char*)&_XmStrings22[945])
 #endif
 #ifndef XmNsliderTogLabel
-#define XmNsliderTogLabel ((char*)&_XmStrings22[925])
+#define XmNsliderTogLabel ((char*)&_XmStrings22[959])
 #endif
 #ifndef XmNsizeString
-#define XmNsizeString ((char*)&_XmStrings22[940])
+#define XmNsizeString ((char*)&_XmStrings22[974])
 #endif
 #ifndef XmNshowValue
-#define XmNshowValue ((char*)&_XmStrings22[951])
+#define XmNshowValue ((char*)&_XmStrings22[985])
 #endif
 #ifndef XmNshowSash
-#define XmNshowSash ((char*)&_XmStrings22[961])
+#define XmNshowSash ((char*)&_XmStrings22[995])
 #endif
 #ifndef XmNshowNameString
-#define XmNshowNameString ((char*)&_XmStrings22[970])
+#define XmNshowNameString ((char*)&_XmStrings22[1004])
 #endif
 #ifndef XmNshowLabel
-#define XmNshowLabel ((char*)&_XmStrings22[985])
+#define XmNshowLabel ((char*)&_XmStrings22[1019])
 #endif
 #ifndef XmNshowFontName
-#define XmNshowFontName ((char*)&_XmStrings22[995])
+#define XmNshowFontName ((char*)&_XmStrings22[1029])
 #endif
 #ifndef XmNshowFind
-#define XmNshowFind ((char*)&_XmStrings22[1008])
+#define XmNshowFind ((char*)&_XmStrings22[1042])
 #endif
 #ifndef XmNselectedIndex
-#define XmNselectedIndex ((char*)&_XmStrings22[1017])
+#define XmNselectedIndex ((char*)&_XmStrings22[1051])
 #endif
 #ifndef XmNselectedColumn
-#define XmNselectedColumn ((char*)&_XmStrings22[1031])
+#define XmNselectedColumn ((char*)&_XmStrings22[1065])
 #endif
 #ifndef XmNselectCallback
-#define XmNselectCallback ((char*)&_XmStrings22[1046])
+#define XmNselectCallback ((char*)&_XmStrings22[1080])
 #endif
 #ifndef XmNscalingString
-#define XmNscalingString ((char*)&_XmStrings22[1061])
+#define XmNscalingString ((char*)&_XmStrings22[1095])
 #endif
 #ifndef XmNsashTranslations
-#define XmNsashTranslations ((char*)&_XmStrings22[1075])
+#define XmNsashTranslations ((char*)&_XmStrings22[1109])
 #endif
 #ifndef XmNsampleText
-#define XmNsampleText ((char*)&_XmStrings22[1092])
+#define XmNsampleText ((char*)&_XmStrings22[1126])
 #endif
 #ifndef XmNrgbFile
-#define XmNrgbFile ((char*)&_XmStrings22[1103])
+#define XmNrgbFile ((char*)&_XmStrings22[1137])
 #endif
 #ifndef XmNresizeToPreferred
-#define XmNresizeToPreferred ((char*)&_XmStrings22[1111])
+#define XmNresizeToPreferred ((char*)&_XmStrings22[1145])
 #endif
 #ifndef XmNresizeCallback
-#define XmNresizeCallback ((char*)&_XmStrings22[1129])
+#define XmNresizeCallback ((char*)&_XmStrings22[1163])
 #endif
 #ifndef XmNredSliderLabel
-#define XmNredSliderLabel ((char*)&_XmStrings22[1144])
+#define XmNredSliderLabel ((char*)&_XmStrings22[1178])
 #endif
 #ifndef XmNpropSpaceString
-#define XmNpropSpaceString ((char*)&_XmStrings22[1159])
+#define XmNpropSpaceString ((char*)&_XmStrings22[1193])
 #endif
 #ifndef XmNpreferredPaneSize
-#define XmNpreferredPaneSize ((char*)&_XmStrings22[1175])
+#define XmNpreferredPaneSize ((char*)&_XmStrings22[1209])
 #endif
 #ifndef XmNposition
-#define XmNposition ((char*)&_XmStrings22[1193])
+#define XmNposition ((char*)&_XmStrings22[1227])
 #endif
 #ifndef XmNpopupShellWidget
-#define XmNpopupShellWidget ((char*)&_XmStrings22[1202])
+#define XmNpopupShellWidget ((char*)&_XmStrings22[1236])
 #endif
 #ifndef XmNpopupOffset
-#define XmNpopupOffset ((char*)&_XmStrings22[1219])
+#define XmNpopupOffset ((char*)&_XmStrings22[1253])
 #endif
 #ifndef XmNpopupCursor
-#define XmNpopupCursor ((char*)&_XmStrings22[1231])
+#define XmNpopupCursor ((char*)&_XmStrings22[1265])
 #endif
 #ifndef XmNpixmapWidth
-#define XmNpixmapWidth ((char*)&_XmStrings22[1243])
+#define XmNpixmapWidth ((char*)&_XmStrings22[1277])
 #endif
 #ifndef XmNpixmapHeight
-#define XmNpixmapHeight ((char*)&_XmStrings22[1255])
+#define XmNpixmapHeight ((char*)&_XmStrings22[1289])
 #endif
 #ifndef XmNparentNode
-#define XmNparentNode ((char*)&_XmStrings22[1268])
+#define XmNparentNode ((char*)&_XmStrings22[1302])
 #endif
 #ifndef XmNotherString
-#define XmNotherString ((char*)&_XmStrings22[1279])
+#define XmNotherString ((char*)&_XmStrings22[1313])
 #endif
 #ifndef XmNoptionString
-#define XmNoptionString ((char*)&_XmStrings22[1291])
+#define XmNoptionString ((char*)&_XmStrings22[1325])
 #endif
 #ifndef XmNopenFolderPixmap
-#define XmNopenFolderPixmap ((char*)&_XmStrings22[1304])
+#define XmNopenFolderPixmap ((char*)&_XmStrings22[1338])
 #endif
 #ifndef XmNopenClosePadding
-#define XmNopenClosePadding ((char*)&_XmStrings22[1321])
+#define XmNopenClosePadding ((char*)&_XmStrings22[1355])
 #endif
 #ifndef XmNnumValues
-#define XmNnumValues ((char*)&_XmStrings22[1338])
+#define XmNnumValues ((char*)&_XmStrings22[1372])
 #endif
 #ifndef XmNnumStacks
-#define XmNnumStacks ((char*)&_XmStrings22[1348])
+#define XmNnumStacks ((char*)&_XmStrings22[1382])
 #endif
 #ifndef XmNnumRows
-#define XmNnumRows ((char*)&_XmStrings22[1358])
+#define XmNnumRows ((char*)&_XmStrings22[1392])
 #endif
 #ifndef XmNnodeStateChangedCallback
-#define XmNnodeStateChangedCallback ((char*)&_XmStrings22[1366])
+#define XmNnodeStateChangedCallback ((char*)&_XmStrings22[1400])
 #endif
 #ifndef XmNnodeStateCallback
-#define XmNnodeStateCallback ((char*)&_XmStrings22[1391])
+#define XmNnodeStateCallback ((char*)&_XmStrings22[1425])
 #endif
 #ifndef XmNnodeStateBegEndCallback
-#define XmNnodeStateBegEndCallback ((char*)&_XmStrings22[1409])
+#define XmNnodeStateBegEndCallback ((char*)&_XmStrings22[1443])
 #endif
 #ifndef XmNnodeState
-#define XmNnodeState ((char*)&_XmStrings22[1433])
+#define XmNnodeState ((char*)&_XmStrings22[1467])
 #endif
 #ifndef XmNnoCellError
-#define XmNnoCellError ((char*)&_XmStrings22[1443])
+#define XmNnoCellError ((char*)&_XmStrings22[1477])
 #endif
 #ifndef XmNmonoSpaceString
-#define XmNmonoSpaceString ((char*)&_XmStrings22[1455])
+#define XmNmonoSpaceString ((char*)&_XmStrings22[1489])
 #endif
 #ifndef XmNminimumVerticalCells
-#define XmNminimumVerticalCells ((char*)&_XmStrings22[1471])
+#define XmNminimumVerticalCells ((char*)&_XmStrings22[1505])
 #endif
 #ifndef XmNminimumHorizontalCells
-#define XmNminimumHorizontalCells ((char*)&_XmStrings22[1492])
+#define XmNminimumHorizontalCells ((char*)&_XmStrings22[1526])
 #endif
 #ifndef XmNminimumCellWidth
-#define XmNminimumCellWidth ((char*)&_XmStrings22[1515])
+#define XmNminimumCellWidth ((char*)&_XmStrings22[1549])
 #endif
 #ifndef XmNminimumCellHeight
-#define XmNminimumCellHeight ((char*)&_XmStrings22[1532])
+#define XmNminimumCellHeight ((char*)&_XmStrings22[1566])
 #endif
 #ifndef XmNmargin
-#define XmNmargin ((char*)&_XmStrings22[1550])
+#define XmNmargin ((char*)&_XmStrings22[1584])
 #endif
 #ifndef XmNlist
-#define XmNlist ((char*)&_XmStrings22[1557])
+#define XmNlist ((char*)&_XmStrings22[1591])
 #endif
 #ifndef XmNlineWidth
-#define XmNlineWidth ((char*)&_XmStrings22[1562])
+#define XmNlineWidth ((char*)&_XmStrings22[1596])
 #endif
 #ifndef XmNlineColor
-#define XmNlineColor ((char*)&_XmStrings22[1572])
+#define XmNlineColor ((char*)&_XmStrings22[1606])
 #endif
 #ifndef XmNlabel
-#define XmNlabel ((char*)&_XmStrings22[1582])
+#define XmNlabel ((char*)&_XmStrings22[1616])
 #endif
 #ifndef XmNitalicString
-#define XmNitalicString ((char*)&_XmStrings22[1588])
+#define XmNitalicString ((char*)&_XmStrings22[1622])
 #endif
 #ifndef XmNinsertBefore
-#define XmNinsertBefore ((char*)&_XmStrings22[1601])
+#define XmNinsertBefore ((char*)&_XmStrings22[1635])
 #endif
 #ifndef XmNindentSpace
-#define XmNindentSpace ((char*)&_XmStrings22[1614])
+#define XmNindentSpace ((char*)&_XmStrings22[1648])
 #endif
 #ifndef XmNiconTextPadding
-#define XmNiconTextPadding ((char*)&_XmStrings22[1626])
+#define XmNiconTextPadding ((char*)&_XmStrings22[1660])
 #endif
 #ifndef XmNiconPlacement
-#define XmNiconPlacement ((char*)&_XmStrings22[1642])
+#define XmNiconPlacement ((char*)&_XmStrings22[1676])
 #endif
 #ifndef XmNhorizontalNodeSpace
-#define XmNhorizontalNodeSpace ((char*)&_XmStrings22[1656])
+#define XmNhorizontalNodeSpace ((char*)&_XmStrings22[1690])
 #endif
 #ifndef XmNhorizontalMargin
-#define XmNhorizontalMargin ((char*)&_XmStrings22[1676])
+#define XmNhorizontalMargin ((char*)&_XmStrings22[1710])
 #endif
 #ifndef XmNgreenSliderLabel
-#define XmNgreenSliderLabel ((char*)&_XmStrings22[1693])
+#define XmNgreenSliderLabel ((char*)&_XmStrings22[1727])
 #endif
 #ifndef XmNfreeTabPixmap
-#define XmNfreeTabPixmap ((char*)&_XmStrings22[1710])
+#define XmNfreeTabPixmap ((char*)&_XmStrings22[1744])
 #endif
 #ifndef XmNfirstRow
-#define XmNfirstRow ((char*)&_XmStrings22[1724])
+#define XmNfirstRow ((char*)&_XmStrings22[1758])
 #endif
 #ifndef XmNfirstColumnPixmaps
-#define XmNfirstColumnPixmaps ((char*)&_XmStrings22[1733])
+#define XmNfirstColumnPixmaps ((char*)&_XmStrings22[1767])
 #endif
 #ifndef XmNfirstColumn
-#define XmNfirstColumn ((char*)&_XmStrings22[1752])
+#define XmNfirstColumn ((char*)&_XmStrings22[1786])
 #endif
 #ifndef XmNfindLabel
-#define XmNfindLabel ((char*)&_XmStrings22[1764])
+#define XmNfindLabel ((char*)&_XmStrings22[1798])
 #endif
 #ifndef XmNfillOption
-#define XmNfillOption ((char*)&_XmStrings22[1774])
+#define XmNfillOption ((char*)&_XmStrings22[1808])
 #endif
 #ifndef XmNfileReadError
-#define XmNfileReadError ((char*)&_XmStrings22[1785])
+#define XmNfileReadError ((char*)&_XmStrings22[1819])
 #endif
 #ifndef XmNfamilyString
-#define XmNfamilyString ((char*)&_XmStrings22[1799])
+#define XmNfamilyString ((char*)&_XmStrings22[1833])
 #endif
 #ifndef XmNequalSize
-#define XmNequalSize ((char*)&_XmStrings22[1812])
+#define XmNequalSize ((char*)&_XmStrings22[1846])
 #endif
 #ifndef XmNentryLabelString
-#define XmNentryLabelString ((char*)&_XmStrings22[1822])
+#define XmNentryLabelString ((char*)&_XmStrings22[1856])
 #endif
 #ifndef XmNentryData
-#define XmNentryData ((char*)&_XmStrings22[1839])
+#define XmNentryData ((char*)&_XmStrings22[1873])
 #endif
 #ifndef XmNencodingString
-#define XmNencodingString ((char*)&_XmStrings22[1849])
+#define XmNencodingString ((char*)&_XmStrings22[1883])
 #endif
 #ifndef XmNencodingList
-#define XmNencodingList ((char*)&_XmStrings22[1864])
+#define XmNencodingList ((char*)&_XmStrings22[1898])
 #endif
 #ifndef XmNdoubleClickCallback
-#define XmNdoubleClickCallback ((char*)&_XmStrings22[1877])
+#define XmNdoubleClickCallback ((char*)&_XmStrings22[1911])
 #endif
 #ifndef XmNdefaultEncodingString
-#define XmNdefaultEncodingString ((char*)&_XmStrings22[1897])
+#define XmNdefaultEncodingString ((char*)&_XmStrings22[1931])
 #endif
 #ifndef XmNdFieldPrefWidth
-#define XmNdFieldPrefWidth ((char*)&_XmStrings22[1919])
+#define XmNdFieldPrefWidth ((char*)&_XmStrings22[1953])
 #endif
 #ifndef XmNdFieldPrefHeight
-#define XmNdFieldPrefHeight ((char*)&_XmStrings22[1935])
+#define XmNdFieldPrefHeight ((char*)&_XmStrings22[1969])
 #endif
 #ifndef XmNdFieldMinWidth
-#define XmNdFieldMinWidth ((char*)&_XmStrings22[1952])
+#define XmNdFieldMinWidth ((char*)&_XmStrings22[1986])
 #endif
 #ifndef XmNdFieldMinHeight
-#define XmNdFieldMinHeight ((char*)&_XmStrings22[1967])
+#define XmNdFieldMinHeight ((char*)&_XmStrings22[2001])
 #endif
 #ifndef XmNdFieldMaxWidth
-#define XmNdFieldMaxWidth ((char*)&_XmStrings22[1983])
+#define XmNdFieldMaxWidth ((char*)&_XmStrings22[2017])
 #endif
 #ifndef XmNdFieldMaxHeight
-#define XmNdFieldMaxHeight ((char*)&_XmStrings22[1998])
+#define XmNdFieldMaxHeight ((char*)&_XmStrings22[2032])
 #endif
 #ifndef XmNcustomizedCombinationBox
-#define XmNcustomizedCombinationBox ((char*)&_XmStrings22[2014])
+#define XmNcustomizedCombinationBox ((char*)&_XmStrings22[2048])
 #endif
 #ifndef XmNcursor
-#define XmNcursor ((char*)&_XmStrings22[2039])
+#define XmNcursor ((char*)&_XmStrings22[2073])
 #endif
 #ifndef XmNcurrentFont
-#define XmNcurrentFont ((char*)&_XmStrings22[2046])
+#define XmNcurrentFont ((char*)&_XmStrings22[2080])
 #endif
 #ifndef XmNconnectStyle
-#define XmNconnectStyle ((char*)&_XmStrings22[2058])
+#define XmNconnectStyle ((char*)&_XmStrings22[2092])
 #endif
 #ifndef XmNcomboTranslations
-#define XmNcomboTranslations ((char*)&_XmStrings22[2071])
+#define XmNcomboTranslations ((char*)&_XmStrings22[2105])
 #endif
 #ifndef XmNcolumnTitles
-#define XmNcolumnTitles ((char*)&_XmStrings22[2089])
+#define XmNcolumnTitles ((char*)&_XmStrings22[2123])
 #endif
 #ifndef XmNcolorName
-#define XmNcolorName ((char*)&_XmStrings22[2102])
+#define XmNcolorName ((char*)&_XmStrings22[2136])
 #endif
 #ifndef XmNcolorMode
-#define XmNcolorMode ((char*)&_XmStrings22[2112])
+#define XmNcolorMode ((char*)&_XmStrings22[2146])
 #endif
 #ifndef XmNcolorListTogLabel
-#define XmNcolorListTogLabel ((char*)&_XmStrings22[2122])
+#define XmNcolorListTogLabel ((char*)&_XmStrings22[2156])
 #endif
 #ifndef XmNcellY
-#define XmNcellY ((char*)&_XmStrings22[2140])
+#define XmNcellY ((char*)&_XmStrings22[2174])
 #endif
 #ifndef XmNcellX
-#define XmNcellX ((char*)&_XmStrings22[2146])
+#define XmNcellX ((char*)&_XmStrings22[2180])
 #endif
 #ifndef XmNbothString
-#define XmNbothString ((char*)&_XmStrings22[2152])
+#define XmNbothString ((char*)&_XmStrings22[2186])
 #endif
 #ifndef XmNboldString
-#define XmNboldString ((char*)&_XmStrings22[2163])
+#define XmNboldString ((char*)&_XmStrings22[2197])
 #endif
 #ifndef XmNblueSliderLabel
-#define XmNblueSliderLabel ((char*)&_XmStrings22[2174])
+#define XmNblueSliderLabel ((char*)&_XmStrings22[2208])
 #endif
 #ifndef XmCDistribution
-#define XmCDistribution ((char*)&_XmStrings22[2190])
+#define XmCDistribution ((char*)&_XmStrings22[2224])
 #endif
 #ifndef XmCFillStyle
-#define XmCFillStyle ((char*)&_XmStrings22[2203])
+#define XmCFillStyle ((char*)&_XmStrings22[2237])
 #endif
 #ifndef XmCItemSpacing
-#define XmCItemSpacing ((char*)&_XmStrings22[2213])
+#define XmCItemSpacing ((char*)&_XmStrings22[2247])
 #endif
 #ifndef XmCLabelSpacing
-#define XmCLabelSpacing ((char*)&_XmStrings22[2225])
+#define XmCLabelSpacing ((char*)&_XmStrings22[2259])
 #endif
 #ifndef XmCShowLabel
-#define XmCShowLabel ((char*)&_XmStrings22[2238])
+#define XmCShowLabel ((char*)&_XmStrings22[2272])
 #endif
 #ifndef XmCStretchable
-#define XmCStretchable ((char*)&_XmStrings22[2248])
+#define XmCStretchable ((char*)&_XmStrings22[2282])
 #endif
 #ifndef XmNdefaultEntryLabelAlignment
-#define XmNdefaultEntryLabelAlignment ((char*)&_XmStrings22[2260])
+#define XmNdefaultEntryLabelAlignment ((char*)&_XmStrings22[2294])
 #endif
 #ifndef XmNdefaultEntryLabelFontList
-#define XmNdefaultEntryLabelFontList ((char*)&_XmStrings22[2287])
+#define XmNdefaultEntryLabelFontList ((char*)&_XmStrings22[2321])
 #endif
 #ifndef XmNdefaultFillStyle
-#define XmNdefaultFillStyle ((char*)&_XmStrings22[2313])
+#define XmNdefaultFillStyle ((char*)&_XmStrings22[2347])
 #endif
 #ifndef XmNdistribution
-#define XmNdistribution ((char*)&_XmStrings22[2330])
+#define XmNdistribution ((char*)&_XmStrings22[2364])
 #endif
 #ifndef XmNentryLabelAlignment
-#define XmNentryLabelAlignment ((char*)&_XmStrings22[2343])
+#define XmNentryLabelAlignment ((char*)&_XmStrings22[2377])
 #endif
 #ifndef XmNentryLabelFontList
-#define XmNentryLabelFontList ((char*)&_XmStrings22[2363])
+#define XmNentryLabelFontList ((char*)&_XmStrings22[2397])
 #endif
 #ifndef XmNentryLabelPixmap
-#define XmNentryLabelPixmap ((char*)&_XmStrings22[2382])
+#define XmNentryLabelPixmap ((char*)&_XmStrings22[2416])
 #endif
 #ifndef XmNentryLabelType
-#define XmNentryLabelType ((char*)&_XmStrings22[2399])
+#define XmNentryLabelType ((char*)&_XmStrings22[2433])
 #endif
 #ifndef XmNfillStyle
-#define XmNfillStyle ((char*)&_XmStrings22[2414])
+#define XmNfillStyle ((char*)&_XmStrings22[2448])
 #endif
 #ifndef XmNitemSpacing
-#define XmNitemSpacing ((char*)&_XmStrings22[2424])
+#define XmNitemSpacing ((char*)&_XmStrings22[2458])
 #endif
 #ifndef XmNlabelSpacing
-#define XmNlabelSpacing ((char*)&_XmStrings22[2436])
+#define XmNlabelSpacing ((char*)&_XmStrings22[2470])
 #endif
 #ifndef XmNshowEntryLabel
-#define XmNshowEntryLabel ((char*)&_XmStrings22[2449])
+#define XmNshowEntryLabel ((char*)&_XmStrings22[2483])
 #endif
 #ifndef XmNstretchable
-#define XmNstretchable ((char*)&_XmStrings22[2464])
+#define XmNstretchable ((char*)&_XmStrings22[2498])
 #endif
 #ifndef XmRDistribution
-#define XmRDistribution ((char*)&_XmStrings22[2476])
+#define XmRDistribution ((char*)&_XmStrings22[2510])
 #endif
 #ifndef XmRFillStyle
-#define XmRFillStyle ((char*)&_XmStrings22[2489])
+#define XmRFillStyle ((char*)&_XmStrings22[2523])
 #endif
 #ifndef XmCEqualSize
-#define XmCEqualSize ((char*)&_XmStrings22[2499])
+#define XmCEqualSize ((char*)&_XmStrings22[2533])
 #endif
 #ifndef XmCFillOption
-#define XmCFillOption ((char*)&_XmStrings22[2509])
+#define XmCFillOption ((char*)&_XmStrings22[2543])
 #endif
 #ifndef XmCColorMode
-#define XmCColorMode ((char*)&_XmStrings22[2520])
+#define XmCColorMode ((char*)&_XmStrings22[2554])
 #endif
 #ifndef XmCFileReadError
-#define XmCFileReadError ((char*)&_XmStrings22[2530])
+#define XmCFileReadError ((char*)&_XmStrings22[2564])
 #endif
 #ifndef XmCNoCellError
-#define XmCNoCellError ((char*)&_XmStrings22[2544])
+#define XmCNoCellError ((char*)&_XmStrings22[2578])
 #endif
 #ifndef XmCSliderLabel
-#define XmCSliderLabel ((char*)&_XmStrings22[2556])
+#define XmCSliderLabel ((char*)&_XmStrings22[2590])
 #endif
 #ifndef XmCTogLabel
-#define XmCTogLabel ((char*)&_XmStrings22[2568])
+#define XmCTogLabel ((char*)&_XmStrings22[2602])
 #endif
 #ifndef XmCAutoFill
-#define XmCAutoFill ((char*)&_XmStrings22[2577])
+#define XmCAutoFill ((char*)&_XmStrings22[2611])
 #endif
 #ifndef XmCPicture
-#define XmCPicture ((char*)&_XmStrings22[2586])
+#define XmCPicture ((char*)&_XmStrings22[2620])
 #endif
 #ifndef XmNautoFill
-#define XmNautoFill ((char*)&_XmStrings22[2594])
+#define XmNautoFill ((char*)&_XmStrings22[2628])
 #endif
 #ifndef XmNpicture
-#define XmNpicture ((char*)&_XmStrings22[2603])
+#define XmNpicture ((char*)&_XmStrings22[2637])
 #endif
 #ifndef XmNpictureErrorCallback
-#define XmNpictureErrorCallback ((char*)&_XmStrings22[2611])
+#define XmNpictureErrorCallback ((char*)&_XmStrings22[2645])
 #endif
 #ifndef XmNvalidateCallback
-#define XmNvalidateCallback ((char*)&_XmStrings22[2632])
+#define XmNvalidateCallback ((char*)&_XmStrings22[2666])
 #endif
 #ifndef XmCFindLabel
-#define XmCFindLabel ((char*)&_XmStrings22[2649])
+#define XmCFindLabel ((char*)&_XmStrings22[2683])
 #endif
 #ifndef XmCShowFind
-#define XmCShowFind ((char*)&_XmStrings22[2659])
+#define XmCShowFind ((char*)&_XmStrings22[2693])
 #endif
 #ifndef XmNentryBackground
-#define XmNentryBackground ((char*)&_XmStrings22[2668])
+#define XmNentryBackground ((char*)&_XmStrings22[2702])
 #endif
 #ifndef XmCColumnTitles
-#define XmCColumnTitles ((char*)&_XmStrings22[2684])
+#define XmCColumnTitles ((char*)&_XmStrings22[2718])
 #endif
 #ifndef XmCEntryData
-#define XmCEntryData ((char*)&_XmStrings22[2697])
+#define XmCEntryData ((char*)&_XmStrings22[2731])
 #endif
 #ifndef XmCFirstColumnPixmaps
-#define XmCFirstColumnPixmaps ((char*)&_XmStrings22[2707])
+#define XmCFirstColumnPixmaps ((char*)&_XmStrings22[2741])
 #endif
 #ifndef XmCFirstLocation
-#define XmCFirstLocation ((char*)&_XmStrings22[2726])
+#define XmCFirstLocation ((char*)&_XmStrings22[2760])
 #endif
 #ifndef XmCNewVisualStyle
-#define XmCNewVisualStyle ((char*)&_XmStrings22[2740])
+#define XmCNewVisualStyle ((char*)&_XmStrings22[2774])
 #endif
 #ifndef XmCNumRows
-#define XmCNumRows ((char*)&_XmStrings22[2755])
+#define XmCNumRows ((char*)&_XmStrings22[2789])
 #endif
 #ifndef XmCScrollBar
-#define XmCScrollBar ((char*)&_XmStrings22[2763])
+#define XmCScrollBar ((char*)&_XmStrings22[2797])
 #endif
 #ifndef XmCSelectedColumn
-#define XmCSelectedColumn ((char*)&_XmStrings22[2773])
+#define XmCSelectedColumn ((char*)&_XmStrings22[2807])
 #endif
 #ifndef XmNnewVisualStyle
-#define XmNnewVisualStyle ((char*)&_XmStrings22[2788])
+#define XmNnewVisualStyle ((char*)&_XmStrings22[2822])
 #endif
 #ifndef XmCPreferredPaneSize
-#define XmCPreferredPaneSize ((char*)&_XmStrings22[2803])
+#define XmCPreferredPaneSize ((char*)&_XmStrings22[2837])
 #endif
 #ifndef XmCShowSash
-#define XmCShowSash ((char*)&_XmStrings22[2821])
+#define XmCShowSash ((char*)&_XmStrings22[2855])
 #endif
 #ifndef XmC100DPIString
-#define XmC100DPIString ((char*)&_XmStrings22[2830])
+#define XmC100DPIString ((char*)&_XmStrings22[2864])
 #endif
 #ifndef XmC75DPIString
-#define XmC75DPIString ((char*)&_XmStrings22[2843])
+#define XmC75DPIString ((char*)&_XmStrings22[2877])
 #endif
 #ifndef XmCAnyLowerString
-#define XmCAnyLowerString ((char*)&_XmStrings22[2855])
+#define XmCAnyLowerString ((char*)&_XmStrings22[2889])
 #endif
 #ifndef XmCAnyString
-#define XmCAnyString ((char*)&_XmStrings22[2870])
+#define XmCAnyString ((char*)&_XmStrings22[2904])
 #endif
 #ifndef XmCBoldString
-#define XmCBoldString ((char*)&_XmStrings22[2880])
+#define XmCBoldString ((char*)&_XmStrings22[2914])
 #endif
 #ifndef XmCBothString
-#define XmCBothString ((char*)&_XmStrings22[2891])
+#define XmCBothString ((char*)&_XmStrings22[2925])
 #endif
 #ifndef XmCDefaultEncodingString
-#define XmCDefaultEncodingString ((char*)&_XmStrings22[2902])
+#define XmCDefaultEncodingString ((char*)&_XmStrings22[2936])
 #endif
 #ifndef XmCEncodingList
-#define XmCEncodingList ((char*)&_XmStrings22[2924])
+#define XmCEncodingList ((char*)&_XmStrings22[2958])
 #endif
 #ifndef XmCEncodingString
-#define XmCEncodingString ((char*)&_XmStrings22[2937])
+#define XmCEncodingString ((char*)&_XmStrings22[2971])
 #endif
 #ifndef XmCFamilyString
-#define XmCFamilyString ((char*)&_XmStrings22[2952])
+#define XmCFamilyString ((char*)&_XmStrings22[2986])
 #endif
 #ifndef XmCItalicString
-#define XmCItalicString ((char*)&_XmStrings22[2965])
+#define XmCItalicString ((char*)&_XmStrings22[2999])
 #endif
 #ifndef XmCMonoSpaceString
-#define XmCMonoSpaceString ((char*)&_XmStrings22[2978])
+#define XmCMonoSpaceString ((char*)&_XmStrings22[3012])
 #endif
 #ifndef XmCOptionString
-#define XmCOptionString ((char*)&_XmStrings22[2994])
+#define XmCOptionString ((char*)&_XmStrings22[3028])
 #endif
 #ifndef XmCOtherString
-#define XmCOtherString ((char*)&_XmStrings22[3007])
+#define XmCOtherString ((char*)&_XmStrings22[3041])
 #endif
 #ifndef XmCPropSpaceString
-#define XmCPropSpaceString ((char*)&_XmStrings22[3019])
+#define XmCPropSpaceString ((char*)&_XmStrings22[3053])
 #endif
 #ifndef XmCSampleText
-#define XmCSampleText ((char*)&_XmStrings22[3035])
+#define XmCSampleText ((char*)&_XmStrings22[3069])
 #endif
 #ifndef XmCScalingString
-#define XmCScalingString ((char*)&_XmStrings22[3046])
+#define XmCScalingString ((char*)&_XmStrings22[3080])
 #endif
 #ifndef XmCShowNameString
-#define XmCShowNameString ((char*)&_XmStrings22[3060])
+#define XmCShowNameString ((char*)&_XmStrings22[3094])
 #endif
 #ifndef XmCSizeString
-#define XmCSizeString ((char*)&_XmStrings22[3075])
+#define XmCSizeString ((char*)&_XmStrings22[3109])
 #endif
 #ifndef XmCTextRows
-#define XmCTextRows ((char*)&_XmStrings22[3086])
+#define XmCTextRows ((char*)&_XmStrings22[3120])
 #endif
 #ifndef XmCXlfdSpaceString
-#define XmCXlfdSpaceString ((char*)&_XmStrings22[3095])
+#define XmCXlfdSpaceString ((char*)&_XmStrings22[3129])
 #endif
 #ifndef XmN100DPIstring
-#define XmN100DPIstring ((char*)&_XmStrings22[3111])
+#define XmN100DPIstring ((char*)&_XmStrings22[3145])
 #endif
 #ifndef XmN75DPIstring
-#define XmN75DPIstring ((char*)&_XmStrings22[3124])
+#define XmN75DPIstring ((char*)&_XmStrings22[3158])
 #endif
 #ifndef XmNanyLowerString
-#define XmNanyLowerString ((char*)&_XmStrings22[3136])
+#define XmNanyLowerString ((char*)&_XmStrings22[3170])
 #endif
 #ifndef XmNanyString
-#define XmNanyString ((char*)&_XmStrings22[3151])
+#define XmNanyString ((char*)&_XmStrings22[3185])
 #endif
 #ifndef XmCCellX
-#define XmCCellX ((char*)&_XmStrings22[3161])
+#define XmCCellX ((char*)&_XmStrings22[3195])
 #endif
 #ifndef XmCCellY
-#define XmCCellY ((char*)&_XmStrings22[3167])
+#define XmCCellY ((char*)&_XmStrings22[3201])
 #endif
 #ifndef XmCDefaultCells
-#define XmCDefaultCells ((char*)&_XmStrings22[3173])
+#define XmCDefaultCells ((char*)&_XmStrings22[3207])
 #endif
 #ifndef XmCMinimumCellSize
-#define XmCMinimumCellSize ((char*)&_XmStrings22[3186])
+#define XmCMinimumCellSize ((char*)&_XmStrings22[3220])
 #endif
 #ifndef XmCIconPlacement
-#define XmCIconPlacement ((char*)&_XmStrings22[3202])
+#define XmCIconPlacement ((char*)&_XmStrings22[3236])
 #endif
 #ifndef XmNpixmapDepth
-#define XmNpixmapDepth ((char*)&_XmStrings22[3216])
+#define XmNpixmapDepth ((char*)&_XmStrings22[3250])
 #endif
 #ifndef XmCAutoClose
-#define XmCAutoClose ((char*)&_XmStrings22[3228])
+#define XmCAutoClose ((char*)&_XmStrings22[3262])
 #endif
 #ifndef XmCInsertBefore
-#define XmCInsertBefore ((char*)&_XmStrings22[3238])
+#define XmCInsertBefore ((char*)&_XmStrings22[3272])
 #endif
 #ifndef XmCNodeState
-#define XmCNodeState ((char*)&_XmStrings22[3251])
+#define XmCNodeState ((char*)&_XmStrings22[3285])
 #endif
 #ifndef XmCNodeStateCallback
-#define XmCNodeStateCallback ((char*)&_XmStrings22[3261])
+#define XmCNodeStateCallback ((char*)&_XmStrings22[3295])
 #endif
 #ifndef XmCNodeStateChangedCallback
-#define XmCNodeStateChangedCallback ((char*)&_XmStrings22[3279])
+#define XmCNodeStateChangedCallback ((char*)&_XmStrings22[3313])
 #endif
 #ifndef XmCParentNode
-#define XmCParentNode ((char*)&_XmStrings22[3304])
+#define XmCParentNode ((char*)&_XmStrings22[3338])
 #endif
 #ifndef XmNautoClose
-#define XmNautoClose ((char*)&_XmStrings22[3315])
+#define XmNautoClose ((char*)&_XmStrings22[3349])
 #endif
 #ifndef XmNcloseFolderPixmap
-#define XmNcloseFolderPixmap ((char*)&_XmStrings22[3325])
+#define XmNcloseFolderPixmap ((char*)&_XmStrings22[3359])
 #endif
 #ifndef XmNnodeCloseFolderPixmap
-#define XmNnodeCloseFolderPixmap ((char*)&_XmStrings22[3343])
+#define XmNnodeCloseFolderPixmap ((char*)&_XmStrings22[3377])
 #endif
 #ifndef XmNnodeOpenFolderPixmap
-#define XmNnodeOpenFolderPixmap ((char*)&_XmStrings22[3365])
+#define XmNnodeOpenFolderPixmap ((char*)&_XmStrings22[3399])
 #endif
 #ifndef XmNnodeStateBeginEndCallback
-#define XmNnodeStateBeginEndCallback ((char*)&_XmStrings22[3386])
+#define XmNnodeStateBeginEndCallback ((char*)&_XmStrings22[3420])
 #endif
 #ifndef XmCConstrainWidth
-#define XmCConstrainWidth ((char*)&_XmStrings22[3412])
+#define XmCConstrainWidth ((char*)&_XmStrings22[3446])
 #endif
 #ifndef XmCIndentSpace
-#define XmCIndentSpace ((char*)&_XmStrings22[3427])
+#define XmCIndentSpace ((char*)&_XmStrings22[3461])
 #endif
 #ifndef XmNconnectNodes
-#define XmNconnectNodes ((char*)&_XmStrings22[3439])
+#define XmNconnectNodes ((char*)&_XmStrings22[3473])
 #endif
 #ifndef XmNconstrainWidth
-#define XmNconstrainWidth ((char*)&_XmStrings22[3452])
+#define XmNconstrainWidth ((char*)&_XmStrings22[3486])
 #endif
 #ifndef XmCNumStacks
-#define XmCNumStacks ((char*)&_XmStrings22[3467])
+#define XmCNumStacks ((char*)&_XmStrings22[3501])
 #endif
 #ifndef XmCSelectedIndex
-#define XmCSelectedIndex ((char*)&_XmStrings22[3477])
+#define XmCSelectedIndex ((char*)&_XmStrings22[3511])
 #endif
 #ifndef XmCStackedEffect
-#define XmCStackedEffect ((char*)&_XmStrings22[3491])
+#define XmCStackedEffect ((char*)&_XmStrings22[3525])
 #endif
 #ifndef XmCTabAutoSelect
-#define XmCTabAutoSelect ((char*)&_XmStrings22[3505])
+#define XmCTabAutoSelect ((char*)&_XmStrings22[3539])
 #endif
 #ifndef XmCTabCornerPercent
-#define XmCTabCornerPercent ((char*)&_XmStrings22[3519])
+#define XmCTabCornerPercent ((char*)&_XmStrings22[3553])
 #endif
 #ifndef XmCTabEdge
-#define XmCTabEdge ((char*)&_XmStrings22[3536])
+#define XmCTabEdge ((char*)&_XmStrings22[3570])
 #endif
 #ifndef XmCTabLabelSpacing
-#define XmCTabLabelSpacing ((char*)&_XmStrings22[3544])
+#define XmCTabLabelSpacing ((char*)&_XmStrings22[3578])
 #endif
 #ifndef XmCTabMode
-#define XmCTabMode ((char*)&_XmStrings22[3560])
+#define XmCTabMode ((char*)&_XmStrings22[3594])
 #endif
 #ifndef XmCTabOffset
-#define XmCTabOffset ((char*)&_XmStrings22[3568])
+#define XmCTabOffset ((char*)&_XmStrings22[3602])
 #endif
 #ifndef XmCTabOrientation
-#define XmCTabOrientation ((char*)&_XmStrings22[3578])
+#define XmCTabOrientation ((char*)&_XmStrings22[3612])
 #endif
 #ifndef XmCTabSelectColor
-#define XmCTabSelectColor ((char*)&_XmStrings22[3593])
+#define XmCTabSelectColor ((char*)&_XmStrings22[3627])
 #endif
 #ifndef XmCTabSelectPixmap
-#define XmCTabSelectPixmap ((char*)&_XmStrings22[3608])
+#define XmCTabSelectPixmap ((char*)&_XmStrings22[3642])
 #endif
 #ifndef XmCTabStyle
-#define XmCTabStyle ((char*)&_XmStrings22[3624])
+#define XmCTabStyle ((char*)&_XmStrings22[3658])
 #endif
 #ifndef XmCTraversalIndex
-#define XmCTraversalIndex ((char*)&_XmStrings22[3633])
+#define XmCTraversalIndex ((char*)&_XmStrings22[3667])
 #endif
 #ifndef XmCUniformTabSize
-#define XmCUniformTabSize ((char*)&_XmStrings22[3648])
+#define XmCUniformTabSize ((char*)&_XmStrings22[3682])
 #endif
 #ifndef XmCUseImageCache
-#define XmCUseImageCache ((char*)&_XmStrings22[3663])
+#define XmCUseImageCache ((char*)&_XmStrings22[3697])
 #endif
 #ifndef XmCFreeTabPixmap
-#define XmCFreeTabPixmap ((char*)&_XmStrings22[3677])
+#define XmCFreeTabPixmap ((char*)&_XmStrings22[3711])
 #endif
 #ifndef XmCICSEnhancementPakResourceError
-#define XmCICSEnhancementPakResourceError ((char*)&_XmStrings22[3691])
+#define XmCICSEnhancementPakResourceError ((char*)&_XmStrings22[3725])
 #endif
 #ifndef XmCTabLabelPixmap
-#define XmCTabLabelPixmap ((char*)&_XmStrings22[3722])
+#define XmCTabLabelPixmap ((char*)&_XmStrings22[3756])
 #endif
 #ifndef XmCTabLabelString
-#define XmCTabLabelString ((char*)&_XmStrings22[3737])
+#define XmCTabLabelString ((char*)&_XmStrings22[3771])
 #endif
 #ifndef XmCTabPixmapPlacement
-#define XmCTabPixmapPlacement ((char*)&_XmStrings22[3752])
+#define XmCTabPixmapPlacement ((char*)&_XmStrings22[3786])
 #endif
 #ifndef XmCTabSide
-#define XmCTabSide ((char*)&_XmStrings22[3771])
+#define XmCTabSide ((char*)&_XmStrings22[3805])
 #endif
 #ifndef XmNillegalResourceValue
-#define XmNillegalResourceValue ((char*)&_XmStrings22[3779])
+#define XmNillegalResourceValue ((char*)&_XmStrings22[3813])
 #endif
 #ifndef XmCCompressStyle
-#define XmCCompressStyle ((char*)&_XmStrings22[3800])
+#define XmCCompressStyle ((char*)&_XmStrings22[3834])
 #endif
 #ifndef XmCConnectStyle
-#define XmCConnectStyle ((char*)&_XmStrings22[3814])
+#define XmCConnectStyle ((char*)&_XmStrings22[3848])
 #endif
 #ifndef XmCHorizontalDelta
-#define XmCHorizontalDelta ((char*)&_XmStrings22[3827])
+#define XmCHorizontalDelta ((char*)&_XmStrings22[3861])
 #endif
 #ifndef XmCLineWidth
-#define XmCLineWidth ((char*)&_XmStrings22[3843])
+#define XmCLineWidth ((char*)&_XmStrings22[3877])
 #endif
 #ifndef XmCOpenClosePadding
-#define XmCOpenClosePadding ((char*)&_XmStrings22[3853])
+#define XmCOpenClosePadding ((char*)&_XmStrings22[3887])
 #endif
 #ifndef XmCVerticalDelta
-#define XmCVerticalDelta ((char*)&_XmStrings22[3870])
+#define XmCVerticalDelta ((char*)&_XmStrings22[3904])
 #endif
 #ifndef XmNcompressStyle
-#define XmNcompressStyle ((char*)&_XmStrings22[3884])
+#define XmNcompressStyle ((char*)&_XmStrings22[3918])
 #endif
 #ifndef XmNhorizontalDelta
-#define XmNhorizontalDelta ((char*)&_XmStrings22[3898])
+#define XmNhorizontalDelta ((char*)&_XmStrings22[3932])
 #endif
 #ifndef XmNlineBackgroundColor
-#define XmNlineBackgroundColor ((char*)&_XmStrings22[3914])
+#define XmNlineBackgroundColor ((char*)&_XmStrings22[3948])
 #endif
 #ifndef XmNlineStyle
-#define XmNlineStyle ((char*)&_XmStrings22[3934])
+#define XmNlineStyle ((char*)&_XmStrings22[3968])
 #endif
 #ifndef XmNverticalDelta
-#define XmNverticalDelta ((char*)&_XmStrings22[3944])
+#define XmNverticalDelta ((char*)&_XmStrings22[3978])
 #endif
 #ifndef XmRXmCompressStyle
-#define XmRXmCompressStyle ((char*)&_XmStrings22[3958])
+#define XmRXmCompressStyle ((char*)&_XmStrings22[3992])
 #endif
 #ifndef XmRXmLineStyle
-#define XmRXmLineStyle ((char*)&_XmStrings22[3974])
+#define XmRXmLineStyle ((char*)&_XmStrings22[4008])
 #endif
 #ifndef XmCPopupOffset
-#define XmCPopupOffset ((char*)&_XmStrings22[3986])
+#define XmCPopupOffset ((char*)&_XmStrings22[4020])
 #endif
 #ifndef XmCUseTextField
-#define XmCUseTextField ((char*)&_XmStrings22[3998])
+#define XmCUseTextField ((char*)&_XmStrings22[4032])
 #endif
 #ifndef XmCVerify
-#define XmCVerify ((char*)&_XmStrings22[4011])
+#define XmCVerify ((char*)&_XmStrings22[4045])
 #endif
 #endif /* XMSTRINGDEFINES */
 

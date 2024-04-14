@@ -27,7 +27,7 @@
 #define _Xm_h
 
 #ifndef OM22_COMPATIBILITY
-#define OM22_COMPATIBILITY 1
+/* #undef OM22_COMPATIBILITY */
 #endif
 
 #ifndef JPEG_SUPPORTED

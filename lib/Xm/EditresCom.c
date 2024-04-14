@@ -187,39 +187,6 @@ void _XmNCopyISOLatin1Lowered(char *dst, char *src, int size)
 }
 #endif
 
-#define HAVE_XMU_GET_WIDGET_INFO_RESOLVE 1
-#ifdef HAVE_XMU_GET_WIDGET_INFO_RESOLVE
-static Boolean GetWidgetInfo(ProtocolStream *stream, WidgetInfo *info) {
-  return _XEditResGetWidgetInfoResolve(stream, info);
-}
-#else
-static Boolean GetWidgetInfo(ProtocolStream *stream, WidgetInfo *info) {
-  return _XEditResGetWidgetInfo(stream, info);
-}
-#endif
-
-#define HAVE_XMU_PUT_WIDGET_INFO_UNRESOLVE 1
-#ifdef HAVE_XMU_PUT_WIDGET_INFO_UNRESOLVE
-static void PutWidgetInfo(ProtocolStream *stream, WidgetInfo *info) {
-  _XEditResPutWidgetInfoUnresolve(stream, info);
-}
-#else
-static Boolean PutWidgetInfo(ProtocolStream *stream, WidgetInfo *info) {
-  _XEditResPutWidgetInfo(stream, info);
-}
-#endif
-
-#define HAVE_XMU_PUT_WIDGET_UNRESOLVE 1
-#ifdef HAVE_XMU_PUT_WIDGET_UNRESOLVE
-static void PutWidget(ProtocolStream *stream, Widget widget) {
-  _XEditResPutWidgetUnresolve(stream, widget);
-}
-#else
-static void PutWidget(ProtocolStream *stream, Widget widget) {
-  _XEditResPut32(stream, widget);
-}
-#endif
-
 /************************************************************
  *
  * Resource Editor Communication Code
@@ -389,7 +356,7 @@ unsigned long length;
 		XtCalloc(sizeof(WidgetInfo), sv_event->num_entries);
 	    
 	    for (i = 0; i < sv_event->num_entries; i++) {
-		if (!GetWidgetInfo(stream, sv_event->widgets + i))
+		if (!_XEditResGetWidgetInfo(stream, sv_event->widgets + i))
 		    goto done;
 	    }
 	}
@@ -401,7 +368,7 @@ unsigned long length;
 	    find_event->widgets = (WidgetInfo *) 
 		                  XtCalloc(sizeof(WidgetInfo), 1);
 
-	    if (!(GetWidgetInfo(stream, find_event->widgets) &&
+	    if (!(_XEditResGetWidgetInfo(stream, find_event->widgets) &&
 		  _XEditResGetSigned16(stream, &(find_event->x)) &&
 		  _XEditResGetSigned16(stream, &(find_event->y))))
 	    {
@@ -421,7 +388,7 @@ unsigned long length;
 	    get_event->widgets = (WidgetInfo *)
 		XtCalloc(sizeof(WidgetInfo), get_event->num_entries);
 	    for (i = 0; i < get_event->num_entries; i++) {
-		if (!GetWidgetInfo(stream, get_event->widgets + i))
+		if (!_XEditResGetWidgetInfo(stream, get_event->widgets + i)) 
 		    goto done;
 	    }
 	}
@@ -434,7 +401,7 @@ unsigned long length;
             _XEditResGet16(stream, &(gv_event->num_entries));
 	    gv_event->widgets = (WidgetInfo *)
 		XtCalloc(sizeof(WidgetInfo), gv_event->num_entries);
-            GetWidgetInfo(stream, gv_event->widgets);
+            _XEditResGetWidgetInfo(stream, gv_event->widgets);
         }
         break;	
 
@@ -883,7 +850,7 @@ ProtocolStream * stream;
 
     for (i = 0 ; i < sv_event->num_entries; i++) {
 	if ((str = VerifyWidget(w, &(sv_event->widgets[i]))) != NULL) {
-	    PutWidgetInfo(stream, &(sv_event->widgets[i]));
+	    _XEditResPutWidgetInfo(stream, &(sv_event->widgets[i]));
 	    _XEditResPutString8(stream, str);
 	    XtFree(str);
 	    count++;
@@ -1010,7 +977,7 @@ Cardinal * num_params;
      */ 
 
     (*(info->count))++;
-    PutWidgetInfo(info->stream, info->entry);
+    _XEditResPutWidgetInfo(info->stream, info->entry);
     _XEditResPutString8(info->stream, pbuf);
     if (pbuf != buf)
 	XtFree(pbuf);
@@ -1211,7 +1178,7 @@ ProtocolStream * stream;
 	 * Send out the widget id. 
 	 */
 
-	PutWidgetInfo(stream, &(geom_event->widgets[i]));
+	_XEditResPutWidgetInfo(stream, &(geom_event->widgets[i]));
 	if ((str = VerifyWidget(w, &(geom_event->widgets[i]))) != NULL) {
 	    _XEditResPutBool(stream, True); /* an error occured. */
 	    _XEditResPutString8(stream, str);	/* set message. */
@@ -1457,7 +1424,7 @@ ProtocolStream * stream;
 	/* 
 	 * Send out the widget id. 
 	 */
-	PutWidgetInfo(stream, &(res_event->widgets[i]));
+	_XEditResPutWidgetInfo(stream, &(res_event->widgets[i]));
 	if ((str = VerifyWidget(w, &(res_event->widgets[i]))) != NULL) {
 	    _XEditResPutBool(stream, True); /* an error occured. */
 	    _XEditResPutString8(stream, str);	/* set message. */
@@ -1803,7 +1770,7 @@ Widget w;
 	
     _XEditResPut16(stream, num_widgets);	/* insert number of widgets. */
     for (i = 0; i < num_widgets; i++) /* insert Widgets themselves. */
-	PutWidget(stream, (Widget)widget_list[i]);
+	_XEditResPut32(stream, widget_list[i]);
     
     XtFree((char *)widget_list);
 }
