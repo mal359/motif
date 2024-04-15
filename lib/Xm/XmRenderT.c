@@ -2699,14 +2699,11 @@ XmRenderTableCvtToProp(Widget widget, /* unused */
       tlist = (_XmTabList) _XmRendTabs(rendition);
       number = tlist -> count;
       tab = (_XmTab) tlist -> start;
-
-      char temp2[2048];
       while(number > 0) {
-        strncpy(temp2, temp, 2048);
-        sprintf(temp + strlen(temp), " %f %d %d %d, ", tab -> value,
-            tab -> units, tab -> alignment, tab -> offsetModel);
-        tab = (_XmTab) tab -> next;
-        number--;
+	sprintf(temp + strlen(temp), " %f %d %d %d, ", tab -> value,
+		tab -> units, tab -> alignment, tab -> offsetModel);
+	tab = (_XmTab) tab -> next;
+	number--;
       }
       strcat(temp, " ], ");
       str = temp;
