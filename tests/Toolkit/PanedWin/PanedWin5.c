@@ -50,7 +50,7 @@ void  main(argc, argv)
 int argc;
 char **argv;
 {
-    int  	n, i;
+    register int  	n, i;
     Arg			args[MAX_ARGS], PWargs[MAX_ARGS];
     int			PWn;
 
@@ -143,7 +143,7 @@ static void DoTheWindows(num, PWargs, PWn, PBargs, PBn)
 {
 
 
-  int	i;
+  register int	i;
   Widget	PW, PB[3];
   
   PW = XmCreatePanedWindow(Shell1, "PW", PWargs, PWn);
@@ -166,7 +166,7 @@ static void ReportSize (w, type_string, arg)
      char *type_string;
      int arg;
 {
-  int	n;
+  register int	n;
   Arg		args[2];
   Dimension	width, height;
     

@@ -1507,7 +1507,7 @@ static Widget  CreatePushButton(Widget parent, char *label)
 {
 
 	Widget			widget;
-	int	n;
+	register int	n;
 	Arg				args[3];
 	XmString		tcs;
 

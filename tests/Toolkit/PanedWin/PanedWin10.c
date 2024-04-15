@@ -46,7 +46,7 @@ void  main(argc, argv)
 int     argc;
 char  **argv;
 {
-    int  	n, i, j;
+    register int  	n, i, j;
     Arg			args[MAX_ARGS];
     Widget		PW, PBarray[BUTTONS];
     Boolean	        resizable;
@@ -156,7 +156,7 @@ char  **argv;
 static void ReportSize (w)
      Widget w;
 {
-  int	n;
+  register int	n;
   Arg		args[2];
   Dimension	width, height;
     

@@ -176,7 +176,7 @@ unsigned int argc;
 char **argv;
 {
     Arg             args[20];           /*  arg list            */
-    int    n;                  /*  arg count           */
+    register int    n;                  /*  arg count           */
 
     /*  initialize toolkit  */
     CommonTestInit(argc, argv);

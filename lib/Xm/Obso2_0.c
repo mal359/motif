@@ -210,7 +210,7 @@ _XmGetRealXlations(
   char *result, buf[1000];
   char *tmp = buf;
   char *keystring;
-  int i;
+  register int i;
   int num_vkeys;
   XmKeyBinding vkeys;
   KeySym    keysym;
@@ -991,7 +991,7 @@ _XmGetDefaultColors(
 	static XmColorData ** default_set = NULL;
 	static int default_set_count = 0;
 	static int default_set_size = 0;
-	int i;
+	register int i;
 	XColor color_def;
 	static Pixel background;
         XrmValue fromVal;
@@ -1258,7 +1258,7 @@ _XmAccessColorData(
 /* OBSOLETE: Replaced by _XmMapKeyEvents. */
 Boolean 
 _XmMapKeyEvent(
-        String str,
+        register String str,
         int *eventType,
         unsigned int *keysym,
         unsigned int *modifiers )

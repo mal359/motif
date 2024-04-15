@@ -48,7 +48,7 @@ int     argc;
 char  **argv;
 {
     Boolean       	trace = False;
-    int  	n, i, j;
+    register int  	n, i, j;
     Arg			args[MAX_ARGS], ONargs[MAX_ARGS], OFFargs[MAX_ARGS];
     int			ONn, OFFn;
     Widget		PW, PBarray[BUTTONS];
@@ -136,7 +136,7 @@ char  **argv;
 static void ReportSize (w)
 Widget w;
 {
-  int	n;
+  register int	n;
   Arg		args[2];
   Dimension	width, height;
     

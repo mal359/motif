@@ -3046,7 +3046,7 @@ ConstraintSetValues(
                   Cardinal *num_args) /* unused */
 {
     XmRowColumnWidget rc = (XmRowColumnWidget) XtParent(new_w);
-    Widget tmp;
+    register Widget tmp;
     int i ;
     XtWidgetGeometry current ;
     Boolean margins_changed;
@@ -3277,7 +3277,7 @@ XmVaCreateRowColumn(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     
@@ -3712,9 +3712,9 @@ FindFirstManagedChild(
         Boolean first_button )
 #endif /* NeedWidePrototypes */
 {
-    Widget *kid;
-    int i = 0;
-    int n;
+    register Widget *kid;
+    register int i = 0;
+    register int n;
 
     if (!m)
        return(NULL);

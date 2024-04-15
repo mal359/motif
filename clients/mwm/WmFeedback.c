@@ -746,7 +746,7 @@ static void CancelCB (w, client_data, call_data)
 void ConfirmAction (WmScreenData *pSD, int nbr)
 {
     Arg           args[8];
-    int  n;
+    register int  n;
     int           x, y;
     Dimension     width, height;
     Widget        dialogShellW = NULL;

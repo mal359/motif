@@ -37,7 +37,7 @@ void  main (argc, argv)
     int     argc;
     char  **argv;
 {
-    int       	n, i;
+    register int       	n, i;
     Widget		Form, Push1;
     Arg                	args[MAX_ARGS];
     XmString           	tcs, ItemList[NITEMS];

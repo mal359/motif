@@ -47,7 +47,7 @@ void  main(argc, argv)
 int argc;
 char **argv;
 {
-  int  n;
+  register int  n;
   Arg args[MAX_ARGS];
   
   CommonTestInit(argc, argv);
@@ -67,8 +67,8 @@ char **argv;
 static void RunTest(Shell)
 Widget Shell;
 {
-  int  i;
-  int  n;
+  register int  i;
+  register int  n;
   Arg args[MAX_ARGS];
   
   CreateForm(Shell);
@@ -98,8 +98,8 @@ Widget Shell;
 static void CreateForm(Shell)
 Widget Shell;
 {
-  int  i;
-  int  n;
+  register int  i;
+  register int  n;
   Arg           args[MAX_ARGS];
   char          label[25];
   XmString      items[20];

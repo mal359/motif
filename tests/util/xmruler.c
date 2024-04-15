@@ -183,7 +183,7 @@ void  main(argc, argv)
     int     argc;
     char  **argv;
 {
-    int  n;
+    register int  n;
     Arg           args[MAX_ARGS];
     Widget        Form1;
     Widget          RowCol1, RowCol2;
@@ -363,7 +363,7 @@ void  main(argc, argv)
 static Boolean do_measure ()
 {
 
-    int x, y;
+    register int x, y;
     Window root_window, child_window;
     int root_x, root_y, win_x, win_y;
     int first_x, first_y;

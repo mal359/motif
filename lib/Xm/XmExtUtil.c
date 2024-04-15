@@ -233,7 +233,7 @@ _XmFilterArgs(ArgList args, Cardinal num_args, String *filter,
 	      ArgList *filtered_args, Cardinal *num_filtered_args)
 {
     ArgList fargs = (ArgList) XtMalloc(sizeof(Arg) * num_args);
-    int i;
+    register int i;
     String *ptr;
 
     *filtered_args = fargs;
@@ -550,11 +550,11 @@ XmCompareISOLatin1(first, second)
     char *first, *second;
 #endif
 {
-    unsigned char *ap, *bp;
+    register unsigned char *ap, *bp;
 
     for (ap = (unsigned char *) first, bp = (unsigned char *) second;
          *ap && *bp; ap++, bp++) {
-        unsigned char a, b;
+        register unsigned char a, b;
 
         if ((a = *ap) != (b = *bp)) {
             /* try lowercasing and try again */
@@ -583,7 +583,7 @@ void
 XmCopyISOLatin1Lowered(dst, src)
     char *dst, *src;
 {
-    unsigned char *dest, *source;
+    register unsigned char *dest, *source;
 
     for (dest = (unsigned char *)dst, source = (unsigned char *)src;
 	 *source;
@@ -613,7 +613,7 @@ Pixmap
 XiCreateStippledPixmap(Screen *screen, 
 		       Pixel fore, Pixel back, unsigned int depth)
 {
-    Display *display = DisplayOfScreen(screen);
+    register Display *display = DisplayOfScreen(screen);
     CacheEntry *cachePtr;
     Pixmap stippled_pixmap;
     static unsigned char pixmap_bits[] = {
@@ -650,7 +650,7 @@ XiCreateStippledPixmap(Screen *screen,
 void 
 XiReleaseStippledPixmap(Screen *screen, Pixmap pixmap)
 {
-    Display *display = DisplayOfScreen(screen);
+    register Display *display = DisplayOfScreen(screen);
     CacheEntry *cachePtr, **prevP;
 
     _XmProcessLock();

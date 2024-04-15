@@ -63,7 +63,7 @@ int argc;
 char **argv;
 {
   Boolean            trace = False;
-  int       n;
+  register int       n;
   Arg                args[MAX_ARGS];
   String             dirname;
   XmString           label_str;

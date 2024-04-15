@@ -1222,7 +1222,7 @@ static void
 Resize(
         Widget w )
 {
-  XmPushButtonWidget tb = (XmPushButtonWidget) w;
+  register XmPushButtonWidget tb = (XmPushButtonWidget) w;
 
   if (Lab_IsPixmap(w) || Lab_IsPixmapAndText(w)) 
     SetPushButtonSize((XmPushButtonWidget) tb);
@@ -3116,7 +3116,7 @@ XmVaCreatePushButton(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

@@ -55,7 +55,7 @@ char **argv;
 {
    Widget Scale1;
    Arg args[MAX_ARGS];
-   int	n;
+   register int	n;
    Widget label1, label2;
 
 

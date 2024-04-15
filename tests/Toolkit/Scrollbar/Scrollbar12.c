@@ -35,7 +35,7 @@
 
 void main ( int argc, char **argv )
 {
-  int n;
+  register int n;
   Arg      args[MAX_ARGS];
   Widget   BulletinBoard1, Scrollbar1, Separator1, Separator2;
   Position sb_xcoord, sb_ycoord;

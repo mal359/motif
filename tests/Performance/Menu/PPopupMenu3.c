@@ -238,7 +238,7 @@ static Widget  CreateLabel(label, parent)
     Widget  parent;
 {
     Widget        widget;
-    int  n;
+    register int  n;
     Arg           args[MAX_ARGS];
     XmString      tcs;
 
@@ -259,7 +259,7 @@ static Widget  CreatePushButton(label, parent)
     Widget  parent;
 {
     Widget        widget;
-    int  n;
+    register int  n;
     Arg           args[MAX_ARGS];
     XmString      tcs;
 
@@ -279,7 +279,7 @@ static Widget  CreateToggle(label, parent)
     Widget  parent;
 {
     Widget        widget;
-    int  n;
+    register int  n;
     Arg           args[MAX_ARGS];
     XmString      tcs;
 
@@ -326,7 +326,7 @@ static Widget  CreateCascade(label, submenu, parent)
     Widget  parent;
 {
     Widget        widget;
-    int  n;
+    register int  n;
     Arg           args[MAX_ARGS];
     XmString      tcs;
 
@@ -362,7 +362,7 @@ void  main(argc, argv)
     int     argc;
     char  **argv;
 {
-    int  n;
+    register int  n;
     Arg           args[MAX_ARGS];
     XmString      tcs;
 	int			num_buttons;

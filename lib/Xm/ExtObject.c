@@ -481,7 +481,7 @@ Destroy(Widget wid)
 char * 
 _XmExtObjAlloc(int size)
 {
-  int i;
+  register int i;
   
   if (size <= XmNUM_BYTES)
     {
@@ -499,7 +499,7 @@ _XmExtObjAlloc(int size)
 void 
 _XmExtObjFree(XtPointer element)
 {
-  int i;
+  register int i;
   
   for (i = 0; i < XmNUM_ELEMENTS; i++)
     if (extarray[i].cache.data == (char*)element)

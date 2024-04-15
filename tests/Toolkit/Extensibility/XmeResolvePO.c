@@ -62,7 +62,7 @@ DoQuit(Widget w, XtPointer ignore, XtPointer cbstruct)
 int 
 main (int argc, char **argv)
 {
-  int       n;
+  register int       n;
   Arg                args[MAX_ARGS];
   Display	     *display;
   Widget       	     tab_button, mainWindow;

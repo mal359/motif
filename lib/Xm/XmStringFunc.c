@@ -283,8 +283,8 @@ XmParseMappingGetValues(XmParseMapping mapping,
 			ArgList        arg_list,
 			Cardinal       arg_count)
 {
-  Cardinal i;
-  String arg_name;
+  register Cardinal i;
+  register String arg_name;
 
   _XmProcessLock();
   /* Do a little error checking. */

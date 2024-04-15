@@ -684,8 +684,8 @@ Resize(Widget w)
 static void 
 _XmFastExpose(Widget widg)
 {
-  int i;
-  Widget child;
+  register int i;
+  register Widget child;
   XmGrabShellWidget gs = (XmGrabShellWidget)widg;
 
   _XmProcessLock();

@@ -61,7 +61,7 @@ PrintRequest(WSMRequest *request)
 {
     static char str[STRSIZE]; /* The vile hacks we do in debugging code. */
     String ptr;
-    int i;
+    register int i;
 
     sprintf(str, "Request: %s\n", _WSMReqTypeToName(request->any.type));
     ptr = str + strlen(str);
@@ -132,7 +132,7 @@ String
 PrintReply(WSMReply *reply)
 {
     static char str[STRSIZE]; /* The vile hacks we do in debugging code. */
-    int i;
+    register int i;
     String ptr;
 
     sprintf(str, "Reply: %s\n", _WSMReqTypeToName(reply->any.type));
@@ -211,7 +211,7 @@ PrintWindowInfo(
      String      str,
      WSMWinInfo *win_info)
 {
-    int i;
+    register int i;
     int num = win_info->num_data_list;
     WSMWinData *win_data = win_info->data_list;
     
@@ -237,7 +237,7 @@ PrintWindowData(
      String      tab_str,
      WSMWinData *win_data)
 {
-    int i;
+    register int i;
     char *type_str = NULL;
 
     if (win_data->type == WSM_VALUE_DATA) {
@@ -305,14 +305,14 @@ PrintConfigFormat(
      String                str,
      WSMConfigFormatReply *config_fmt)
 {
-    int i;
+    register int i;
 
     sprintf("Accepts Diffs: %s\n",
 	    (config_fmt->accepts_diffs ? "True" : "False"));
 
     for (i = 0; i < 3; i++) {
 	WSMAttribute *fmt;
-	int j, num;
+	register int j, num;
 
 	str += strlen(str);
 

@@ -135,7 +135,7 @@ static int MenuStatus(
                         Widget wid );
 static int  MenuType( Widget ) ;
 static void PositionMenu( 
-                        XmRowColumnWidget m,
+                        register XmRowColumnWidget m,
                         XButtonPressedEvent *event) ;
 static void ButtonMenuPopDown( 
                         Widget w,
@@ -252,7 +252,7 @@ static void EntryFired(
 static int NoTogglesOn( 
                         XmRowColumnWidget m) ;
 static int IsInWidgetList( 
-                        XmRowColumnWidget m,
+                        register XmRowColumnWidget m,
                         RectObj w) ;
 static void AllOffExcept( 
                         XmRowColumnWidget m,
@@ -2868,7 +2868,7 @@ MenuType(
  */
 static void 
 PositionMenu(
-        XmRowColumnWidget m,
+        register XmRowColumnWidget m,
         XButtonPressedEvent *event )
 {
     XmRowColumnWidget root;
@@ -3024,8 +3024,8 @@ SearchMenu(
 	Boolean setHistory )
 #endif /* NeedWidePrototypes */
 {
-    Widget *q;
-    int i;
+    register Widget *q;
+    register int i;
 
     if ( ! InMenu (search_m, parent_m, child, w))
     {
@@ -3092,8 +3092,8 @@ static int
 NoTogglesOn(
         XmRowColumnWidget m )
 {
-    Widget *q;
-    int i;
+    register Widget *q;
+    register int i;
 
     ForManagedChildren (m, i, q)
     {
@@ -3114,11 +3114,11 @@ NoTogglesOn(
 
 static int 
 IsInWidgetList(
-        XmRowColumnWidget m,
+        register XmRowColumnWidget m,
         RectObj w )
 {
-    Widget *q;
-    int i;
+    register Widget *q;
+    register int i;
 
     if ((m == NULL) || (w == NULL)) return (FALSE);
 
@@ -3136,8 +3136,8 @@ AllOffExcept(
         XmRowColumnWidget m,
         Widget w )
 {
-    Widget *q;
-    int i;
+    register Widget *q;
+    register int i;
 
     if (w)  /* then all widgets except this one go off */
     {

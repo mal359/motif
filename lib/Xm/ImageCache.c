@@ -229,7 +229,7 @@ HashString (XmHashKey key)
 static void 
 InitializeImageSet( void )
 {
-  int i;
+  register int i;
 
   /* Allocate the hash table. */
   assert (image_set == NULL);
@@ -673,7 +673,7 @@ GetXpmImage(
     int num_override_colors;
     XImage * mask_image = NULL ;
     int hot_x = 0 , hot_y = 0 ;
-    Display *display = DisplayOfScreen(screen);
+    register Display *display = DisplayOfScreen(screen);
 
     /* init so that we can call safely XpmFreeAttributes. */
     attrib.valuemask = 0;
@@ -851,7 +851,7 @@ GetImage(
 	 int *npixels)
 {
     static XImage  * built_in_image = NULL;
-    Display *display = DisplayOfScreen(screen);
+    register Display *display = DisplayOfScreen(screen);
     ImageData *entry;
     char *file_name;
     XtEnum return_value;
@@ -1440,8 +1440,8 @@ _XmGetScaledPixmap(
 	      (WhitePixelOfScreen(screen) == 1))
 	    {
 	      /* Flip the bits so fg == 1 in the image. */
-	      int nbytes = image->height * image->bytes_per_line;
-	      int byte;
+	      register int nbytes = image->height * image->bytes_per_line;
+	      register int byte;
 
 	      /* Image data may be constant, so we must copy it. */
 	      old_image_data = image->data;

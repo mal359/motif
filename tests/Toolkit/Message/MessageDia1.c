@@ -165,7 +165,7 @@ XtPointer   client_data;                 /*  data from application   */
 XtPointer   call_data;                   /*  data from widget class  */
 {
     Arg      args[10];
-    int n;
+    register int n;
 
     if (symSet) {
         n=0;
@@ -191,7 +191,7 @@ XtPointer   client_data;                 /*  data from application   */
 XtPointer   call_data;                   /*  data from widget class  */
 {
     Arg            args[10];
-    int   n;
+    register int   n;
     static Pixmap  pix=(Pixmap)0;
 
     if (symSet) {
@@ -217,7 +217,7 @@ XtPointer   client_data;                 /*  data from application   */
 XtPointer   call_data;                   /*  data from widget class  */
 {
     Arg      args[10];
-    int n;
+    register int n;
 
 
     if (symSet) {
@@ -240,7 +240,7 @@ unsigned int argc;
 char **argv;
 {
     Arg             args[10];           /*  arg list            */
-    int    n;                  /*  arg count           */
+    register int    n;                  /*  arg count           */
 
 
 
@@ -310,7 +310,7 @@ unsigned short *bitmap_bits;
 int     bitmap_height, bitmap_width;
 Pixel   foreground_pixel, background_pixel;
 {
-    Display *display = DisplayOfScreen (screen);
+    register Display *display = DisplayOfScreen (screen);
     XImage image;
     Pixmap pixmap;
     GC gc;

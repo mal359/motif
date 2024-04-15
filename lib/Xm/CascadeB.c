@@ -85,15 +85,15 @@ static void BorderHighlight(
 static void BorderUnhighlight( 
                         Widget wid) ;
 static void DrawShadow( 
-                        XmCascadeButtonWidget cb) ;
+                        register XmCascadeButtonWidget cb) ;
 static void DrawCascade( 
-                        XmCascadeButtonWidget cb) ;
+                        register XmCascadeButtonWidget cb) ;
 static void Redisplay( 
-                        Widget cb,
+                        register Widget cb,
                         XEvent *event,
                         Region region) ;
 static void Arm( 
-                        XmCascadeButtonWidget cb) ;
+                        register XmCascadeButtonWidget cb) ;
 static void ArmAndPost( 
                         XmCascadeButtonWidget cb,
                         XEvent *event) ;
@@ -103,7 +103,7 @@ static void ArmAndActivate(
                         String *params,
                         Cardinal *num_params) ;
 static void Disarm( 
-                        XmCascadeButtonWidget cb,
+                        register XmCascadeButtonWidget cb,
 #if NeedWidePrototypes
                         int unpost) ;
 #else
@@ -128,7 +128,7 @@ static void StartDrag(
                         String *param,
                         Cardinal *num_param) ;
 static void Select( 
-                        XmCascadeButtonWidget cb,
+                        register XmCascadeButtonWidget cb,
                         XEvent *event,
 #if NeedWidePrototypes
                         int doCascade) ;
@@ -517,7 +517,7 @@ BorderUnhighlight(
  */
 static void 
 DrawShadow(
-        XmCascadeButtonWidget cb )
+        register XmCascadeButtonWidget cb )
 {
   XmDisplay dpy = (XmDisplay) XmGetXmDisplay(XtDisplay((Widget) cb));
   Boolean etched_in = dpy -> display.enable_etched_in_menu;
@@ -544,7 +544,7 @@ DrawShadow(
 
 static void 
 DrawCascade(
-        XmCascadeButtonWidget cb )
+        register XmCascadeButtonWidget cb )
 {
    if ((CB_HasCascade(cb)) && (CB_Cascade_width(cb) != 0))
    {
@@ -587,7 +587,7 @@ DrawCascade(
  */
 static void 
 Redisplay(
-        Widget cb,
+        register Widget cb,
         XEvent *event,
         Region region )
 {
@@ -688,7 +688,7 @@ Redisplay(
  */
 static void 
 Arm(
-        XmCascadeButtonWidget cb )
+        register XmCascadeButtonWidget cb )
 {
   if (!CB_IsArmed(cb))
     {
@@ -871,7 +871,7 @@ ArmAndActivate(
  */
 static void 
 Disarm(
-        XmCascadeButtonWidget cb,
+        register XmCascadeButtonWidget cb,
 #if NeedWidePrototypes
         int unpost )
 #else
@@ -996,7 +996,7 @@ CheckDisarm(
         Cardinal *num_param )
 {
    XmCascadeButtonWidget cb = (XmCascadeButtonWidget) wid ;
-   XmMenuShellWidget submenushell;
+   register XmMenuShellWidget submenushell;
    XEnterWindowEvent * entEvent = (XEnterWindowEvent *) event;
 
    if (_XmGetInDragMode((Widget) cb) &&
@@ -1109,7 +1109,7 @@ StartDrag(
  */
 static void 
 Select(
-        XmCascadeButtonWidget cb,
+        register XmCascadeButtonWidget cb,
         XEvent *event,
 #if NeedWidePrototypes
         int doCascade )
@@ -1180,7 +1180,7 @@ DoSelect(
         String *param,
         Cardinal *num_param )
 {
-   XmCascadeButtonWidget cb = (XmCascadeButtonWidget) wid ;
+   register XmCascadeButtonWidget cb = (XmCascadeButtonWidget) wid ;
    Boolean validButton;
    XmMenuSystemTrait menuSTrait;
 
@@ -1379,7 +1379,7 @@ MenuBarEnter(
         String *param,
         Cardinal *num_param )
 {
-        XmCascadeButtonWidget cb = (XmCascadeButtonWidget) wid ;
+        register XmCascadeButtonWidget cb = (XmCascadeButtonWidget) wid ;
    XmRowColumnWidget rc = (XmRowColumnWidget)XtParent(cb);
 
    if (RC_IsArmed(rc) && !CB_IsArmed(cb) && _XmGetInDragMode((Widget) cb))
@@ -1407,7 +1407,7 @@ MenuBarLeave(
         String *param,
         Cardinal *num_param )
 {
-   XmCascadeButtonWidget cb = (XmCascadeButtonWidget) wid ;
+   register XmCascadeButtonWidget cb = (XmCascadeButtonWidget) wid ;
    XmMenuShellWidget submenuShell;
 
    if (RC_IsArmed (XtParent (cb)))
@@ -1650,9 +1650,9 @@ Popup(
 {
     Widget oldActiveChild;
     Boolean popped_up = False;
-    XmRowColumnWidget   submenu;
+    register XmRowColumnWidget   submenu;
     XmMenuShellWidget shell = NULL;
-    XmRowColumnWidget	parent   = (XmRowColumnWidget) XtParent (cb);
+    register XmRowColumnWidget	parent   = (XmRowColumnWidget) XtParent (cb);
     XmMenuSystemTrait menuSTrait;
     XmDisplay dd = (XmDisplay)XmGetXmDisplay(XtDisplay(cb));
     XmExcludedParentPaneRec *excPP =
@@ -2482,7 +2482,7 @@ XmVaCreateCascadeButton(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

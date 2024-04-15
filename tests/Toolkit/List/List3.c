@@ -68,7 +68,7 @@ void  main (argc, argv)
     int     argc;
     char  **argv;
 {
-    int       n;
+    register int       n;
     Arg                args[MAX_ARGS];
     XmString           tcs, ItemList[NITEMS], SelectionList[NITEMS];
     XrmDatabase        new_db, save_db;

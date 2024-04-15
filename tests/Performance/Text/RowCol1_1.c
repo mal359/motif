@@ -4382,11 +4382,11 @@ Widget memWidget;
 
 
 static int is_in_widget_list (m, w)
-XmRowColumnWidget m;
+register XmRowColumnWidget m;
 RectObj w;
 {
-    Widget *q;
-    int i;
+    register Widget *q;
+    register int i;
 
     if ((m == NULL) || (w == NULL)) return (FALSE);
 
@@ -4424,8 +4424,8 @@ XmRowColumnWidget *parent_m;
 RectObj child;
 Widget *w;
 {
-    Widget *q;
-    int i;
+    register Widget *q;
+    register int i;
 
     if ( ! in_menu (search_m, parent_m, child, w))
     {
@@ -4555,8 +4555,8 @@ static void all_off_except (m, w)
 XmRowColumnWidget m;
 Widget w;
 {
-    Widget *q;
-    int i;
+    register Widget *q;
+    register int i;
 
     if (w)  /* then all widgets except this one go off */
     {
@@ -4583,8 +4583,8 @@ Widget w;
 static int no_toggles_on (m)
 XmRowColumnWidget m;
 {
-    Widget *q;
-    int i;
+    register Widget *q;
+    register int i;
 
     ForManagedChildren (m, i, q)
     {
@@ -4847,7 +4847,7 @@ Dimension w, h;
    XmKidGeometry kg = RC_Boxes (m);
    XtWidgetGeometry *b;
    Dimension a;
-   Dimension subtrahend;
+   register Dimension subtrahend;
 
    for ( ; kg [start_i].kid != NULL; start_i++)
    {
@@ -4930,7 +4930,7 @@ Dimension *m_width, *m_height,            /* if 0 then caller's asking */
 Position    max_x, max_y, *x, *y;
 Dimension   w, h;
 {
-   Dimension subtrahend;
+   register Dimension subtrahend;
 
    if (IsVertical (m))             /* glue to bottom edge of ... */
    {
@@ -5289,10 +5289,10 @@ Dimension *width, *height;
    Dimension h;
    XmKidGeometry kg;
    XtWidgetGeometry    *label_box, *button_box;
-   int i; 
-   Dimension c_width=0; 
-   Dimension c_height=0;
-   XmRowColumnWidget p = (XmRowColumnWidget) RC_OptionSubMenu(menu);
+   register int i; 
+   register Dimension c_width=0; 
+   register Dimension c_height=0;
+   register XmRowColumnWidget p = (XmRowColumnWidget) RC_OptionSubMenu(menu);
    Widget cb = XmOptionButtonGadget(menu);
 
    /* Find the interesting boxes */
@@ -5373,7 +5373,7 @@ Dimension *w, *h;
  */
 
 static void PositionMenu (m, event)
-XmRowColumnWidget  m;
+register XmRowColumnWidget  m;
 XButtonPressedEvent *event;
 {
     XmRowColumnWidget root = NULL;
@@ -5440,9 +5440,9 @@ static Widget find_first_managed_child(m, first_button)
 CompositeWidget m;
 Boolean first_button;
 {
-    Widget *kid = m->composite.children;
-    int i = 0;
-    int n = m->composite.num_children;
+    register Widget *kid = m->composite.children;
+    register int i = 0;
+    register int n = m->composite.num_children;
 
     while( (i < n) && 
 	   (!XtIsManaged(*kid) || 
@@ -5563,14 +5563,14 @@ XmRowColumnWidget m;          /* sub-menu to position */
 
 /* ARGSUSED */
 static void think_about_option_size(m, w, h, instigator, request)
-XmRowColumnWidget m;
+register XmRowColumnWidget m;
 Dimension *w, *h;
 Widget instigator;
 XtWidgetGeometry *request;  
 {
-   int i; 
+   register int i; 
    Dimension width=0, height=0;
-   XmRowColumnWidget p = (XmRowColumnWidget) RC_OptionSubMenu(m);
+   register XmRowColumnWidget p = (XmRowColumnWidget) RC_OptionSubMenu(m);
    Widget cb = XmOptionButtonGadget(m);
 
    /*
@@ -5643,7 +5643,7 @@ XtWidgetGeometry *request;
 
 
 static void think_about_size (m, w, h, instigator, request)
-XmRowColumnWidget m;
+register XmRowColumnWidget m;
 Dimension *w, *h;
 Widget instigator;
 XtWidgetGeometry *request;  
@@ -6121,7 +6121,7 @@ static void XmGetMenuKidMargins (m, width, height, left, right, top, bottom)
 XmRowColumnWidget m;
 Dimension *width, *height, *left, *right, *top, *bottom;
 {
-   int i;
+   register int i;
 
     *width = *height = *left = *right = *top = *bottom = 0;
 
@@ -6133,7 +6133,7 @@ Dimension *width, *height, *left, *right, *top, *bottom;
         {
             if (XmIsLabelGadget(p))
             {
-                XmLabelGadget lg = (XmLabelGadget) p;
+                register XmLabelGadget lg = (XmLabelGadget) p;
 
                 if (LabG_MarginWidth (lg) > *width)  
                        *width  = LabG_MarginWidth  (lg);
@@ -6155,7 +6155,7 @@ Dimension *width, *height, *left, *right, *top, *bottom;
             }
             else if (XmIsLabel(p))
             {
-                XmLabelWidget lw = (XmLabelWidget) p;
+                register XmLabelWidget lw = (XmLabelWidget) p;
 
                 if (Lab_MarginWidth (lw) > *width)  
                        *width  = Lab_MarginWidth  (lw);
@@ -6193,8 +6193,8 @@ Dimension *width, *height, *left, *right, *top, *bottom;
 static void DoMarginAdjustment (m)
 XmRowColumnWidget m;
 {
-    Widget *p;
-    int i; 
+    register Widget *p;
+    register int i; 
     Dimension m_w, m_h, m_l, m_r, m_t, m_b;
     Dimension w, h;
 
@@ -6797,7 +6797,7 @@ static void FindNextMenuBarItem (menubar)
 XmRowColumnWidget menubar;
 {
    Widget child;
-    int i, j;
+    register int i, j;
     int upper_limit;
     Widget active_child;
     XRectangle visRect;
@@ -6884,7 +6884,7 @@ static void FindPrevMenuBarItem(menubar)
 XmRowColumnWidget menubar;
 {
     Widget child;
-    int i, j;
+    register int i, j;
     int upper_limit;
     Widget active_child;
     XRectangle visRect;
@@ -6968,7 +6968,7 @@ static void FindNextMenuBarCascade (menubar)
 XmRowColumnWidget menubar;
 {
    Widget child;
-   int i, j;
+   register int i, j;
    int upper_limit;
    XRectangle visRect;
    ShellWidget shell;
@@ -7041,7 +7041,7 @@ static void FindPrevMenuBarCascade (menubar)
 XmRowColumnWidget menubar;
 {
     Widget child;
-    int i, j;
+    register int i, j;
     int upper_limit;
     XRectangle visRect;
     ShellWidget shell;

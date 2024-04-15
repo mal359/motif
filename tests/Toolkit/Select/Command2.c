@@ -51,7 +51,7 @@ static void EnterCB (w, client_data, call_data)
     			badString = NULL;
 
     Arg			al[10];                  /*  arg list             */
-    int	ac;                      /*  arg count            */
+    register int	ac;                      /*  arg count            */
     Widget		noChild;
 
     if(str == NULL)
@@ -139,7 +139,7 @@ char **argv;
 {
     Widget        command;                 /*  Command widget       */
     Arg           args[10];                /*  arg list             */
-    int  n;                       /*  arg count            */
+    register int  n;                       /*  arg count            */
     Widget        unManageList[5];
     XmString      stringList[15];
     XmString      commandString;

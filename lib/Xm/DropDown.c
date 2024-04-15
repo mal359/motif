@@ -2460,7 +2460,7 @@ SetTextFromList(Widget w)
     XmStringTable items;
     int count;
     unsigned char policy;
-    int i, text_loc;
+    register int i, text_loc;
     XmDropDownClassPartExtension *addition;
 
     addition = CheckExtensions( (XmDropDownWidgetClass)XtClass(cbw) );
@@ -2485,7 +2485,7 @@ SetTextFromList(Widget w)
     text_loc = 0;
     i = 0;
     while (i < count) {
-	int len;
+	register int len;
 	String ptr;
 	wchar_t temp[BUFSIZ];
 
@@ -2568,7 +2568,7 @@ XmVaCreateDropDown(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

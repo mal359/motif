@@ -214,7 +214,7 @@ void  main (argc, argv)
     char  **argv;
 {
     Boolean            trace = False;
-    int       n;
+    register int       n;
     Arg                args[MAX_ARGS];
     XmString           tcs;
     Widget             BulletinBoard, PushButton, Frame;

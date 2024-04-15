@@ -40,7 +40,7 @@ int     argc;
 char  **argv;
 {
     Boolean       	trace = False;
-    int  	n, i;
+    register int  	n, i;
     Arg			args[MAX_ARGS];
     Widget		PW, PB1, PB2, PB3;
     

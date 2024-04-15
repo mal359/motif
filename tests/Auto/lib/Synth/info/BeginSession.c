@@ -299,7 +299,7 @@ Display		*dpy;
 KeySym		ks;
 Modifiers	*new_mod;
 {
-    int i, j, n;
+    register int i, j, n;
     Boolean	done = False;
     KeySym	ksym, *ks_list;
     XModifierKeymap *mod_keymap;

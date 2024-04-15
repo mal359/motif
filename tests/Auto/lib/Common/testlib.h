@@ -537,7 +537,7 @@ extern Widget AppShellCreate(
 extern void AppMainLoop( 
                         XtAppContext app);
 extern void SetValues( 
-                        Widget w,
+                        register Widget w,
                         ArgList args,
                         Cardinal num_args);
 extern void DestroyWidget( 

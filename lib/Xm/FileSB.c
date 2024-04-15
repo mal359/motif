@@ -1018,7 +1018,7 @@ FSBCreateDirList(
         XmFileSelectionBoxWidget fsb )
 {
 	Arg		al[20];
-	int	ac = 0;
+	register int	ac = 0;
             XtCallbackProc callbackProc ;
 /****************/
 
@@ -1174,8 +1174,8 @@ FileSBGeoMatrixCreate(
 {
     XmFileSelectionBoxWidget fsb = (XmFileSelectionBoxWidget) wid ;
     XmGeoMatrix     geoSpec ;
-    XmGeoRowLayout  layoutPtr ;
-    XmKidGeometry   boxPtr ;
+    register XmGeoRowLayout  layoutPtr ;
+    register XmKidGeometry   boxPtr ;
     XmKidGeometry   firstButtonBox ; 
     Boolean         dirListLabelBox ;
     Boolean         listLabelBox ;
@@ -3522,7 +3522,7 @@ XmVaCreateFileSelectionBox(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

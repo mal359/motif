@@ -46,7 +46,7 @@ void  main (argc, argv)
     int     argc;
     char  **argv;
 {
-    int       	n;
+    register int       	n;
     Arg                	args[MAX_ARGS];
     XmString		tcs;
     Widget		Label2;

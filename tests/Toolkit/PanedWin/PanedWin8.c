@@ -45,7 +45,7 @@ int     argc;
 char  **argv;
 {
     Boolean       	trace = False;
-    int  	n, i;
+    register int  	n, i;
     Arg			args[MAX_ARGS];
 
     CommonTestInit(argc, argv);
@@ -68,7 +68,7 @@ char  **argv;
 static void DoXY(i)
 int i;
 {
-  int  	n, j;
+  register int  	n, j;
   Arg			args[MAX_ARGS];
   Widget		PW, PB;
 
@@ -143,7 +143,7 @@ int i;
 static void ReportSize (w)
 Widget w;
 {
-  int	n;
+  register int	n;
   Arg		args[2];
   Dimension	width, height;
     

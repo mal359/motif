@@ -82,7 +82,7 @@ static char rcsid[] = "$TOG: MenuShell.c /main/24 1999/07/08 16:49:59 vipin $"
 /********    Static Function Declarations    ********/
 
 static void _XmFastExpose( 
-                        XmManagerWidget rowcol) ;
+                        register XmManagerWidget rowcol) ;
 static void _XmFastPopdown( 
                         XmMenuShellWidget shell) ;
 static void PostMenuShell( 
@@ -119,9 +119,9 @@ static void DeleteChild(
 static void InsertChild( 
                         Widget widget) ;
 static void ForceMenuPaneOnScreen( 
-                        XmRowColumnWidget rowcol,
-                        Position *x,
-                        Position *y) ;
+                        register XmRowColumnWidget rowcol,
+                        register Position *x,
+                        register Position *y) ;
 static void PopupSharedMenuShell( 
                         Widget cbwid,
                         Widget smwid,
@@ -378,10 +378,10 @@ static int check_set_offset2 = 0;
  */
 static void 
 _XmFastExpose(
-        XmManagerWidget rowcol )
+        register XmManagerWidget rowcol )
 {
-   int i;
-   Widget child;
+   register int i;
+   register Widget child;
 
    /* Process the menupane */
    RC_SetExpose(rowcol, True);
@@ -446,7 +446,7 @@ _XmPopupI(
     Boolean     spring_loaded
     )
 {
-    ShellWidget shell_widget = (ShellWidget) widget;
+    register ShellWidget shell_widget = (ShellWidget) widget;
 
     if (! XtIsShell(widget)) {
 	XtAppErrorMsg(XtWidgetToApplicationContext(widget),
@@ -908,9 +908,9 @@ InsertChild(
 
 static void 
 ForceMenuPaneOnScreen(
-        XmRowColumnWidget rowcol,
-        Position *x,
-        Position *y )
+        register XmRowColumnWidget rowcol,
+        register Position *x,
+        register Position *y )
 {
    Position rightEdgeOfMenu, bottomEdgeOfMenu;
    Dimension dispWidth, dispHeight;
@@ -1028,12 +1028,12 @@ PopupSharedMenuShell(
 {
    XmCascadeButtonWidget cascadebtn = (XmCascadeButtonWidget) cbwid ;
    XmRowColumnWidget submenu = (XmRowColumnWidget) smwid ;
-   XmMenuShellWidget popup = (XmMenuShellWidget) XtParent(submenu);
+   register XmMenuShellWidget popup = (XmMenuShellWidget) XtParent(submenu);
    XmRowColumnWidget parent_menu;
    Position x, y;
    Dimension height, width;
    int _index = 0;
-   int i;
+   register int i;
    Boolean popped_up = popup->shell.popped_up;
    XmRowColumnWidget old_rowcol = NULL;
    XmCascadeButtonWidget old_cascadebtn = NULL;
@@ -1359,13 +1359,13 @@ static void
 ChangeManaged(
         Widget w )
 {
-   XmMenuShellWidget popup = (XmMenuShellWidget) w;
+   register XmMenuShellWidget popup = (XmMenuShellWidget) w;
    XmRowColumnWidget parent_menu;
    Position x, y;
    Dimension height, width;
    XmCascadeButtonWidget cascadebtn;
-   Widget child;
-   XmRowColumnWidget rowcol = 
+   register Widget child;
+   register XmRowColumnWidget rowcol = 
        (XmRowColumnWidget)popup->composite.children[0];
    int i;
    XmMenuState mst = _XmGetMenuState((Widget)w);
@@ -1508,8 +1508,8 @@ ChangeManaged(
 	 _XmFastExpose((XmManagerWidget) rowcol);
 
 	       /** the real grab ***/
-         _XmMenuGrabKeyboardAndPointer((Widget)rowcol, CurrentTime);
-	 _XmMenuFocus(XtParent(rowcol), XmMENU_BEGIN, CurrentTime);
+         _XmMenuGrabKeyboardAndPointer((Widget)rowcol, _time);
+	 _XmMenuFocus(XtParent(rowcol), XmMENU_BEGIN, _time);
 
 	 /* To support menu replay, keep the pointer in sync mode */
 	 XAllowEvents(XtDisplay(rowcol), SyncPointer, CurrentTime);
@@ -1640,7 +1640,7 @@ void
 _XmPopdown(
         Widget widget)
 {   
-  ShellWidget shell_widget = (ShellWidget) widget;
+  register ShellWidget shell_widget = (ShellWidget) widget;
 
   if (! XtIsShell(widget)) {
     XtAppErrorMsg(XtWidgetToApplicationContext(widget),
@@ -2292,9 +2292,9 @@ _XmFindPopup(
     Widget widget,
     String name)
 {
-    Cardinal i;
-    XrmQuark q;
-    Widget w;
+    register Cardinal i;
+    register XrmQuark q;
+    register Widget w;
 
     q = XrmStringToQuark(name);
 
@@ -2314,7 +2314,7 @@ _XmMenuPopupAction(
     Cardinal *num_params)
 {
     Boolean spring_loaded;
-    Widget popup_shell;
+    register Widget popup_shell;
 
     if (*num_params != 1) {
 	XtAppWarningMsg(XtWidgetToApplicationContext(widget),

@@ -132,12 +132,12 @@ XmeConfigureObject(
 void 
 XmeRedisplayGadgets(
         Widget w,
-        XEvent *event,
+        register XEvent *event,
         Region region )
 {
    CompositeWidget mw = (CompositeWidget) w ;
-   int i;
-   Widget child;
+   register int i;
+   register Widget child;
    XtExposeProc expose;
   
    _XmWidgetToAppContext(w);

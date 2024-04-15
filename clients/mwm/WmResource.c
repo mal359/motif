@@ -6023,10 +6023,10 @@ XmColorData * _WmGetDefaultColors (screen, colormap, defaultColor)
     static int defaultCount[2] = {0, 0};
     static int defaultSize[2] = {0, 0};
     int setId;
-    XmColorData *set;
-    int count;
-    int size;
-    int i;
+    register XmColorData *set;
+    register int count;
+    register int size;
+    register int i;
     Display *display = DisplayOfScreen (screen);
     XColor colorDef;
 

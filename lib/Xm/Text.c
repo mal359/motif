@@ -166,7 +166,7 @@ static void AddLines(XmTextWidget tw,
 		     unsigned int current_index);
 
 static void InitializeLineTable(XmTextWidget tw,
-				int size);
+				register int size);
 
 static void FindHighlightingChanges(XmTextWidget tw);
 
@@ -969,9 +969,9 @@ _XmTextFindScroll(XmTextWidget tw,
 		  XmTextPosition start,
 		  int delta)
 {
-  XmTextLineTable line_table;
-  unsigned int t_index;
-  unsigned int max_index = 0;
+  register XmTextLineTable line_table;
+  register unsigned int t_index;
+  register unsigned int max_index = 0;
   
   if (tw->text.total_lines <= tw->text.table_index)
     tw->text.table_index = tw->text.total_lines - 1;
@@ -1240,10 +1240,10 @@ AddLines(XmTextWidget tw,
 	 unsigned int tmp_index,
 	 unsigned int current_index)
 {
-  unsigned int i;
-  unsigned int size_needed;
-  unsigned int cur_index;
-  unsigned int temp_index;
+  register unsigned int i;
+  register unsigned int size_needed;
+  register unsigned int cur_index;
+  register unsigned int temp_index;
 
   cur_index = current_index;
   temp_index = tmp_index;
@@ -1280,14 +1280,14 @@ void
 _XmTextRealignLineTable(XmTextWidget tw,
 			XmTextLineTable *temp_table,
 			int *temp_table_size,
-			unsigned int cur_index,
-			XmTextPosition cur_start,
-			XmTextPosition cur_end)
+			register unsigned int cur_index,
+			register XmTextPosition cur_start,
+			register XmTextPosition cur_end)
 
 {
-  int table_size;
-  XmTextPosition line_end;
-  XmTextPosition next_start;
+  register int table_size;
+  register XmTextPosition line_end;
+  register XmTextPosition next_start;
   XmTextLineTable line_table;
   
   if (temp_table) {
@@ -1351,10 +1351,10 @@ _XmTextRealignLineTable(XmTextWidget tw,
 
 static void
 InitializeLineTable(XmTextWidget tw,
-		    int size)
+		    register int size)
 {
-  unsigned int t_index;
-  XmTextLineTable line_table;
+  register unsigned int t_index;
+  register XmTextLineTable line_table;
   
   line_table = (XmTextLineTable) XtMalloc(size * sizeof(XmTextLineTableRec));
   
@@ -1372,10 +1372,10 @@ unsigned int
 _XmTextGetTableIndex(XmTextWidget tw,
 		     XmTextPosition pos)
 {
-  XmTextLineTable line_table;
-  unsigned int cur_index;
-  unsigned int max_index;
-  XmTextPosition position;
+  register XmTextLineTable line_table;
+  register unsigned int cur_index;
+  register unsigned int max_index;
+  register XmTextPosition position;
   
   position = pos;
   max_index = tw->text.total_lines - 1;
@@ -1411,14 +1411,14 @@ _XmTextUpdateLineTable(Widget widget,
                        Boolean update)
 #endif /* NeedWidePrototypes */
 {
-  unsigned int cur_index;
-  unsigned int begin_index;
-  unsigned int end_index;
-  XmTextLineTable line_table;
-  unsigned int max_index;
-  int lines_avail;
-  int length;
-  long delta;
+  register unsigned int cur_index;
+  register unsigned int begin_index;
+  register unsigned int end_index;
+  register XmTextLineTable line_table;
+  register unsigned int max_index;
+  register int lines_avail;
+  register int length;
+  register long delta;
   unsigned int start_index;
   unsigned int top_index;
   XmTextWidget tw = (XmTextWidget) widget;
@@ -1487,7 +1487,7 @@ _XmTextUpdateLineTable(Widget widget,
   cur_index = end_index;
   
   if (word_wrap) {
-    int i;
+    register int i;
     XmTextLineTable temp_table = NULL;
     int temp_table_size = 0;
     
@@ -1570,10 +1570,10 @@ _XmTextUpdateLineTable(Widget widget,
       _XmTextRealignLineTable(tw, NULL, 0, begin_index,
 			      cur_start, PASTENDPOS);
   } else {
-    char *ptr;
-    XmTextLineTable temp_table;
-    int temp_table_size;
-    int temp_index;
+    register char *ptr;
+    register XmTextLineTable temp_table;
+    register int temp_table_size;
+    register int temp_index;
     
     temp_table = NULL;
     temp_table_size = 0;
@@ -2181,7 +2181,7 @@ InitializeHook(Widget wid,
 	       ArgList args,
 	       Cardinal *num_args_ptr)
 {
-  XmTextWidget tw;
+  register XmTextWidget tw;
   Cardinal num_args = *num_args_ptr;
   XmTextSource source;
   XmTextPosition top_character;
@@ -4255,7 +4255,7 @@ XmVaCreateText(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

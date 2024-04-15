@@ -43,11 +43,11 @@
 
 unsigned int
 xpmatoui(
-    char		*p,
+    register char	*p,
     unsigned int	 l,
     unsigned int	*ui_return)
 {
-    unsigned int 	n, i;
+    register unsigned int n, i;
 
     n = 0;
     for (i = 0; i < l; i++)

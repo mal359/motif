@@ -36,7 +36,7 @@ void  main (argc, argv)
     int     argc;
     char  **argv;
 {
-    int       	n;
+    register int       	n;
     Arg                	args[MAX_ARGS];
     XmString           	tcs[1], ItemList[NITEMS],
     			ItemList2[NITEMS];

@@ -49,7 +49,7 @@ int
 main (int argc, char **argv)
 {
   Widget             workRegion, simpleWidget, simpleGadget;
-  int       n;
+  register int       n;
   Arg                args[MAX_ARGS];
   Position           x, y;
   Dimension          width, height, border_width;

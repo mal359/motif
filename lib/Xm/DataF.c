@@ -5096,7 +5096,7 @@ df_InsertString(
   int num_chars;
   Boolean replace_res;
   Boolean pending_delete = False;
-  int i;
+  register int i;
 
   if (!XmTextF_editable(tf)) {
      if (XmTextF_verify_bell(tf)) XBell(XtDisplay((Widget)tf), 0);
@@ -12758,7 +12758,7 @@ XmVaCreateDataField(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

@@ -179,7 +179,7 @@ _WSMGetConfigFormatType(Window win)
 WSMAttribute *
 _WSMGetMatchingAttr(XrmQuark nameq, WSMConfigFormatData *fmt_data)
 {
-    int i;
+    register int i;
     WSMAttribute * attr = fmt_data->attr_list;
 
     for (i = 0; i < fmt_data->num_attrs; i++, attr++) {
@@ -202,7 +202,7 @@ _WSMGetMatchingAttr(XrmQuark nameq, WSMConfigFormatData *fmt_data)
 WSMWinData *
 _WSMGetMatchingWinData(WSMWinData *win_data_top, int num, XrmQuark nameq)
 {
-    int i; 
+    register int i; 
     WSMWinData *local = win_data_top;
 
     for (i = 0; i < num; i++, local++) {

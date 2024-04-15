@@ -3795,7 +3795,7 @@ F_Version (String args, ClientData *pCD, XEvent *event)
 
 Boolean F_Send_Msg (String args, ClientData *pCD, XEvent *event)
 {
-    int i;
+    register int i;
 
 
     if (pCD && pCD->mwmMessagesCount)

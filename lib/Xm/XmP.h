@@ -1178,7 +1178,7 @@ typedef enum {
     /* GadgetUtil.c */
 extern void XmeRedisplayGadgets( 
                         Widget w,
-                        XEvent *event,
+                        register XEvent *event,
                         Region region) ;
 extern void XmeConfigureObject( 
                         Widget g,
@@ -1273,8 +1273,8 @@ extern XmFontList XmeGetDefaultRenderTable(
         unsigned char fontListType );
 #endif /* NeedWidePrototypes */
 extern Boolean XmeNamesAreEqual(
-        char *in_str,
-        char *test_str );
+        register char *in_str,
+        register char *test_str );
     /* Primitive.c */
 extern void XmeResolvePartOffsets(
 			WidgetClass w_class,

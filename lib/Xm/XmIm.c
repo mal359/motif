@@ -365,9 +365,9 @@ XmImRegister(Widget w,
 void 
 XmImUnregister(Widget w)
 {
-  XmImDisplayInfo xim_info;
-  XmImShellInfo im_info;
-  XmImXICInfo xic_info;
+  register XmImDisplayInfo xim_info;
+  register XmImShellInfo im_info;
+  register XmImXICInfo xic_info;
   XtAppContext app;
   
   /* Punt if insufficient information was provided. */
@@ -403,7 +403,7 @@ XmImSetFocusValues(Widget w,
 		   ArgList args,
 		   Cardinal num_args)
 {
-  XmImXICInfo xic_info;
+  register XmImXICInfo xic_info;
   Widget p;
   Pixel fg, bg;
   XmFontList fl=NULL;
@@ -497,7 +497,7 @@ XmImSetValues(Widget w,
 void 
 XmImUnsetFocus(Widget w)
 {
-  XmImXICInfo xic_info;
+  register XmImXICInfo xic_info;
   _XmWidgetToAppContext(w);
 
   _XmAppLock(app);
@@ -611,7 +611,7 @@ XmImMbLookupString(Widget w,
 		   KeySym *keysym,
 		   int *status )
 {
-  XmImXICInfo icp;
+  register XmImXICInfo icp;
   int ret_val;
   _XmWidgetToAppContext(w);
   
@@ -783,10 +783,10 @@ void
 XmImFreeXIC(Widget w,
 	    XIC    context)
 {
-  int index;
-  XmImDisplayInfo xim_info;
-  XmImShellInfo im_info;
-  XmImXICInfo xic_info;
+  register int index;
+  register XmImDisplayInfo xim_info;
+  register XmImShellInfo im_info;
+  register XmImXICInfo xic_info;
   XtAppContext app;
   
   /* Punt if insufficient information was provided. */
@@ -878,7 +878,7 @@ _XmImChangeManaged(
 {
   XmVendorShellExtObject ve;
   XmWidgetExtData extData;
-  int height, old_height;
+  register int height, old_height;
   
   extData = _XmGetWidgetExtData((Widget)vw, XmSHELL_EXTENSION);
   if (extData) {
@@ -1061,7 +1061,7 @@ create_xic_info(Widget		shell,
   char *cp = NULL; 
   char *tp = NULL;
   char *cpend = NULL;
-  XIMStyles *styles;
+  register XIMStyles *styles;
   XmImXICInfo xic_info;
   
   /* Determine the input style to be used for this XIC. */
@@ -1169,11 +1169,11 @@ set_values(Widget w,
            XmInputPolicy input_policy )
 #endif /*NeedWidePrototypes*/
 {
-  XmImXICInfo icp;
+  register XmImXICInfo icp;
   XmImDisplayInfo xim_info;
   XmImResListRec *rlp;
-  int i, j;
-  ArgList argp = args;
+  register int i, j;
+  register ArgList argp = args;
   VaArgListRec status_vlist, preedit_vlist, xic_vlist;
   XVaNestedList va_slist, va_plist, va_vlist;
   XrmName name, area_name = XrmStringToName(XmNarea);
@@ -1725,7 +1725,7 @@ regist_real_callback(Widget w,
                      int swc)
 {
   Widget p;
-  XmImXICInfo icp;
+  register XmImXICInfo icp;
   XmImDisplayInfo xim_info;
   XmImRefRec refs;
   int i, target = 0;
@@ -1946,7 +1946,7 @@ check_style(XIMStyles *styles,
 	    XIMStyle preedit_style,
 	    XIMStyle status_style )
 {
-  int i;
+  register int i;
   
   /* Is this preedit & status style combination supported? */
   for (i=0; i < (int) styles->count_styles; i++)
@@ -2052,7 +2052,7 @@ ImSetGeo(Widget  vw,
 {
   XmVendorShellExtObject ve;
   XmWidgetExtData extData;
-  XmImXICInfo icp;
+  register XmImXICInfo icp;
   XRectangle rect_status;
   XRectangle rect_preedit;
   XmImShellInfo im_info;
@@ -2298,7 +2298,7 @@ get_xim_info(Widget  widget)
   /* Initialize the list of xrm names */
   {
     XmImResListRec *rlp;
-    int i;
+    register int i;
 
     _XmProcessLock();
     for (rlp = XmImResList, i = XtNumber(XmImResList); 
@@ -2481,7 +2481,7 @@ ImCreateArgList(va_list var,
 		int total_count )
 {
   ArgList args = (ArgList)XtCalloc(total_count, sizeof(Arg));
-  int i;
+  register int i;
   
   assert(args || (total_count == 0));
   for (i = 0; i < total_count; i++)
@@ -2580,7 +2580,7 @@ add_ref(XmImRefInfo refs,
 {
 #ifdef DEBUG
   /* Verify that we don't already have a reference. */
-  Cardinal index;
+  register Cardinal index;
   for (index = 0; index < refs->num_refs; index++)
     assert(refs->refs[index] != widget);
 #endif
@@ -2666,8 +2666,8 @@ VaCopy(VaArgList list)
   /* list whose length is unknown at compile time.  If MAXARGS is */
   /* increased more parameter pairs should be added below.   A */
   /* recursive approach would leak memory. */
-  Cardinal count = list->count;
-  VaArg *args = list->args;
+  register Cardinal count = list->count;
+  register VaArg *args = list->args;
   
 #define VA_NAME(index)	(index < count ? args[index].name : NULL)
 #define VA_VALUE(index)	(index < count ? args[index].value : NULL)
@@ -2713,7 +2713,7 @@ XmImMbResetIC(
     Widget w,
     char **mb)
 {
-    XmImXICInfo icp;
+    register XmImXICInfo icp;
     _XmWidgetToAppContext(w);
 
     _XmAppLock(app);

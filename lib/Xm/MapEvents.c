@@ -66,9 +66,9 @@ static Boolean LookupModifier(
                         String name,
                         Modifiers *valueP) ;
 static String ScanAlphanumeric( 
-                        String str) ;
+                        register String str) ;
 static String ScanWhitespace( 
-                        String str) ;
+                        register String str) ;
 static String ParseImmed( 
                         String str,
                         unsigned int closure,
@@ -80,17 +80,17 @@ static String ParseKeySym(
                         unsigned long *detail,
 			Boolean *status) ;
 static String ParseModifiers( 
-                        String str,
+                        register String str,
                         Modifiers *modifiers,
                         Boolean *status) ;
 static String ParseEventType( 
-                        String str,
+                        register String str,
                         EventKey *table,
                         int *eventType,
                         Cardinal *_index,
                         Boolean *status) ;
 static String _MapEvent( 
-                        String str,
+                        register String str,
                         EventKey *table,
                         int *eventType,
                         unsigned long *detail,
@@ -190,8 +190,8 @@ static int
 StrToHex(
         String str )
 {
-    char   c;
-    int    val = 0;
+    register char   c;
+    register int    val = 0;
 
     while ((c = *str) != '\0') {
 	if ('0' <= c && c <= '9') val = val*16+c-'0';
@@ -208,8 +208,8 @@ static int
 StrToOct(
         String str )
 {
-    char c;
-    int  val = 0;
+    register char c;
+    register int  val = 0;
 
     while ((c = *str) != '\0') {
         if ('0' <= c && c <= '7') val = val*8+c-'0'; else return -1;
@@ -223,8 +223,8 @@ static int
 StrToNum(
         String str )
 {
-    char c;
-    int val = 0;
+    register char c;
+    register int val = 0;
 
     if (*str == '0') {
 	str++;
@@ -269,7 +269,7 @@ static void
 FillInQuarks(
         EventKey *table )
 {
-    int i;
+    register int i;
 
     for (i=0; table[i].event; i++)
         table[i].signature = XrmPermStringToQuark(table[i].event);
@@ -305,8 +305,8 @@ LookupModifier(
         String name,
         Modifiers *valueP )
 {
-    int i;
-    XrmQuark signature = XrmStringToQuark(name);
+    register int i;
+    register XrmQuark signature = XrmStringToQuark(name);
 
     for (i=0; modifierStrings[i].event != NULL; i++)
 	if (modifierStrings[i].signature == signature) {
@@ -341,7 +341,7 @@ LookupModifier(
  *************************************<->***********************************/
 static String 
 ScanAlphanumeric(
-        String str )
+        register String str )
 {
     while (
         ('A' <= *str && *str <= 'Z') || ('a' <= *str && *str <= 'z')
@@ -374,7 +374,7 @@ ScanAlphanumeric(
  *************************************<->***********************************/
 static String 
 ScanWhitespace(
-        String str )
+        register String str )
 {
     while (*str == ' ' || *str == '\t') str++;
     return str;
@@ -524,11 +524,11 @@ ParseKeySym(
  *************************************<->***********************************/
 static String 
 ParseModifiers(
-        String str,
+        register String str,
         Modifiers *modifiers,
         Boolean *status )
 {
-    String start;
+    register String start;
     char modStr[100];
     Boolean notFlag;
     Modifiers maskBit;
@@ -615,7 +615,7 @@ ParseModifiers(
  *************************************<->***********************************/
 static String 
 ParseEventType(
-        String str,
+        register String str,
         EventKey *table,
         int *eventType,
         Cardinal *_index,
@@ -623,8 +623,8 @@ ParseEventType(
 {
     String start = str;
     char eventTypeStr[100];
-    Cardinal   i;
-    XrmQuark	signature;
+    register Cardinal   i;
+    register XrmQuark	signature;
 
     /* Parse out the event string */
     str = ScanAlphanumeric(str);
@@ -672,7 +672,7 @@ ParseEventType(
  *************************************<->***********************************/
 static String
 _MapEvent(
-        String str,
+        register String str,
         EventKey *table,
         int *eventType,
         unsigned long *detail,
@@ -736,7 +736,7 @@ _MapEvent(
  *************************************<->***********************************/
 Boolean 
 _XmMapBtnEvent(
-        String str,
+        register String str,
         int *eventType,
         unsigned int *button,
         Modifiers *modifiers )
@@ -873,7 +873,7 @@ _XmMatchBtnEvent(
         unsigned int button,
         Modifiers modifiers )
 {
-   Modifiers state = 
+   register Modifiers state = 
      event->xbutton.state & (ShiftMask | LockMask | ControlMask | Mod1Mask | 
 			     Mod2Mask | Mod3Mask | Mod4Mask | Mod5Mask);
    if (((eventType == XmIGNORE_EVENTTYPE)||(event->type == eventType)) &&
@@ -916,7 +916,7 @@ _XmMatchKeyEvent(
         Modifiers modifiers )
 {
 #ifdef FIX_345
-   Modifiers state, mods; 
+   register Modifiers state, mods; 
    
    _XmCheckInitModifiers();
 

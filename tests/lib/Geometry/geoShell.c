@@ -638,7 +638,7 @@ static void ComputeWMSizeHints(w, hints)
     WMShellWidget w;
     XSizeHints *hints;
 {
-    long flags;
+    register long flags;
     hints->flags = flags = w->wm.size_hints.flags;
 #define copy(field) hints->field = w->wm.size_hints.field
     if (flags & (USPosition | PPosition)) {
@@ -919,7 +919,7 @@ static void ApplicationInitialize(req, new, args, num_args)
 static void Resize(w)
     Widget w;
 {
-    ShellWidget sw = (ShellWidget)w;    
+    register ShellWidget sw = (ShellWidget)w;    
     Widget childwid;
     int i;
     for(i = 0; i < sw->composite.num_children; i++) {
@@ -959,7 +959,7 @@ static void Realize(wid, vmask, attr)
 	     * especially important to have the server clear any old cruft
 	     * from the display when I am resized larger.
 	     */
-	    Widget *childP = w->composite.children;
+	    register Widget *childP = w->composite.children;
 	    int i;
 	    for (i = w->composite.num_children; i; i--, childP++) {
 		if (XtIsWidget(*childP) && XtIsManaged(*childP)) {
@@ -1250,7 +1250,7 @@ static void EventHandler(wid, closure, event, continue_to_dispatch)
 	XEvent *event;
         Boolean *continue_to_dispatch; /* unused */
 {
-	ShellWidget w = (ShellWidget) wid;
+	register ShellWidget w = (ShellWidget) wid;
 	WMShellWidget wmshell = (WMShellWidget) w;
 	Boolean  sizechanged = FALSE;
 	unsigned int width, height, border_width, tmpdepth;
@@ -1288,7 +1288,7 @@ static void EventHandler(wid, closure, event, continue_to_dispatch)
 		else w->shell.client_specified &= ~_XtShellPositionValid;
 		if (XtIsWMShell(wid) && !wmshell->wm.wait_for_wm) {
 		    /* Consider trusting the wm again */
-		    struct _OldXSizeHints *hintp
+		    register struct _OldXSizeHints *hintp
 			= &wmshell->wm.size_hints;
 #define EQ(x) (hintp->x == w->core.x)
 		    if (EQ(x) && EQ(y) && EQ(width) && EQ(height)) {
@@ -1441,7 +1441,7 @@ static void ApplicationDestroy(wid)
 static void GetGeometry(W, child)
     Widget W, child;
 {
-    ShellWidget w = (ShellWidget)W;
+    register ShellWidget w = (ShellWidget)W;
     Boolean is_wmshell = XtIsWMShell(W);
     int x, y, width, height, win_gravity = -1, flag;
     XSizeHints hints;
@@ -1628,11 +1628,11 @@ typedef struct {
 
 static Bool isMine(dpy, event, arg)
 	Display *dpy;
-	XEvent  *event;
+	register XEvent  *event;
 	char *arg;
 {
 	QueryStruct *q = (QueryStruct *) arg;
-	Widget w = q->w;
+	register Widget w = q->w;
 
 	if ( (dpy != XtDisplay(w)) || (event->xany.window != XtWindow(w)) ) {
 	    return FALSE;
@@ -1661,7 +1661,7 @@ static Bool isMine(dpy, event, arg)
 	    /* we might get ahead of this event, so just in case someone
 	     * asks for coordinates before this event is dispatched...
 	     */
-	    ShellWidget s = (ShellWidget)w;
+	    register ShellWidget s = (ShellWidget)w;
 	    if (event->xreparent.parent != RootWindowOfScreen(XtScreen(w)))
 		s->shell.client_specified &= ~_XtShellNotReparented;
 	    else
@@ -1712,12 +1712,12 @@ static XtGeometryResult RootGeometryManager(gw, request, reply)
     Widget gw;
     XtWidgetGeometry *request, *reply;
 {
-    ShellWidget w = (ShellWidget)gw;
+    register ShellWidget w = (ShellWidget)gw;
     XWindowChanges values;
     unsigned int mask = request->request_mode;
     XEvent event;
     Boolean wm;
-    struct _OldXSizeHints *hintp;
+    register struct _OldXSizeHints *hintp;
     int oldx, oldy, oldwidth, oldheight, oldborder_width;
     unsigned long request_num;
 

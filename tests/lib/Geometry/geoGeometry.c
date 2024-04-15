@@ -563,17 +563,17 @@ void XtMoveWidget(w, x, y)
 
 #if NeedFunctionPrototypes
 void XtTranslateCoords(
-    Widget w,
+    register Widget w,
     _XtPosition x,
     _XtPosition y,
-    Position *rootx,	/* return */
-    Position *rooty	/* return */
+    register Position *rootx,	/* return */
+    register Position *rooty	/* return */
     )
 #else
 void XtTranslateCoords(w, x, y, rootx, rooty)
-    Widget w;
+    register Widget w;
     Position x, y;
-    Position *rootx, *rooty;	/* return */
+    register Position *rootx, *rooty;	/* return */
 #endif
 {
     Position garbagex, garbagey;
@@ -606,7 +606,7 @@ void XtTranslateCoords(w, x, y, rootx, rooty)
 
 XtGeometryResult XtQueryGeometry(widget, intended, reply)
     Widget widget;
-    XtWidgetGeometry *intended; /* parent's changes; may be NULL */
+    register XtWidgetGeometry *intended; /* parent's changes; may be NULL */
     XtWidgetGeometry *reply;	/* child's preferred geometry; never NULL */
 {
     XtWidgetGeometry null_intended;

@@ -90,10 +90,10 @@ static void Compress(
                         int xdir,
                         int grow) ;
 static void miIntersectO( 
-                        XmRegion pReg,
-                        XmRegionBox *r1,
+                        register XmRegion pReg,
+                        register XmRegionBox *r1,
                         XmRegionBox *r1End,
-                        XmRegionBox *r2,
+                        register XmRegionBox *r2,
                         XmRegionBox *r2End,
 #if NeedWidePrototypes
                         int y1,
@@ -103,66 +103,66 @@ static void miIntersectO(
                         short y2) ;
 #endif /* NeedWidePrototypes */
 static void miRegionCopy( 
-                        XmRegion dstrgn,
-                        XmRegion rgn) ;
+                        register XmRegion dstrgn,
+                        register XmRegion rgn) ;
 static long miCoalesce( 
-                        XmRegion pReg,
+                        register XmRegion pReg,
                         long prevStart,
                         long curStart) ;
 static void miRegionOp( 
-                        XmRegion newReg,
+                        register XmRegion newReg,
                         XmRegion reg1,
                         XmRegion reg2,
                         XmOverlapProc overlapFunc,
                         XmNonOverlapProc nonOverlap1Func,
                         XmNonOverlapProc nonOverlap2Func) ;
 static void miUnionNonO( 
-                        XmRegion pReg,
-                        XmRegionBox *r,
+                        register XmRegion pReg,
+                        register XmRegionBox *r,
                         XmRegionBox *rEnd,
 #if NeedWidePrototypes
-                        int y1,
-                        int y2) ;
+                        register int y1,
+                        register int y2) ;
 #else
-                        short y1,
-                        short y2) ;
+                        register short y1,
+                        register short y2) ;
 #endif /* NeedWidePrototypes */
 static void miUnionO( 
-                        XmRegion pReg,
-                        XmRegionBox *r1,
+                        register XmRegion pReg,
+                        register XmRegionBox *r1,
                         XmRegionBox *r1End,
-                        XmRegionBox *r2,
+                        register XmRegionBox *r2,
                         XmRegionBox *r2End,
 #if NeedWidePrototypes
-                        int y1,
-                        int y2) ;
+                        register int y1,
+                        register int y2) ;
 #else
-                        short y1,
-                        short y2) ;
+                        register short y1,
+                        register short y2) ;
 #endif /* NeedWidePrototypes */
 static void miSubtractNonO1( 
-                        XmRegion pReg,
-                        XmRegionBox *r,
+                        register XmRegion pReg,
+                        register XmRegionBox *r,
                         XmRegionBox *rEnd,
 #if NeedWidePrototypes
-                        int y1,
-                        int y2) ;
+                        register int y1,
+                        register int y2) ;
 #else
-                        short y1,
-                        short y2) ;
+                        register short y1,
+                        register short y2) ;
 #endif /* NeedWidePrototypes */
 static void miSubtractO( 
-                        XmRegion pReg,
-                        XmRegionBox *r1,
+                        register XmRegion pReg,
+                        register XmRegionBox *r1,
                         XmRegionBox *r1End,
-                        XmRegionBox *r2,
+                        register XmRegionBox *r2,
                         XmRegionBox *r2End,
 #if NeedWidePrototypes
-                        int y1,
-                        int y2) ;
+                        register int y1,
+                        register int y2) ;
 #else
-                        short y1,
-                        short y2) ;
+                        register short y1,
+                        register short y2) ;
 #endif /* NeedWidePrototypes */
 static void CreateLeftShadow( 
                         XmRegionBox *here,
@@ -310,10 +310,10 @@ _XmRegionIsEmpty(
 
 Boolean
 _XmRegionEqual(
-    XmRegion	r1,
-    XmRegion	r2 )
+    register XmRegion	r1,
+    register XmRegion	r2 )
 {
-    int i;
+    register int i;
 
     if (r1->numRects != r2->numRects) {
 	return( False );
@@ -364,7 +364,7 @@ _XmRegionPointInRegion(
     int		x,
     int		y )
 {
-    int i;
+    register int i;
 
     if (ISEMPTY(r)) {
         return(False);
@@ -393,8 +393,8 @@ _XmRegionOffset(
     int		x,
     int		y )
 {
-    long		nbox;
-    XmRegionBox	*pbox;
+    register long		nbox;
+    register XmRegionBox	*pbox;
 
     pbox = r->rects;
     nbox = r->numRects;
@@ -460,9 +460,9 @@ _XmRegionGetRectangles(
     XRectangle	**rects,
     long	*nrects )
 {
-    XmRegionBox	*pBox = r->rects;
-    XRectangle		*pRect;
-    long		count = r->numRects;
+    register XmRegionBox	*pBox = r->rects;
+    register XRectangle		*pRect;
+    register long		count = r->numRects;
 
     if (!(*nrects = count)) {
 	*rects = NULL;
@@ -529,9 +529,9 @@ static void
 miSetExtents(
     XmRegion  	pReg )
 {
-    XmRegionBox	*pBox;
-    XmRegionBox	*pBoxEnd;
-    XmRegionBox	*pExtents;
+    register XmRegionBox	*pBox;
+    register XmRegionBox	*pBoxEnd;
+    register XmRegionBox	*pExtents;
 
     if (ISEMPTY(pReg))
     {
@@ -597,8 +597,8 @@ _XmRegionComputeExtents(
 
 static void
 miRegionCopy(
-    XmRegion	dstrgn,
-    XmRegion	rgn )
+    register XmRegion	dstrgn,
+    register XmRegion	rgn )
 {
     if (dstrgn != rgn) /*  don't want to copy to itself */
     {  
@@ -651,10 +651,10 @@ miCoalesce(
     long    	  	prevStart,
     long    	  	curStart )
 {
-    XmRegionBox	*pPrevBox; /* Current box in previous band */
-    XmRegionBox	*pCurBox;  /* Current box in current band */
-    XmRegionBox	*pRegEnd;  /* End of region */
-    long		curNumRects; /* Number of rectangles in
+    register XmRegionBox	*pPrevBox; /* Current box in previous band */
+    register XmRegionBox	*pCurBox;  /* Current box in current band */
+    register XmRegionBox	*pRegEnd;  /* End of region */
+    register long		curNumRects; /* Number of rectangles in
 						current band */
     long    	  		prevNumRects; /* Number of rectangles in
 						 previous band */
@@ -797,26 +797,26 @@ miCoalesce(
  */
 static void
 miRegionOp(
-    XmRegion 	newReg,
+    register XmRegion 	newReg,
     XmRegion	  	reg1,
     XmRegion	  	reg2,
     XmOverlapProc    	overlapFunc,
     XmNonOverlapProc    nonOverlap1Func,
     XmNonOverlapProc  	nonOverlap2Func)
 {
-    XmRegionBox	*r1; 	    	/* Pointer into first region */
-    XmRegionBox	*r2; 	    	/* Pointer into 2d region */
+    register XmRegionBox	*r1; 	    	/* Pointer into first region */
+    register XmRegionBox	*r2; 	    	/* Pointer into 2d region */
     XmRegionBox  	  	*r1End;	    	/* End of 1st region */
     XmRegionBox  	  	*r2End;	    	/* End of 2d region */
-    short  	ybot;	    	    	/* Bottom of intersection */
-    short  	ytop;	    	    	/* Top of intersection */
+    register short  	ybot;	    	    	/* Bottom of intersection */
+    register short  	ytop;	    	    	/* Top of intersection */
     XmRegionBox  	  	*oldRects;    	/* Old rects for newReg */
     long    	  		prevBand;    	/* Index of start of
 						 * previous band in newReg */
     long    	  		curBand;    	/* Index of start of current
 						 * band in newReg */
-    XmRegionBox 	*r1BandEnd;    	/* End of current band in r1 */
-    XmRegionBox 	*r2BandEnd;    	/* End of current band in r2 */
+    register XmRegionBox 	*r1BandEnd;    	/* End of current band in r1 */
+    register XmRegionBox 	*r2BandEnd;    	/* End of current band in r2 */
     short     	  	top;	    	    	/* Top of non-overlapping
 						 * band */
     short     	  	bot;	    	    	/* Bottom of non-overlapping
@@ -1078,9 +1078,9 @@ miRegionOp(
 static void
 miIntersectO(
     XmRegion		pReg,
-    XmRegionBox	*r1,
+    register XmRegionBox	*r1,
     XmRegionBox  	  	*r1End,
-    XmRegionBox	*r2,
+    register XmRegionBox	*r2,
     XmRegionBox  	  	*r2End,
 #if NeedWidePrototypes
     int    	  		y1,
@@ -1090,9 +1090,9 @@ miIntersectO(
     short    	  		y2 )
 #endif /* NeedWidePrototypes */
 {
-    short  		x1;
-    short  		x2;
-    XmRegionBox	*pNextRect;
+    register short  		x1;
+    register short  		x2;
+    register XmRegionBox	*pNextRect;
 
     pNextRect = &pReg->rects[pReg->numRects];
 
@@ -1229,17 +1229,17 @@ _XmRegionIntersectRectWithRegion(
 static void
 miUnionNonO(
     XmRegion		pReg,
-    XmRegionBox	*r,
+    register XmRegionBox	*r,
     XmRegionBox    		*rEnd,
 #if NeedWidePrototypes
-    int  		y1,
-    int  		y2 )
+    register int  		y1,
+    register int  		y2 )
 #else
-    short  		y1,
-    short  		y2 )
+    register short  		y1,
+    register short  		y2 )
 #endif /* NeedWidePrototypes */
 {
-    XmRegionBox	*pNextRect;
+    register XmRegionBox	*pNextRect;
 
     pNextRect = &pReg->rects[pReg->numRects];
 
@@ -1280,19 +1280,19 @@ miUnionNonO(
 static void
 miUnionO(
     XmRegion		pReg,
-    XmRegionBox	*r1,
+    register XmRegionBox	*r1,
     XmRegionBox  	  	*r1End,
-    XmRegionBox	*r2,
+    register XmRegionBox	*r2,
     XmRegionBox  	  	*r2End,
 #if NeedWidePrototypes
-    int		y1,
-    int		y2 )
+    register int		y1,
+    register int		y2 )
 #else
-    short		y1,
-    short		y2 )
+    register short		y1,
+    register short		y2 )
 #endif /* NeedWidePrototypes */
 {
-    XmRegionBox	*pNextRect;
+    register XmRegionBox	*pNextRect;
     
     pNextRect = &pReg->rects[pReg->numRects];
 
@@ -1468,17 +1468,17 @@ _XmRegionUnionRectWithRegion(
 static void
 miSubtractNonO1(
     XmRegion		pReg,
-    XmRegionBox	*r,
+    register XmRegionBox	*r,
     XmRegionBox  	  	*rEnd,
 #if NeedWidePrototypes
-    int  		y1,
-    int   		y2 )
+    register int  		y1,
+    register int   		y2 )
 #else
-    short  		y1,
-    short   		y2 )
+    register short  		y1,
+    register short   		y2 )
 #endif /* NeedWidePrototypes */
 {
-    XmRegionBox	*pNextRect;
+    register XmRegionBox	*pNextRect;
 	
     pNextRect = &pReg->rects[pReg->numRects];
 	
@@ -1518,20 +1518,20 @@ miSubtractNonO1(
 static void
 miSubtractO(
     XmRegion		pReg,
-    XmRegionBox	*r1,
+    register XmRegionBox	*r1,
     XmRegionBox  	  	*r1End,
-    XmRegionBox	*r2,
+    register XmRegionBox	*r2,
     XmRegionBox  	  	*r2End,
 #if NeedWidePrototypes
-    int  		y1,
-    int  		y2 )
+    register int  		y1,
+    register int  		y2 )
 #else
-    short  		y1,
-    short  		y2 )
+    register short  		y1,
+    register short  		y2 )
 #endif /* NeedWidePrototypes */
 {
-    XmRegionBox	*pNextRect;
-    int  		x1;
+    register XmRegionBox	*pNextRect;
+    register int  		x1;
     
     x1 = r1->x1;
     
@@ -1722,7 +1722,7 @@ Compress(
     int			xdir,
     int			grow )
 {
-    unsigned shift = 1;
+    register unsigned shift = 1;
 
     miRegionCopy (s, r);
     while (dx) {
@@ -2060,8 +2060,8 @@ _XmRegionDrawShadow(
     XSegment		*botSegms;
     int			botSegmCount;
     int			curBotSeg;
-    XmRegionBox *above, *here, *below;
-    XmRegionBox *end_above, *end_here, *end_below;
+    register XmRegionBox *above, *here, *below;
+    register XmRegionBox *end_above, *end_here, *end_below;
     XmRegionBox		*end_all;
     unsigned long	mask;
     Position		x1, x2, y;
@@ -2386,10 +2386,10 @@ XmRegion
 _XmRegionFromImage(
     XImage	*image)
 {
-    XmRegion	pReg;
-    int	width, x1, x2, y1, crects;
+    register XmRegion	pReg;
+    register int	width, x1, x2, y1, crects;
     int			irectPrevStart, irectLineStart;
-    XmRegionBox *prectO, *prectN;
+    register XmRegionBox *prectO, *prectN;
     XmRegionBox		*FirstRect, *rects, *prectLineStart;
     Bool		fInBox, fSame;
 

@@ -65,7 +65,7 @@ static Widget  CreateLabel(label, parent)
     Widget  parent;
 {
     Widget        widget;
-    int  n;
+    register int  n;
     Arg           args[MAX_ARGS];
     XmString      tcs;
 
@@ -89,7 +89,7 @@ static Widget  CreatePushButton(label, mnemonic, accel, accelText, parent)
     char *accel, *accelText;
 {
     Widget        widget;
-    int  n;
+    register int  n;
     Arg           args[MAX_ARGS];
     XmString      tcs;
 
@@ -114,7 +114,7 @@ static Widget  CreateToggle(label, mnemonic, parent)
     Widget  parent;
 {
     Widget        widget;
-    int  n;
+    register int  n;
     Arg           args[MAX_ARGS];
     XmString      tcs;
 
@@ -161,7 +161,7 @@ void  main(argc, argv)
     int     argc;
     char  **argv;
 {
-    int  n;
+    register int  n;
     Arg           args[MAX_ARGS];
     XmString      tcs;
     Widget Frame;

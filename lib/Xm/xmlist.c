@@ -241,8 +241,8 @@ _XmQueuePop(XmQueue queue)
 int
 _XmQueueCount(XmQueue queue)
 {
-    int i;
-    _XmQElem *elem = queue->first;
+    register int i;
+    register _XmQElem *elem = queue->first;
 
     for (i = 0; elem != NULL; i++)
 	elem = elem->next;
@@ -361,7 +361,7 @@ _Xm_GetNewElement(XmQueue queue)
     _XmQElem *elem;
 
     if ((elem = _Xm_RemQueue(&queue->free_elems)) == NULL) {
-	int i;
+	register int i;
 
 	/*
 	 * We are out of free elements, alloc some more.

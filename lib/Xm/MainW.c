@@ -1012,7 +1012,7 @@ ChangeManaged(
     XtWidgetGeometry desired ;
     CompositeWidget cw = (CompositeWidget) mw->swindow.ClipWindow;
     Widget   w;
-    int i;
+    register int i;
     XtWidgetProc resize;
 
     if (mw->mwindow.ManagingSep || mw->swindow.FromResize) return;
@@ -1419,7 +1419,7 @@ XmVaCreateMainWindow(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

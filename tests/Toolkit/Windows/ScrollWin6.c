@@ -50,7 +50,7 @@ void  main(argc, argv)
     int     argc;
     char  **argv;
 {
-    int  n;
+    register int  n;
     Arg           args[MAX_ARGS];
     Widget        scroll1, label1, hscrollbar, vscrollbar, frame1;
     XmString      s;

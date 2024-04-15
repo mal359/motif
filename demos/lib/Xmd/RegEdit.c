@@ -240,7 +240,7 @@ unsigned long length;
     EditresEvent * event;
     ProtocolStream alloc_stream, *stream;
     unsigned char temp;
-    unsigned int i;
+    register unsigned int i;
 
     stream = &alloc_stream;	/* easier to think of it this way... */
 
@@ -733,9 +733,9 @@ WidgetInfo *info;
 {
     Widget top;
 
-    int count;
-    Widget parent;
-    unsigned long * child;
+    register int count;
+    register Widget parent;
+    register unsigned long * child;
 
     for (top = w; XtParent(top) != NULL; top = XtParent(top)) {}
 
@@ -779,7 +779,7 @@ EditresEvent * event;
 ProtocolStream * stream;
 {
     char * str;
-    unsigned i;
+    register unsigned i;
     unsigned short count = 0;
     SetValuesEvent * sv_event = (SetValuesEvent *) event;
     
@@ -952,7 +952,7 @@ ProtocolStream * stream;
 static Bool isApplicationShell(w)
     Widget w;
 {
-    WidgetClass c;
+    register WidgetClass c;
 
     if (!XtIsTopLevelShell(w))
 	return False;
@@ -1307,7 +1307,7 @@ ProtocolStream * stream;
 {
     XtResourceList norm_list, cons_list;
     Cardinal num_norm, num_cons;
-    int i;
+    register int i;
 
     /* 
      * Get Normal Resources. 
@@ -1370,7 +1370,7 @@ Widget w;
 {
     Widget temp;
     unsigned long * widget_list;
-    int i, num_widgets;
+    register int i, num_widgets;
 
     for (temp = w, i = 0; temp != 0; temp = XtParent(temp), i++) {}
 
@@ -1641,7 +1641,7 @@ ProtocolStream * stream;
 char ** str;
 {
     unsigned short len;
-    unsigned i;
+    register unsigned i;
 
     if (!_XEditResGet16(stream, &len)) {
 	return(FALSE);

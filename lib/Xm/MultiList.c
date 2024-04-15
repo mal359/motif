@@ -492,7 +492,7 @@ static void
 GetValuesHook(Widget w, ArgList args, Cardinal *num_args)
 {
     XmMultiListWidget elist = (XmMultiListWidget) w;
-    Cardinal i, num=0, j = *num_args;
+    register Cardinal i, num=0, j = *num_args;
     Arg i_args[15];
 
     /*
@@ -1216,7 +1216,7 @@ XmVaCreateMultiList(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

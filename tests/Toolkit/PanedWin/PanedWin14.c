@@ -66,7 +66,7 @@ int     argc;
 char  **argv;
 {
     int                delay = 0;
-    int       n;
+    register int       n;
     Arg                args[MAX_ARGS];
     XmString           tcs = NULL;
     XWindowAttributes  info;

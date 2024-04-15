@@ -190,9 +190,9 @@ static void SetValuesAlmost(
                         XtWidgetGeometry *req,
                         XtWidgetGeometry *rep) ;
 static Boolean ConstraintSetValues( 
-                        Widget old,
-                        Widget ref,
-                        Widget new_w,
+                        register Widget old,
+                        register Widget ref,
+                        register Widget new_w,
                         ArgList args,
                         Cardinal *num_args) ;
 static void Initialize( 
@@ -208,7 +208,7 @@ static void ConstraintInitialize(
 static void CheckConstraints( 
                         Widget w) ;
 static void SortChildren( 
-                        XmFormWidget fw) ;
+                        register XmFormWidget fw) ;
 static void CalcEdgeValues( 
                         Widget w,
 #if NeedWidePrototypes
@@ -705,8 +705,8 @@ SyncEdges(
         Widget instigator,
         XtWidgetGeometry *geometry )
 {
-	Widget child;
-	XmFormConstraint c;
+	register Widget child;
+	register XmFormConstraint c;
 	long int loop_count;
 	Dimension tmp_w = *form_width, tmp_h = *form_height;
 	Dimension sav_w, sav_h;
@@ -1309,7 +1309,7 @@ PlaceChildren(
       UpdateAttachments(fw, child, instigator, inst_geometry);
     }
 #else
-    XmFormConstraint c;
+    register XmFormConstraint c;
     int height, width;
     Dimension border_width;
     int near_edge;
@@ -1380,7 +1380,7 @@ UpdateAttachments(
     Widget instigator,
     XtWidgetGeometry* inst_geometry)
 {
-  XmFormConstraint c;
+  register XmFormConstraint c;
   c = GetFormConstraint(wid);
   
   if (IS_ATTACHED_WIDGET(c, LEFT))
@@ -1400,7 +1400,7 @@ PlaceChild(
         Widget instigator,
         XtWidgetGeometry* inst_geometry)
 {
-  XmFormConstraint c;
+  register XmFormConstraint c;
   int height, width;
   Dimension border_width;
   int near_edge;
@@ -1474,8 +1474,8 @@ ChangeManaged(
     XmFormWidget fw = (XmFormWidget) wid ;
     XtWidgetGeometry g;
     int i, j, k;
-    XmFormConstraint c;
-    Widget w, child;
+    register XmFormConstraint c;
+    register Widget w, child;
     
     /*
      * The following code works around a bug in the intrinsics
@@ -1795,15 +1795,15 @@ SetValuesAlmost(
 /*ARGSUSED*/
 static Boolean 
 ConstraintSetValues(
-        Widget old,
-        Widget ref,	/* unused */
-        Widget new_w,
+        register Widget old,
+        register Widget ref,	/* unused */
+        register Widget new_w,
         ArgList args,		/* unused */
         Cardinal * num_args )	/* unused */
 {
     XmFormWidget fw = (XmFormWidget) XtParent(new_w);
-    XmFormConstraint oldc, newc;
-    int i;
+    register XmFormConstraint oldc, newc;
+    register int i;
     
     if (!XtIsRectObj(new_w))
 	return(FALSE);
@@ -1933,7 +1933,7 @@ ConstraintInitialize(
         Cardinal * num_args )	/* unused */
 {
     XmFormConstraint nc;
-    int i;
+    register int i;
     
     if (!XtIsRectObj(new_w)) return;
     
@@ -2090,11 +2090,11 @@ CheckConstraints(
  ************************************************************************/
 static void 
 SortChildren(
-        XmFormWidget fw )
+        register XmFormWidget fw )
 {
 	int i, j;
 	Widget child = NULL;
-	XmFormConstraint c = NULL, c1 = NULL;
+	register XmFormConstraint c = NULL, c1 = NULL;
 	int sortedCount = 0;
 	Widget last_child, att_widget;
 	Boolean sortable;
@@ -3430,7 +3430,7 @@ XmVaCreateForm(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

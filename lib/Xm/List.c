@@ -3183,7 +3183,7 @@ static void
 ResetExtents(XmListWidget lw,
 	     Boolean recache_extents)
 {
-  int i;
+  register int i;
   Dimension maxheight = 0;
   Dimension maxwidth = 0;
 
@@ -3770,7 +3770,7 @@ static int
 ItemNumber(XmListWidget lw,
 	   XmString item)
 {
-  int i;
+  register int i;
 
   for (i = 0; i < lw->list.itemCount; i++)
     if (XmStringCompare(lw->list.items[i], item))
@@ -3790,7 +3790,7 @@ static int
 ItemExists(XmListWidget lw,
 	   XmString item)
 {
-  int i;
+  register int i;
 
   for (i = 0; i < lw->list.itemCount; i++)
     if ((XmStringCompare(lw->list.items[i], item)))
@@ -3813,7 +3813,7 @@ OnSelectedList(
         XmString item,
 	int intern_pos)
 {
-  int i;
+  register int i;
 
   /* Use selectedItems if applicable, else use selectedPositions */
   if (lw->list.selectedItems && (lw->list.selectedItemCount > 0))
@@ -3842,7 +3842,7 @@ OnSelectedList(
 static void
 CopyItems(XmListWidget lw)
 {
-  int i;
+  register int i;
   XmString *il;
 
   if (lw->list.items && lw->list.itemCount)
@@ -3864,7 +3864,7 @@ CopyItems(XmListWidget lw)
 static void
 CopySelectedItems(XmListWidget lw)
 {
-  int i;
+  register int i;
   XmString *sl;
 
 
@@ -3908,7 +3908,7 @@ CopySelectedPositions(XmListWidget lw)
 static void
 ClearItemList(XmListWidget lw)
 {
-  int i;
+  register int i;
 
   if (!(lw->list.items && lw->list.itemCount))
     return;
@@ -3964,7 +3964,7 @@ static void
 ClearSelectedList(
         XmListWidget lw)
 {
-  int i;
+  register int i;
 
   if (!(lw->list.selectedItems && lw->list.selectedItemCount))
     return;
@@ -4036,9 +4036,9 @@ static void
 BuildSelectedPositions(XmListWidget lw,
 		       int count)
 {
-  int pos;
-  int nsel = count;
-  int nitems = lw->list.itemCount;
+  register int pos;
+  register int nsel = count;
+  register int nitems = lw->list.itemCount;
 
   if (nsel == RECOUNT_SELECTION)
     {
@@ -4137,10 +4137,10 @@ UpdateSelectedPositions(XmListWidget lw,
 static Boolean
 ListSelectionChanged(XmListWidget w)
 {
-  int item;
+  register int item;
 /*
-  int startitem;
-  int enditem;
+  register int startitem;
+  register int enditem;
 */
 
   /* We can't simply compare the start and oldstart and compare
@@ -4286,7 +4286,7 @@ RestoreRange(XmListWidget lw,
 	     int last,
 	     Boolean dostart)
 {
-  int tmp, start, end;
+  register int tmp, start, end;
   start = first; end = last;
 
   if (start > end)
@@ -4589,7 +4589,7 @@ VerifyMotion(Widget wid,
   XmListWidget w = (XmListWidget) wid;
   int item;
   int interval = 100;
-  XmListWidget lw = w;
+  register XmListWidget lw = w;
   unsigned char OldLeaveDir = lw->list.LeaveDir;
 
   if (!(lw->list.Event & BUTTONDOWN) ||
@@ -5179,7 +5179,7 @@ CtrlSelect(Widget wid,
 	   Cardinal *num_params)
 {
   XmListWidget lw = (XmListWidget) wid;
-  int i, j;
+  register int i, j;
 
   if (lw->list.SelectionPolicy != XmEXTENDED_SELECT)
     return;
@@ -5326,7 +5326,7 @@ KbdCtrlSelect(Widget wid,
 	      Cardinal *num_params)
 {
   XmListWidget lw = (XmListWidget) wid;
-  int i, j;
+  register int i, j;
 
   if (lw->list.SelectionPolicy != XmEXTENDED_SELECT)
     return;
@@ -5569,7 +5569,7 @@ KbdSelectAll(Widget wid,
 	     Cardinal *num_params)
 {
   XmListWidget lw = (XmListWidget) wid;
-  int i;
+  register int i;
   Boolean selection_changed = FALSE;
 
   /* Do nothing on empty lists. */
@@ -5649,7 +5649,7 @@ KbdDeSelectAll(Widget wid,
 	       Cardinal *num_params)
 {
   XmListWidget lw = (XmListWidget) wid;
-  int i, j;
+  register int i, j;
   Boolean selection_changed = FALSE;
 
   /* Do nothing on empty lists. */
@@ -7223,7 +7223,7 @@ ListProcessDrag(Widget wid,
 		Cardinal *num_params)	/* unused */
 {
   XmListWidget lw = (XmListWidget) wid;
-  int i;
+  register int i;
   int item = 0;
   Widget drag_icon, dc;
   Arg args[10];
@@ -7901,7 +7901,7 @@ APIAddItems(XmListWidget lw,
   Boolean bot = FALSE;
   Boolean change_managed;
   Boolean selectable;
-  int i;
+  register int i;
   int nsel = lw->list.selectedPositionCount;
   Dimension old_max_height = lw->list.MaxItemHeight;
 
@@ -8150,7 +8150,7 @@ XmListDeleteItems(Widget w,
   int item_pos;
   XmString *copy;
 
-  int i;
+  register int i;
   _XmWidgetToAppContext(w);
 
   if ((items == NULL) || (item_count == 0))
@@ -8264,7 +8264,7 @@ APIDeletePositions(XmListWidget lw,
   int old_kbd = lw->list.CurrentKbdItem;
   Dimension old_max_height = lw->list.MaxItemHeight;
 
-  int i;
+  register int i;
 
   if ((positions == NULL) || (count == 0)) return;
 
@@ -8403,7 +8403,7 @@ XmListDeleteItemsPos(Widget w,
   Boolean reset_height = FALSE;
   Boolean rebuild_selection = FALSE;
   Dimension old_max_height;
-  int i;
+  register int i;
   _XmWidgetToAppContext(w);
 
   _XmAppLock(app);
@@ -8583,7 +8583,7 @@ APIReplaceItems(Widget w,
 		XmString *new_items,
 		Boolean select)
 {
-  int i, j;
+  register int i, j;
   XmListWidget lw = (XmListWidget) w;
   Boolean      redraw = FALSE;
   Dimension    old_max_width = lw->list.MaxWidth;
@@ -8694,7 +8694,7 @@ APIReplaceItemsPos(Widget w,
 {
   XmListWidget lw = (XmListWidget) w;
   int intern_pos;
-  int i;
+  register int i;
   Dimension old_max_width = lw->list.MaxWidth;
   Dimension old_max_height = lw->list.MaxItemHeight;
   Boolean reset_width = FALSE;
@@ -8806,7 +8806,7 @@ XmListReplacePositions(Widget    w,
 		       int       item_count)
 {
   int item_pos;
-  int i;
+  register int i;
   XmListWidget lw = (XmListWidget) w;
   Boolean redraw = FALSE;
   Dimension old_max_width;
@@ -8962,7 +8962,7 @@ APISelect(XmListWidget lw,
 static void
 SetSelectionParams(XmListWidget lw)
 {
-  int start, end, i;
+  register int start, end, i;
 
   if (lw->list.items && lw->list.itemCount)
     {
@@ -9567,7 +9567,7 @@ XmListGetMatchPos(Widget w,
 		  int *pos_count)
 {
   XmListWidget  lw = (XmListWidget) w;
-  int  i, *pos;
+  register int  i, *pos;
   int           j;
   _XmWidgetToAppContext(w);
 
@@ -9660,7 +9660,7 @@ XmListGetSelectedPos(Widget w,
 		     int *pos_count)
 {
   XmListWidget  lw = (XmListWidget) w;
-  int *posList;
+  register int *posList;
   int count;
   _XmWidgetToAppContext(w);
 
@@ -9782,8 +9782,8 @@ XmListPosToBounds(Widget      w,
 		  Dimension  *width,
 		  Dimension  *height)
 {
-  XmListWidget lw;
-  Dimension    ht;
+  register XmListWidget lw;
+  register Dimension    ht;
 
   Position   ix;          /* values computed ahead...  */
   Position   iy;          /* ...of time...             */
@@ -9904,7 +9904,7 @@ XmVaCreateList(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

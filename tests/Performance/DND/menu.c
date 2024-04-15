@@ -43,7 +43,7 @@ static struct menu *menus;
 struct menuEntry *
 NewMenuEntry(char *label, enum menuEntryType type)
 {
-    struct menuEntry *ret;
+    register struct menuEntry *ret;
     ret = (struct menuEntry *)tcMalloc(sizeof (struct menuEntry));
     ret->label = label;
     ret->type = type;
@@ -117,7 +117,7 @@ removeItemFromMenu (char *itemName, struct menu *menu)
 void
 RemoveMenuEntry(char *name, char *menuName)
 {
-    struct menu *menu;
+    register struct menu *menu;
 
     if (menuName == NULL)
     {
@@ -153,7 +153,7 @@ RemoveMenuEntry(char *name, char *menuName)
 static void
 buildMenu(struct menu *menu, Widget parent, Boolean isMenuBar)
 {
-    struct menuEntry *entry;
+    register struct menuEntry *entry;
     Arg wargs[10];
     int n;
     Widget w;

@@ -37,12 +37,12 @@ extern "C" {
 /********    Private Function Declarations for MapEvents.c    ********/
 
 extern Boolean _XmMapBtnEvent( 
-                        String str,
+                        register String str,
                         int *eventType,
                         unsigned int *button,
                         Modifiers *modifiers) ;
 extern int _XmMapKeyEvents( 
-                        String str,
+                        register String str,
                         int **eventType,
                         KeySym **keysym,
                         Modifiers **modifiers) ;

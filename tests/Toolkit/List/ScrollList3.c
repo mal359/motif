@@ -95,7 +95,7 @@ void  main (argc, argv)
     int     argc;
     char  **argv;
 {
-    int       n, i;
+    register int       n, i;
     Arg                args[MAX_ARGS];
     XmString           tcs, ItemList[NITEMS];
     XmFontList         newfontlist;

@@ -120,8 +120,8 @@ static wchar_t* _Xmwcscat(wchar_t *ws1, const wchar_t *ws2)
 static wchar_t* _Xmwcsncat(wchar_t *ws1, const wchar_t *ws2, size_t n)
 {
         if (n != 0) {
-                wchar_t *d = ws1;
-                const wchar_t *s = ws2;
+                register wchar_t *d = ws1;
+                register const wchar_t *s = ws2;
 
                 while (*d != 0)
                         d++;
@@ -3921,7 +3921,7 @@ InsertChar(Widget w,
 					    nextPos, insert_string,
 					    insert_length, True);
     } else {
-      wchar_t stack_cache[100];
+      char stack_cache[100];
       insert_string[insert_length] = '\0'; /* NULL terminate for mbstowcs */
       wc_insert_string = (wchar_t*)XmStackAlloc((Cardinal)(insert_length+1) *
 						sizeof(wchar_t), stack_cache);
@@ -6973,7 +6973,7 @@ ValidateString(XmTextFieldWidget tf,
   
   int str_len = 0;
   int i, j;
-  wchar_t stack_cache[400];
+  char stack_cache[400];
   
   if (!is_wchar) {
     char *temp_str, *curr_str, *start_temp;
@@ -10077,7 +10077,7 @@ XmTextFieldSetEditable(Widget w,
 
   _XmAppLock(app); 
   /* if widget previously wasn't editable, no input method has yet been
-   * registered.  So, if we're making it editable now, the IM and
+   * registered.  So, if we're making it editable now, register the IM and
    * give the IM the relevent values. */
   
   if (!TextF_Editable(tf) && editable) { 
@@ -10588,7 +10588,7 @@ XmVaCreateTextField(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

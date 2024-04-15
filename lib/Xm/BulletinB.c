@@ -515,7 +515,7 @@ Initialize(
             XmBulletinBoardWidget request = (XmBulletinBoardWidget) wid_req ;
             XmBulletinBoardWidget new_w = (XmBulletinBoardWidget) wid_new ;
             Arg             al[5] ;
-    Cardinal       ac ;
+    register Cardinal       ac ;
             int             mwm_functions ;
             char *          text_value ;
             XmFontList      defaultFL ;
@@ -811,7 +811,7 @@ SetValues(
     XmBulletinBoardWidget request = (XmBulletinBoardWidget) rw ;
     XmBulletinBoardWidget new_w = (XmBulletinBoardWidget) nw ;
     Arg		    al[10] ;
-    Cardinal       ac ;
+    register Cardinal       ac ;
     int             mwm_functions ;
     int             mwmStyle ;
     unsigned int    numChildren ;
@@ -2270,7 +2270,7 @@ XmVaCreateBulletinBoard(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

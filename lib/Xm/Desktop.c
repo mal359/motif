@@ -135,8 +135,8 @@ static void
 ClassPartInitialize(
         WidgetClass widgetClass )
 {
-    XmDesktopClassPartPtr wcPtr;
-    XmDesktopClassPartPtr superPtr;
+    register XmDesktopClassPartPtr wcPtr;
+    register XmDesktopClassPartPtr superPtr;
     
     wcPtr = (XmDesktopClassPartPtr)
       &(((XmDesktopObjectClass)widgetClass)->desktop_class);
@@ -220,10 +220,10 @@ InsertChild(
         Widget wid )
 {
     XmDesktopObject w = (XmDesktopObject) wid ;
-    Cardinal	     	position;
-    Cardinal        	i;
-    XmDesktopObject 	cw;
-    WidgetList      	children;
+    register Cardinal	     	position;
+    register Cardinal        	i;
+    register XmDesktopObject 	cw;
+    register WidgetList      	children;
     
     cw = (XmDesktopObject) w->desktop.parent;
     children = cw->desktop.children;
@@ -250,9 +250,9 @@ DeleteChild(
         Widget wid )
 {
     XmDesktopObject w = (XmDesktopObject) wid ;
-    Cardinal	     	position;
-    Cardinal	     	i;
-    XmDesktopObject 	cw;
+    register Cardinal	     	position;
+    register Cardinal	     	i;
+    register XmDesktopObject 	cw;
     
     cw = (XmDesktopObject) w->desktop.parent;
     

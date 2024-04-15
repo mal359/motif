@@ -787,7 +787,7 @@ AppMainLoop(
 
 void
 SetValues(
-        Widget w,
+        register Widget w,
         ArgList args,
         Cardinal num_args )
 {

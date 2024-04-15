@@ -216,7 +216,7 @@ updateChildren(Widget w, XtPointer closure,
 		XtPointer data)
 {
   XmScaleCallbackStruct *call_data=(XmScaleCallbackStruct *)data;
-  int i, temp;
+  register int i, temp;
   temp = num_children;
 
   if (call_data->value < num_children)
@@ -256,7 +256,7 @@ updatePacking(Widget w, XtPointer packtype,
 		XtPointer data)
 {
   XmToggleButtonCallbackStruct *call_data=(XmToggleButtonCallbackStruct *)data;
-  int n;
+  register int n;
 
   if (call_data->set)
     {
@@ -301,7 +301,7 @@ updateButtonLabels(Widget w, XtPointer closure,
 		   XtPointer call_data)
 {
   XmString tcs;
-  int i;
+  register int i;
 
   text_value = XmTextFieldGetString(w);
   tcs = XmStringCreateLtoR(text_value, XmSTRING_DEFAULT_CHARSET);
@@ -449,7 +449,7 @@ static void CreateParent(WidgetClass p_class)
 
 static void CreateChild(char *name)
 {
-  int n;
+  register int n;
   static char strbuf[50];
   
   n = 0;
@@ -533,7 +533,7 @@ CreateControlPanel()
   
   XmString tcs, tcs1, tcs2;
 
-  int i, n;
+  register int i, n;
   char buf[32];
 
   n=0;

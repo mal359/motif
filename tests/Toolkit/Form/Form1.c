@@ -595,7 +595,7 @@ void CreateControlPanel()
   Widget        resizeButton;
 
   Arg           args[MAX_ARGS];
-  int  n, i;
+  register int  n, i;
   char buf[32];
   XmString      tcs;
 

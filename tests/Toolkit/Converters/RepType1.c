@@ -320,7 +320,7 @@ char *argv[];
   Widget bulletin;
   XrmValue from;
   XrmValue to_return;
-  int i, value_counter,k;
+  register int i, value_counter,k;
   unsigned short rep_id, error_counter;
 
 #ifndef MOTIF1_1

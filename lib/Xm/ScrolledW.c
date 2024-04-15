@@ -3788,7 +3788,7 @@ XmVaCreateScrolledWindow(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

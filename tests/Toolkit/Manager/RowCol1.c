@@ -53,7 +53,7 @@ void  main(argc, argv)
 int argc;
 char **argv;
 {
-  int  n;
+  register int  n;
   Arg args[MAX_ARGS];
   
   CommonTestInit(argc, argv);
@@ -94,8 +94,8 @@ Widget Shell1;
 Arg *RCArgList;
 int numRCArgs;
 {
-  int  n;
-  int  i;
+  register int  n;
+  register int  i;
   Arg           ChildArgList[MAX_ARGS];
   Arg           args[MAX_ARGS];
   static  short         flag = 1;

@@ -40,7 +40,7 @@ extern "C" {
 extern void _XmRCDoMarginAdjustment( 
                         XmRowColumnWidget m) ;
 extern void _XmRCThinkAboutSize( 
-                        XmRowColumnWidget m,
+                        register XmRowColumnWidget m,
                         Dimension *w,
                         Dimension *h,
                         Widget instigator,

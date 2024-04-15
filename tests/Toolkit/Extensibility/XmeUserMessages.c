@@ -43,7 +43,7 @@ int argc;
 char **argv;
 {
   Boolean            trace = False, test_passed;
-  int       n;
+  register int       n;
   Arg                args[MAX_ARGS];
   String             dirname;
 

@@ -558,7 +558,7 @@ GetFixedMatchPattern(String pattern)
  * '/' is used as a delimiter for the pattern.
  ****************/
 {
-  char *bufPtr;
+  register char *bufPtr;
   char *outputBuf;
   char lastchar = '\0';
   int len;

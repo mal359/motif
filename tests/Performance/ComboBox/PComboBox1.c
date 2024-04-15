@@ -40,7 +40,7 @@ XmString	add_item;
 void  
 main (int argc, char **argv)
 {
-    int	n;
+    register int	n;
     Arg			args[MAX_ARGS];
     char		Item[15];
     XmString		ItemList[MAX_ITEMS];

@@ -687,7 +687,7 @@ CreateHelp (Widget parent)		/*  parent widget	*/
 	Widget		button;
 	Widget		message_box;	/*  Message Dialog 	*/
 	Arg		args[20];	/*  arg list		*/
-	int	n;		/*  arg count		*/
+	register int	n;		/*  arg count		*/
 
 	static char	message[1000];	/*  help text	*/
 	XmString	title_string = NULL;

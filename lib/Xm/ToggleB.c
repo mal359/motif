@@ -2636,7 +2636,7 @@ Redisplay(
         XEvent *event,
         Region region )
 {
-  XmToggleButtonWidget tb = (XmToggleButtonWidget) w;
+  register XmToggleButtonWidget tb = (XmToggleButtonWidget) w;
   
   if (! XtIsRealized(w) ) return;    /* Fix CR #4884, D. Rand 6/4/92 */
   
@@ -2696,7 +2696,7 @@ static void
 Resize(
         Widget w )
 {
-  XmToggleButtonWidget tb = (XmToggleButtonWidget) w;
+  register XmToggleButtonWidget tb = (XmToggleButtonWidget) w;
 
   /* BEGIN OSF Fix pir 1778 */
   if (Lab_IsPixmap(w)) 
@@ -3422,7 +3422,7 @@ XmVaCreateToggleButton(
         char *name,
         ...)
 {
-    Widget w;
+    register Widget w;
     va_list var;
     int count;
     

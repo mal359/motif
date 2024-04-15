@@ -679,10 +679,10 @@ InsertChild(
         Widget wid )
 {
     XmDesktopObject w = (XmDesktopObject) wid ;
-    Cardinal	     	position;
-    Cardinal        	i;
-    XmScreen 	cw;
-    WidgetList      	children;
+    register Cardinal	     	position;
+    register Cardinal        	i;
+    register XmScreen 	cw;
+    register WidgetList      	children;
     
     cw = (XmScreen) w->desktop.parent;
     children = cw->desktop.children;
@@ -709,9 +709,9 @@ DeleteChild(
         Widget wid )
 {
     XmDesktopObject w = (XmDesktopObject) wid ;
-    Cardinal	     	position;
-    Cardinal	     	i;
-    XmScreen 	cw;
+    register Cardinal	     	position;
+    register Cardinal	     	i;
+    register XmScreen 	cw;
     
     cw = (XmScreen) w->desktop.parent;
     

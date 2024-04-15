@@ -139,15 +139,15 @@ static void CreateTable(
 static void DestroyTable( 
                         XmDropSiteManagerObject dsm) ;
 static void RegisterInfo( 
-                        XmDropSiteManagerObject dsm,
-                        Widget widget,
-                        XtPointer info) ;
+                        register XmDropSiteManagerObject dsm,
+                        register Widget widget,
+                        register XtPointer info) ;
 static void UnregisterInfo( 
-                        XmDropSiteManagerObject dsm,
-                        XtPointer info) ;
+                        register XmDropSiteManagerObject dsm,
+                        register XtPointer info) ;
 static XtPointer WidgetToInfo( 
-                        XmDropSiteManagerObject dsm,
-                        Widget widget) ;
+                        register XmDropSiteManagerObject dsm,
+                        register Widget widget) ;
 static Boolean Coincident( 
                         XmDropSiteManagerObject dsm,
                         Widget w,
@@ -582,11 +582,11 @@ DestroyTable(
 
 static void 
 RegisterInfo(
-        XmDropSiteManagerObject dsm,
-        Widget widget,
-        XtPointer info )
+        register XmDropSiteManagerObject dsm,
+        register Widget widget,
+        register XtPointer info )
 {
-    XmHashTable tab;
+    register XmHashTable tab;
     
     if (GetDSRegistered(info)) return;
 
@@ -609,8 +609,8 @@ RegisterInfo(
 
 static void 
 UnregisterInfo(
-        XmDropSiteManagerObject dsm,
-        XtPointer info )
+        register XmDropSiteManagerObject dsm,
+        register XtPointer info )
 { 
     XmHashTable tab;
     XtPointer iterator;
@@ -644,8 +644,8 @@ UnregisterInfo(
 
 static XtPointer 
 WidgetToInfo(
-        XmDropSiteManagerObject dsm,
-        Widget widget )
+        register XmDropSiteManagerObject dsm,
+        register Widget widget )
 {
   XmHashTable tab;
   XmDSInfo info;

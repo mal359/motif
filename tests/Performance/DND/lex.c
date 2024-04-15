@@ -178,7 +178,7 @@ yylex()
 static char *
 realUnquoteString(char *string)
 {
-    char *p, *q;
+    register char *p, *q;
     char *ret;
     Boolean quoted=FALSE;
 

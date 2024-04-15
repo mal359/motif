@@ -47,7 +47,7 @@ void  main(argc, argv)
 int     argc;
 char  **argv;
 {
-    int  	n, i;
+    register int  	n, i;
     Arg			args[MAX_ARGS], ONargs[MAX_ARGS], OFFargs[MAX_ARGS];
     int			ONn, OFFn;
     Widget		PW, PBarray[BUTTONS];
@@ -160,7 +160,7 @@ static void DoTheButtons(buttons, ONargs, ONn, OFFargs, OFFn)
      Arg	OFFargs[];
      int	OFFn;
 {
-  int	i, j;
+  register int	i, j;
   
     /* Do all cases for 1 to BUTTONS. */
     for (i = 0; i < BUTTONS; i++) 
@@ -189,7 +189,7 @@ static void DoTheButtons(buttons, ONargs, ONn, OFFargs, OFFn)
 static void ReportSize (w)
      Widget w;
 {
-  int	n;
+  register int	n;
   Arg		args[2];
   Dimension	width, height;
     
