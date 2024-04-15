@@ -36,7 +36,7 @@ in this Software without prior written authorization from the X Consortium.
     Replacement EditresCom.c for the one in Xmu to add the GetValues
     feature, and to modify the PositionInChild function for Motif. This
     modification is needed because Motif's VendorShell lies about the
-    real position of it's child.
+    real position of its child.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -1776,7 +1776,7 @@ Widget w;
 }
 
 
-#if 1
+#if 0
 /************************************************************
  *
  * All of the following routines are public.
@@ -1927,7 +1927,7 @@ ProtocolStream * stream;
  *	Returns: TRUE if sucessful.
  */
 
-Bool
+Boolean
 _XEditResGet8(stream, val)
 ProtocolStream * stream;
 unsigned char * val;
@@ -1947,7 +1947,7 @@ unsigned char * val;
  *	Returns: TRUE if sucessful.
  */
 
-Bool
+Boolean
 _XEditResGet16(stream, val)
 ProtocolStream * stream;
 unsigned short * val;
@@ -1968,7 +1968,7 @@ unsigned short * val;
  *	Returns: TRUE if sucessful.
  */
 
-Bool
+Boolean
 _XEditResGetSigned16(stream, val)
 ProtocolStream * stream;
 short * val;
@@ -1997,7 +1997,7 @@ short * val;
  *	Returns: TRUE if sucessful.
  */
 
-Bool
+Boolean
 _XEditResGet32(stream, val)
 ProtocolStream * stream;
 unsigned long * val;
@@ -2019,7 +2019,7 @@ unsigned long * val;
  *	Returns: True if retrieval was successful.
  */
 
-Bool
+Boolean
 _XEditResGetString8(stream, str)
 ProtocolStream * stream;
 char ** str;
@@ -2052,7 +2052,7 @@ char ** str;
  *	Returns: True if retrieval was successful.
  */
 
-Bool
+Boolean
 _XEditResGetWidgetInfo(stream, info)
 ProtocolStream * stream;
 WidgetInfo * info;
