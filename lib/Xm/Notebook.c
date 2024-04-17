@@ -2526,8 +2526,7 @@ LayoutMajorTabs (
      * Determine tab margin spacing and tab staggering
      */
     spacing = MAX(nb->notebook.major_spacing, nb->notebook.shadow_thickness);
-    delta = nb->notebook.back_page_size / nb->notebook.real_back_page_number;
-    
+
     /*
     ** Patch by A.J.Fountain, IST, September 2003.
     ** real_back_page_number can be zero if you add a Tab before a Page.
