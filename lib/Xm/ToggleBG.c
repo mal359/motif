@@ -868,7 +868,7 @@ InitializePosthook(
   XmToggleButtonGadget  tbw = (XmToggleButtonGadget)new_w;
   
   /*
-   * - register parts in cache.
+   * - parts in cache.
    * - update cache pointers
    * - and free req
    */
@@ -3065,7 +3065,7 @@ Redisplay(
         XEvent *event,
         Region region )
 {
-  register XmToggleButtonGadget tb = (XmToggleButtonGadget) w;
+  XmToggleButtonGadget tb = (XmToggleButtonGadget) w;
 
   /* Fix CR #4884, D. Rand 6/4/92 */
   if (! XtIsRealized(w) ) return;
@@ -3132,7 +3132,7 @@ static void
 Resize(
         Widget w )
 {
-  register XmToggleButtonGadget tb = (XmToggleButtonGadget) w;
+  XmToggleButtonGadget tb = (XmToggleButtonGadget) w;
 
   if (LabG_IsPixmap(w)) 
     SetToggleSize(tb);
@@ -3347,7 +3347,7 @@ SetValuesPosthook(
   XmWidgetExtData             ext;
   
   /*
-   * - register parts in cache.
+   * - parts in cache.
    * - update cache pointers
    * - and free req
    */
@@ -4076,7 +4076,7 @@ XmVaCreateToggleButtonGadget(
         char *name,
         ...)
 {
-    register Widget w;
+    Widget w;
     va_list var;
     int count;
     

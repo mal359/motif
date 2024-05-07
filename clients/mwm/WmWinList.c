@@ -2665,7 +2665,7 @@ MakeTransientFamilyStackingList (
     ClientData *pcdNext, *pcdSub;
     Window *nextWindow, wSave, wTemp, wTop;
     int count = CountTransientChildren (pcdLeader);
-    register int i, j;
+    int i, j;
 
     /*
      * Construct the transient stacking list according to
