@@ -195,7 +195,16 @@ MakeCachedDirEntry(String dirName)
          * Instead, just cache currDirect->d_name, null-terminated.
          */
         cachedDirType = DtVALID_CACHED_DIR;
-	while ((currDirect = _XReaddir(fileDesc, dirEntryBuf)) != NULL) {
+	while (1) {
+#ifdef _LP64
+		struct dirent dirEntryBuf;
+		memset(&dirEntryBuf,0,sizeof(dirEntryBuf));
+		currDirect=NULL;
+		if (readdir_r(fileDesc,&dirEntryBuf,&currDirect) || (currDirect==NULL)) break;
+#else
+	  if (!(currDirect = _XReaddir(fileDesc, dirEntryBuf))) break;
+#endif
+
 	  bufLen = strlen(currDirect->d_name);
 	  if (bufLen + oldBufLen + 1 >= MAX_CACHE_DIR_SIZE) {
 	    /*

@@ -798,11 +798,22 @@ void
 		  }
 		else
 		  {   
+#ifdef _LP64
+			struct dirent dirEntryBuf;
+			memset(&dirEntryBuf,0,sizeof(dirEntryBuf));
+			dirEntry=NULL;
+		    if (readdir_r(dirStream, &dirEntryBuf,&dirEntry) || (dirEntry==NULL))
+		      {
+			dirName = NULL;
+			break;
+		      }
+#else
 		    if ((dirEntry = _XReaddir(dirStream, dirEntryBuf)) == NULL)
 		      {
 			dirName = NULL;
 			break;
-		      } 
+		      }
+#endif
 		    dirName = dirEntry->d_name;
 		    dirNameLen = strlen(dirName);
 		    if (loadCache)
